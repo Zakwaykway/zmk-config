@@ -19,7 +19,7 @@
 
 / {
     behaviors {
-        hm: homerow_mods {
+        hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <225>;
@@ -59,26 +59,26 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        def {
             bindings = <
-&kp Z  &kp W  &hm LGUI F  &hm LALT P      &kp B        &kp K           &hm LALT L   &hm LGUI U  &kp Y    &kp SEMICOLON
-&kp A  &kp R  &kp S       &kp T           &kp G        &kp M           &kp N        &kp E       &kp I    &kp O
-       &kp X  &kp C       &kp D                                        &kp H        &kp COMMA   &kp DOT
-                          &mt LSHFT BSPC  &lt 1 RET    &lt 2 LA(BSPC)  &lt 3 SPACE
+&kp Z  &kp W  &hrm LGUI F  &hrm LALT P     &kp B        &kp K           &hrm LALT L  &hrm LGUI U  &kp Y    &kp SEMICOLON
+&kp A  &kp R  &kp S        &kp T           &kp G        &kp M           &kp N        &kp E        &kp I    &kp O
+       &kp X  &kp C        &kp D                                        &kp H        &kp COMMA    &kp DOT
+                           &mt LSHFT BSPC  &lt 1 RET    &lt 2 LA(BSPC)  &lt 3 SPACE
             >;
         };
 
-        num_layer {
+        num {
             display-name = "Nav";
             bindings = <
-&trans  &kp LS(PLUS)     &kp LS(POUND)  &kp LS(DLLR)  &kp LS(CARET)    &kp LS(DQT)   &kp N7  &kp N8  &kp N9  &trans
-&trans  &hm LCTRL LCTRL  &hm LGUI LGUI  &kp RET       &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
-        &kp COMMA        &kp DOT        &kp D                                        &kp N1  &kp N2  &kp N3
-                                        &trans        &trans           &trans        &trans
+&trans  &kp LS(PLUS)      &kp LS(POUND)   &kp LS(DLLR)  &kp LS(CARET)    &kp LS(DQT)   &kp N7  &kp N8  &kp N9  &trans
+&trans  &hrm LCTRL LCTRL  &hrm LGUI LGUI  &kp RET       &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
+        &kp COMMA         &kp DOT         &kp D                                        &kp N1  &kp N2  &kp N3
+                                          &trans        &trans           &trans        &trans
             >;
         };
 
-        mouse_layer {
+        mouse {
             display-name = "mouse_layer";
             bindings = <
 &none      &mkp MB2        &msc SCRL_UP    &none            &kp C_VOL_UP    &kp C_VOL_UP  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &kp K_PP
@@ -88,7 +88,7 @@
             >;
         };
 
-        sym_layer {
+        nav {
             display-name = "Sym";
             bindings = <
 &none      &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &none
