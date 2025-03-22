@@ -61,9 +61,9 @@
 
         def {
             bindings = <
-&kp Z  &kp W  &hrm LGUI F  &hrm LALT P     &kp B        &kp K           &hrm LALT L  &hrm LGUI U  &kp Y    &kp SEMICOLON
-&kp A  &kp R  &kp S        &kp T           &kp G        &kp M           &kp N        &kp E        &kp I    &kp O
-       &kp X  &kp C        &kp D                                        &kp H        &kp COMMA    &kp DOT
+&kp Z  &kp W  &hrm LGUI F  &hrm LALT P     &kp B        &kp K           &hrm LALT L     &hrm LGUI U  &kp Y    &kp SEMICOLON
+&kp A  &kp R  &kp S        &kp T           &kp G        &kp M           &kp N           &kp E        &kp I    &kp O
+       &kp X  &kp C        &kp D                                        &studio_unlock  &kp COMMA    &kp DOT
                            &mt LSHFT BSPC  &lt 1 RET    &lt 2 LA(BSPC)  &lt 3 SPACE
             >;
         };
