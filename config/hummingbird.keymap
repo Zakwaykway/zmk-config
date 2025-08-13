@@ -61,10 +61,10 @@
 
         def {
             bindings = <
-&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P  &kp B                       &kp K        &hrm LALT L  &hrm LGUI U  &kp Y    &hrm LC(LA(LEFT_GUI)) SINGLE_QUOTE
-&kp A                &kp R  &kp S        &kp T        &kp G                       &kp M        &kp N        &kp E        &kp I    &kp O
-                     &kp X  &kp C        &kp D                                                 &kp H        &kp COMMA    &kp DOT
-                                         &lt 1 ENTER  &mt LEFT_SHIFT BACKSPACE    &lt 3 SPACE  &lt 3 SPACE
+&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P  &kp B                       &kp K        &hrm LALT L   &hrm LGUI U  &kp Y    &hrm LC(LA(LEFT_GUI)) SINGLE_QUOTE
+&kp A                &kp R  &kp S        &kp T        &kp G                       &kp M        &kp N         &kp E        &kp I    &kp O
+                     &kp X  &kp C        &kp D                                                 &kp H         &kp COMMA    &kp DOT
+                                         &lt 1 ENTER  &mt LEFT_SHIFT BACKSPACE    &lt 3 SPACE  &lt 2 DELETE
             >;
         };
 
