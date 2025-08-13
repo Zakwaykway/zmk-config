@@ -65,17 +65,17 @@
 
         def {
             bindings = <
-&kp Z  &kp W  &hrm LGUI F  &hrm LALT P     &kp B        &kp K           &hrm LALT L  &hrm LGUI U  &kp Y    &kp SEMICOLON
-&kp A  &kp R  &kp S        &kp T           &kp G        &kp M           &kp N        &kp E        &kp I    &kp O
-       &kp X  &kp C        &kp D                                        &kp H        &kp COMMA    &kp DOT
-                           &mt LSHFT BSPC  &lt 1 RET    &lt 2 LA(BSPC)  &lt 3 SPACE
+&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P  &kp B                       &kp K        &hrm LALT L   &hrm LGUI U  &kp Y    &hrm LC(LA(LEFT_GUI)) SINGLE_QUOTE
+&kp A                &kp R  &kp S        &kp T        &kp G                       &kp M        &kp N         &kp E        &kp I    &kp O
+                     &kp X  &kp C        &kp D                                                 &kp H         &kp COMMA    &kp DOT
+                                         &lt 1 ENTER  &mt LEFT_SHIFT BACKSPACE    &lt 3 SPACE  &lt 2 DELETE
             >;
         };
 
         num {
             display-name = "num";
             bindings = <
-&trans  &kp LS(PLUS)      &kp LS(POUND)   &kp LS(DLLR)  &kp LS(CARET)    &kp LS(DQT)   &kp N7  &kp N8  &kp N9  &trans
+&trans  &kp LS(PLUS)      &kp LS(POUND)   &kp LS(DLLR)  &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &trans
 &trans  &hrm LCTRL LCTRL  &hrm LGUI LGUI  &kp RET       &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
         &kp COMMA         &kp DOT         &kp D                                        &kp N1  &kp N2  &kp N3
                                           &trans        &trans           &trans        &trans
@@ -88,7 +88,7 @@
 &none      &mkp MB2        &msc SCRL_UP    &none            &kp C_VOL_UP    &kp C_VOL_UP  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &kp K_PP
 &kp LSHFT  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &kp C_VOL_DN    &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
            &kp LCTRL       &kp LGUI        &kp LALT                                       &kp BACKSPACE   &none           &none
-                                           &mkp MB1         &mkp MB3        &trans        &trans
+                                           &mkp MB3         &mkp MB1        &trans        &trans
             >;
         };
 
