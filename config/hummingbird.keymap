@@ -38,6 +38,27 @@
             #binding-cells = <2>;
             tapping-term-ms = <40>;
         };
+
+        td1ss: td1ss {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD1SS";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LS(LA(LC(LG(N1))))>,
+                <&kp LS(LA(LC(LG(N2))))>,
+                <&kp PRINTSCREEN>;
+
+            tapping-term-ms = <200>;
+        };
+
+        td2ss: td2ss {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD2SS";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LA(LC(LG(N3))))>, <&kp LS(LA(LC(LG(N4))))>;
+
+            tapping-term-ms = <200>;
+        };
     };
 
     combos {
@@ -135,7 +156,7 @@
             bindings = <
 &none      &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &none
 &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
-           &trans     &trans    &none                                   &kp BSPC    &none     &none
+           &td1ss     &td2ss    &none                                   &kp BSPC    &none     &none
                                 &trans    &trans          &trans        &trans
             >;
         };
