@@ -32,7 +32,6 @@
 
         skt: skt {
             compatible = "zmk,behavior-hold-tap";
-            label = "SKT";
             bindings = <&mo>, <&sk>;
 
             #binding-cells = <2>;
@@ -41,7 +40,6 @@
 
         td1ss: td1ss {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD1SS";
             #binding-cells = <0>;
             bindings =
                 <&kp LS(LA(LC(LG(N1))))>,
@@ -53,7 +51,6 @@
 
         td2ss: td2ss {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD2SS";
             #binding-cells = <0>;
             bindings = <&kp LS(LA(LC(LG(N3))))>, <&kp LS(LA(LC(LG(N4))))>;
 
