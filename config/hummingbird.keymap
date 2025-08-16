@@ -28,7 +28,7 @@
             require-prior-idle-ms = <25>;
         };
 
-        td1ss: td1ss { // copy screenshots
+        td1ss: td1ss { 
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings =
@@ -37,7 +37,7 @@
                 <&kp PRINTSCREEN>;
             tapping-term-ms = <200>;
         };
-        td2ss: td2ss { // save screenshots
+        td2ss: td2ss { 
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LS(LA(LC(LG(N3))))>, <&kp LS(LA(LC(LG(N4))))>;
@@ -48,96 +48,107 @@
     combos {
         compatible = "zmk,combos";
 
-    // alphas
+
         q {
             key-positions = <20 21>;
             bindings = <&kp Q>;
         };
+
         v {
             key-positions = <21 22>;
             bindings = <&kp V>;
         };
+
         j {
             key-positions = <2 3>;
             bindings = <&kp J>;
         };
+        
         semicolon {
             key-positions = <7 8>;
             bindings = <&kp SCLN>;
         };
 
-    // functions
         esc {
             key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
+
         tab {
             key-positions = <11 12 13>;
             bindings = <&kp TAB>;
         };
+
         enter {
             key-positions = <12 13>;
             bindings = <&kp ENTER>;
-            require-prior-idle-ms = <40>;
-            timeout-ms = <40>;
         };
 
-    // one-off symbols
         dash {
             key-positions = <23 24>;
             bindings = <&kp MINUS>;
         };
+
         slash {
             key-positions = <24 25>;
             bindings = <&kp SLASH>;
         };
+
         underscore {
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
         };
+
         dash {
             key-positions = <23 24>;
             bindings = <&kp MINUS>;
         };
+
         exclam {
             key-positions = <0 20>;
             bindings = <&kp EXCL>;
         };
+
         alt_shift {
             key-positions = <0 10>;
             bindings = <&kp LA(LEFT_SHIFT)>;
         };
+
         at_symbol {
             key-positions = <13 3>;
             bindings = <&kp AT>;
         };
+
         asterisk {
             key-positions = <16 6>;
             bindings = <&kp ASTERISK>;
         };
 
-    // mirrored symbols
-        lbracket { // brackets
+        lbracket { 
             key-positions = <1 11>;
             bindings = <&kp LBKT>;
         };
+
         rbracket {
             key-positions = <8 18>;
             bindings = <&kp RBKT>;
         };
-        lpar { // parentheses
+
+        lpar {
             key-positions = <2 12>;
             bindings = <&kp LPAR>;
         };
+
         rpar {
             key-positions = <9 19>;
             bindings = <&kp RPAR>;
         };
     
-        lbrace { // braces
+        lbrace {
             key-positions = <4 14>;
             bindings = <&kp LBRC>;
         };
+
         rbrace {
             key-positions = <5 15>;
             bindings = <&kp RBRC>;
