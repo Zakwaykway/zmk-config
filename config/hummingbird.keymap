@@ -40,9 +40,7 @@
         td2ss: td2ss { // save screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings =
-                <&kp LS(LA(LC(LG(N3))))>,
-                <&kp LS(LA(LC(LG(N4))))>;
+            bindings = <&kp LS(LA(LC(LG(N3))))>, <&kp LS(LA(LC(LG(N4))))>;
             tapping-term-ms = <200>;
         };
     };
@@ -150,7 +148,6 @@
         compatible = "zmk,keymap";
 
         def {
-            display-name = "default";
             bindings = <
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B               &kp K  &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) SINGLE_QUOTE
 &kp A                &kp R  &kp S        &kp T       &kp G               &kp M  &kp N        &kp E        &kp I     &kp O
@@ -160,7 +157,7 @@
         };
 
         num {
-            display-name = "symnum";
+            display-name = "num";
             bindings = <
 &kp BSLH         &kp LS(PLUS)     &kp LS(POUND)    &kp LS(DLLR)     &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &SCLN
 &hrm LSFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI SLASH  &hrm LALT MINUS  &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
@@ -180,7 +177,7 @@
         };
 
         nav {
-            display-name = "navigation";
+            display-name = "nav";
             bindings = <
 &td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
 &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
