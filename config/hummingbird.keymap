@@ -84,7 +84,7 @@
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
             timeout-ms = <40>;
-            layers = <1>;
+            layers = <0 1 2>;
         };
         mission_control {
             key-positions = <1 2 3>;
