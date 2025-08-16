@@ -25,7 +25,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
             tapping-term-ms = <170>;
-            require-prior-idle-ms = <25>>;
+            require-prior-idle-ms = <25>;
         };
 
         td1ss: td1ss { // copy screenshots
