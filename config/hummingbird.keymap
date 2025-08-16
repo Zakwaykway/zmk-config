@@ -84,7 +84,17 @@
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
             timeout-ms = <40>;
+            layers = <1>;
         };
+        mission_control {
+            key-positions = <1 2 3>;
+            bindings = <&kp LC(UP)>;
+        };
+
+        // empty combos: 
+        // lower right index vertical
+        // right hand homerow
+        // left hand pinky+ring homerow
 
     // one-off symbols
         dash {
@@ -123,11 +133,6 @@
             key-positions = <9 25>; // RBot pinky + ring
             bindings = <&kp TILDE>;
         };
-
-        // empty combos: 
-        // lower right index vertical
-        // right hand homerow
-        // left hand pinky+ring homerow
 
     // mirrored symbols
         lbracket { // brackets
@@ -194,7 +199,7 @@
             bindings = <
 &td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
 &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
-           &td2ss     &kp INS   &none                                   &kp BSPC    &none     &none
+           &td2ss     &kp INS   &kp ENTER                                   &kp BSPC    &none     &none
                                 &trans    &trans          &trans        &trans
             >;
         };
