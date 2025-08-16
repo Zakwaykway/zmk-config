@@ -152,37 +152,37 @@
         def {
             display-name = "default";
             bindings = <
-&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P        &kp B                   &kp K        &hrm LALT L   &hrm LGUI U  &kp Y    &hrm LC(LA(LGUI)) SINGLE_QUOTE
-&kp A                &kp R  &kp S        &kp T              &kp G                   &kp M        &kp N         &kp E        &kp I    &kp O
-                     &kp X  &kp C        &kp D                                                   &kp H         &kp COMMA    &kp DOT
-                                         &lt 1 ENTER &mt LEFT_SHIFT BSPC    &lt 3 SPACE  &lt 2 BSPC
+&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B               &kp K  &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) SINGLE_QUOTE
+&kp A                &kp R  &kp S        &kp T       &kp G               &kp M  &kp N        &kp E        &kp I     &kp O
+                     &kp X  &kp C        &kp D                                               &kp H        &kp COMMA &kp DOT
+                                         &lt 1 ENTER &mt LSFT BSPC &lt 3 SPACE  &lt 2 BSPC
             >;
         };
 
         num {
             display-name = "symnum";
             bindings = <
-&kp BSLH &kp LS(PLUS)      &kp LS(POUND)    &kp LS(DLLR)         &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &SCLN
-&hrm LSFT GRAVE  &hrm LCTRL EQUAL  &hrm LGUI SLASH  &hrm LEFT_ALT MINUS  &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
-        &kp COMMA        &kp DOT          &kp TILDE                                           &kp N1  &kp N2  &kp N3
-                                           &trans               &trans           &trans        &trans
+&kp BSLH         &kp LS(PLUS)     &kp LS(POUND)    &kp LS(DLLR)     &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &SCLN
+&hrm LSFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI SLASH  &hrm LALT MINUS  &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
+                 &kp COMMA        &kp DOT          &kp TILDE                                       &kp N1  &kp N2  &kp N3
+                                  &trans           &trans           &trans           &trans
             >;
         };
 
         mouse {
             display-name = "mouse";
             bindings = <
-&none      &mkp MB2        &msc SCRL_DOWN    &none            &kp C_VOL_UP    &kp C_VOL_UP  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &kp K_PP
-&kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP  &msc SCRL_LEFT  &kp C_VOL_DN    &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
-           &kp LCTRL       &kp LGUI        &kp LALT                                       &kp BACKSPACE   &none           &none
-                                           &mkp MB3         &mkp MB1        &trans        &trans
+&none      &mkp MB2         &msc SCRL_DOWN  &none           &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_FF         &kp C_PP
+&kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP    &msc SCRL_LEFT  &kp C_VOL_DN  &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
+           &kp LCTRL        &kp LGUI        &kp LALT                                    &kp BACKSPACE   &none           &none
+                                            &mkp MB3        &mkp MB1      &trans        &trans
             >;
         };
 
         nav {
             display-name = "navigation";
             bindings = <
-&td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp K_PLAY_PAUSE
+&td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
 &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
            &td2ss     &kp INS   &none                                   &kp BSPC    &none     &none
                                 &trans    &trans          &trans        &trans
