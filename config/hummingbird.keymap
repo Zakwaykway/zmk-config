@@ -155,8 +155,8 @@
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P        &kp B                   &kp K        &hrm LALT L   &hrm LGUI U  &kp Y    &hrm LC(LA(LGUI)) SINGLE_QUOTE
 &kp A                &kp R  &kp S        &kp T              &kp G                   &kp M        &kp N         &kp E        &kp I    &kp O
                      &kp X  &kp C        &kp D                                                   &kp H         &kp COMMA    &kp DOT
-                                         &skt 1  &mt LEFT_SHIFT BSPC    &lt 3 SPACE  &lt 2 //BLANK HERE
-            >;                                //^ BLANK HERE
+                                         &lt 1 ENTER &mt LEFT_SHIFT BSPC    &lt 3 SPACE  &lt 2 BSPC
+            >;
         };
 
         num {
