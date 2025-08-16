@@ -1,10 +1,9 @@
 file_format: "1"
-id: metasepia
-name: Metasepia
+id: hummingbird
+name: Hummingbird
 type: shield
 url: https://github.com/zakwaykway/metasepia
-requires: 
-  - [seeed_xiao]
+requires: [seeed_xiao]
 features:
   - keys
   - studio
