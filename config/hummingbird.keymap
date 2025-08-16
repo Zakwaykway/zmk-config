@@ -16,44 +16,33 @@
 #define mouse 2
 #define nav 3
 
-// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-
-&lt { quick-tap-ms = <200>; };
 
 / {
     behaviors {
         hrm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <225>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+            tapping-term-ms = <170>;
+            require-prior-idle-ms = <25>>;
         };
 
-        skt: skt {
-            compatible = "zmk,behavior-hold-tap";
-            bindings = <&mo>, <&sk>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <40>;
-        };
-
-        td1ss: td1ss {
+        td1ss: td1ss { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings =
                 <&kp LS(LA(LC(LG(N1))))>,
                 <&kp LS(LA(LC(LG(N2))))>,
                 <&kp PRINTSCREEN>;
-
             tapping-term-ms = <200>;
         };
-
-        td2ss: td2ss {
+        td2ss: td2ss { // save screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp LS(LA(LC(LG(N3))))>, <&kp LS(LA(LC(LG(N4))))>;
-
+            bindings =
+                <&kp LS(LA(LC(LG(N3))))>,
+                <&kp LS(LA(LC(LG(N4))))>;
             tapping-term-ms = <200>;
         };
     };
@@ -61,58 +50,99 @@
     combos {
         compatible = "zmk,combos";
 
+    // alphas
         q {
-            timeout-ms = <50>;
             key-positions = <20 21>;
             bindings = <&kp Q>;
         };
-
         v {
-            timeout-ms = <50>;
             key-positions = <21 22>;
             bindings = <&kp V>;
         };
+        j {
+            key-positions = <2 3>;
+            bindings = <&kp J>;
+        };
+        semicolon {
+            key-positions = <7 8>;
+            bindings = <&kp SCLN>;
+        };
 
+    // functions
+        esc {
+            key-positions = <1 2>;
+            bindings = <&kp ESC>;
+        };
+        tab {
+            key-positions = <11 12 13>;
+            bindings = <&kp TAB>;
+        };
+        enter {
+            key-positions = <12 13>;
+            bindings = <&kp ENTER>;
+            require-prior-idle-ms = <40>;
+            timeout-ms = <40>;
+        };
+
+    // one-off symbols
         dash {
-            timeout-ms = <50>;
             key-positions = <23 24>;
             bindings = <&kp MINUS>;
         };
-
         slash {
-            timeout-ms = <50>;
             key-positions = <24 25>;
             bindings = <&kp SLASH>;
         };
-
-        j {
-            bindings = <&kp J>;
-            key-positions = <2 3>;
+        underscore {
+            key-positions = <6 7>;
+            bindings = <&kp UNDER>;
         };
-
-        esc {
-            bindings = <&kp ESC>;
-            key-positions = <2 1>;
+        dash {
+            key-positions = <23 24>;
+            bindings = <&kp MINUS>;
         };
-
         exclam {
-            bindings = <&kp EXCL>;
             key-positions = <0 20>;
+            bindings = <&kp EXCL>;
         };
-
         alt_shift {
-            bindings = <&kp LA(LEFT_SHIFT)>;
             key-positions = <0 10>;
+            bindings = <&kp LA(LEFT_SHIFT)>;
         };
-
         at_symbol {
-            bindings = <&kp AT>;
             key-positions = <13 3>;
+            bindings = <&kp AT>;
+        };
+        asterisk {
+            key-positions = <16 6>;
+            bindings = <&kp ASTERISK>;
         };
 
-        asterisk {
-            bindings = <&kp ASTERISK>;
-            key-positions = <16 6>;
+    // mirrored symbols
+        lbracket { // brackets
+            key-positions = <1 11>;
+            bindings = <&kp LBKT>;
+        };
+        rbracket {
+            key-positions = <8 18>;
+            bindings = <&kp RBKT>;
+        };
+        lpar { // parentheses
+            key-positions = <2 12>;
+            bindings = <&kp LPAR>;
+        };
+        rpar {
+            key-positions = <9 19>;
+            bindings = <&kp RPAR>;
+        };
+    
+        lbrace { // braces
+            key-positions = <4 14>;
+            bindings = <&kp LBRC>;
+        };
+        rbrace {
+            key-positions = <5 15>;
+            bindings = <&kp RBRC>;
         };
     };
 
@@ -120,20 +150,21 @@
         compatible = "zmk,keymap";
 
         def {
+            display-name = "default";
             bindings = <
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P        &kp B                   &kp K        &hrm LALT L   &hrm LGUI U  &kp Y    &hrm LC(LA(LGUI)) SINGLE_QUOTE
 &kp A                &kp R  &kp S        &kp T              &kp G                   &kp M        &kp N         &kp E        &kp I    &kp O
                      &kp X  &kp C        &kp D                                                   &kp H         &kp COMMA    &kp DOT
-                                         &skt 1 LEFT_SHIFT  &mt LEFT_SHIFT ENTER    &lt 3 SPACE  &lt 2 DELETE
-            >;
+                                         &skt 1  &mt LEFT_SHIFT BSPC    &lt 3 SPACE  &lt 2 //BLANK HERE
+            >;                                //^ BLANK HERE
         };
 
         num {
-            display-name = "num";
+            display-name = "symnum";
             bindings = <
-&trans  &kp LS(PLUS)      &kp LS(POUND)    &kp LS(DLLR)         &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &trans
-&trans  &hrm LCTRL LCTRL  &hrm LGUI SLASH  &hrm LEFT_ALT MINUS  &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
-        &kp COMMA         &kp DOT          &kp D                                               &kp N1  &kp N2  &kp N3
+&kp BSLH &kp LS(PLUS)      &kp LS(POUND)    &kp LS(DLLR)         &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &SCLN
+&hrm LSFT GRAVE  &hrm LCTRL EQUAL  &hrm LGUI SLASH  &hrm LEFT_ALT MINUS  &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
+        &kp COMMA        &kp DOT          &kp TILDE                                           &kp N1  &kp N2  &kp N3
                                            &trans               &trans           &trans        &trans
             >;
         };
@@ -141,15 +172,15 @@
         mouse {
             display-name = "mouse";
             bindings = <
-&none      &mkp MB2        &msc SCRL_UP    &none            &kp C_VOL_UP    &kp C_VOL_UP  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &kp K_PP
-&kp LSHFT  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &kp C_VOL_DN    &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
+&none      &mkp MB2        &msc SCRL_DOWN    &none            &kp C_VOL_UP    &kp C_VOL_UP  &mkp MB4        &mmv MOVE_UP    &mkp MB5         &kp K_PP
+&kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP  &msc SCRL_LEFT  &kp C_VOL_DN    &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
            &kp LCTRL       &kp LGUI        &kp LALT                                       &kp BACKSPACE   &none           &none
                                            &mkp MB3         &mkp MB1        &trans        &trans
             >;
         };
 
         nav {
-            display-name = "nav";
+            display-name = "navigation";
             bindings = <
 &td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp K_PLAY_PAUSE
 &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
