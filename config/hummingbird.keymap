@@ -113,6 +113,10 @@
             key-positions = <16 6>;
             bindings = <&kp ASTERISK>;
         };
+        tilde {
+            key-positions = <13 22>;
+            bindings = <&kp TILDE>;
+        };
 
     // mirrored symbols
         lbracket { // brackets
@@ -157,7 +161,7 @@
         num {
             display-name = "symnum";
             bindings = <
-&kp BSLH         &kp LS(PLUS)     &kp LS(POUND)    &kp LS(DLLR)     &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &SCLN
+&kp BSLH         &kp LS(PLUS)     &kp LS(POUND)    &kp LS(DLLR)     &kp LS(CARET)    &none         &kp N7  &kp N8  &kp N9  &kp SCLN
 &hrm LSFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI SLASH  &hrm LALT MINUS  &kp LS(PRCNT)    &kp LS(AMPS)  &kp N4  &kp N5  &kp N6  &kp N0
                  &kp COMMA        &kp DOT          &kp TILDE                                       &kp N1  &kp N2  &kp N3
                                   &trans           &trans           &trans           &trans
