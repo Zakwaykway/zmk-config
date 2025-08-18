@@ -11,11 +11,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define base 0
+#define BASE 0
 //#define qwerty 1
-#define num 1
-#define mouse 2
-#define nav 3
+#define NUM 1
+#define MOUSE 2
+#define NAV 3
 
 
 / {
@@ -177,16 +177,15 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        BASE {
             display-name = "base";
             bindings = <
-&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) SINGLE_QUOTE
+&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
-                     &kp X  &kp C        &kp D                                       &kp H        &kp COMMA &kp DOT
-                                         &mo 1       &mt LSHIFT BSPC      &lt 3 SPACE  &mo 2
+                     &kp X  &kp C        &kp D                                       &kp H        &kp COMMA    &kp DOT
+                                         &mo NUM       &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE
             >;
         };
-
 //        qwerty {
 //            display-name = "qwerty";
 //            bindings = <
@@ -197,17 +196,17 @@
 //            >;
 //        };
 
-        num {
-            display-name = "symnum";
+        NUM {
+            display-name = "numbers";
             bindings = <
 &kp  BSLH        &kp  PLUS        &kp  POUND       &kp  DLLR       &kp CARET   &none     &kp N7  &kp N8  &kp N9  &kp SCLN
-&hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI SLASH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &kp N4  &kp N5  &kp N6  &kp N0
+&hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &kp N4  &kp N5  &kp N6  &kp N0
                  &kp  COMMA       &kp  DOT         &kp  TILDE                            &kp N1  &kp N2  &kp N3
                                                    &trans          &trans      &trans    &trans
             >;
         };
 
-        mouse {
+        MOUSE {
             display-name = "mouse";
             bindings = <
 &none      &mkp MB2         &msc SCRL_DOWN  &none           &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
@@ -217,7 +216,7 @@
             >;
         };
 
-        nav {
+        NAV {
             display-name = "navigation";
             bindings = <
 &td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
