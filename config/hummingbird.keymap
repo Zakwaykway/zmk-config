@@ -25,8 +25,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            tapping-term-ms = <170>;
-            require-prior-idle-ms = <25>;
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <30>;
         };
         td1ss: td1ss { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
@@ -83,14 +83,14 @@
             key-positions = <12 13>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
-            timeout-ms = <40>;
+            timeout-ms = <35>;
             layers = <0 1 2 3>;
         };
         Renter {
             key-positions = <16 17>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
-            timeout-ms = <40>;
+            timeout-ms = <35>;
             layers = <0 1 2 3>;
         };
         mission_control {
