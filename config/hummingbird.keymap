@@ -91,7 +91,7 @@
             require-prior-idle-ms = <40>;
             timeout-ms = <40>;
             layers = <0 1 2>;
-        }
+        };
         mission_control {
             key-positions = <1 2 3>;
             bindings = <&kp LC(UP)>;
@@ -99,7 +99,7 @@
         raycast {
             key-positions = <16 23>;
             bindings = <&kp LG(SPACE)>;
-        }
+        };
 
         // empty combos: 
         // right hand homerow
