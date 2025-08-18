@@ -210,7 +210,7 @@
         mouse {
             display-name = "mouse";
             bindings = <
-&none      &mkp MB2         &msc SCRL_DOWN  &none           &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_FF         &kp C_PP
+&none      &mkp MB2         &msc SCRL_DOWN  &none           &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
 &kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP    &msc SCRL_LEFT  &kp C_VOL_DN  &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
            &kp LCTRL        &kp LGUI        &kp LALT                                    &kp BACKSPACE   &none           &none
                                             &mkp MB3        &mkp MB1      &trans        &trans
