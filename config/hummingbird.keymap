@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2200  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 13    // default: 10
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -27,7 +27,6 @@
             tapping-term-ms = <170>;
             require-prior-idle-ms = <25>;
         };
-
         td1ss: td1ss { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -79,17 +78,28 @@
             require-prior-idle-ms = <40>;
             timeout-ms = <40>;
         };
-        enter {
+        Lenter {
             key-positions = <12 13>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
             timeout-ms = <40>;
             layers = <0 1 2>;
         };
+        Renter {
+            key-positions = <16 17>;
+            bindings = <&kp ENTER>;
+            require-prior-idle-ms = <40>;
+            timeout-ms = <40>;
+            layers = <0 1 2>;
+        }
         mission_control {
             key-positions = <1 2 3>;
             bindings = <&kp LC(UP)>;
         };
+        raycast {
+            key-positions = <16 23>;
+            bindings = <&kp LG(SPACE)>;
+        }
 
         // empty combos: 
         // lower right index vertical
@@ -140,7 +150,7 @@
             bindings = <&kp LBKT>;
         };
         rbracket {
-            key-positions = <7 17>;
+            key-positions = <8 18>;
             bindings = <&kp RBKT>;
         };
         lpar { // parentheses
@@ -148,7 +158,7 @@
             bindings = <&kp LPAR>;
         };
         rpar {
-            key-positions = <8 18>;
+            key-positions = <7 17>;
             bindings = <&kp RPAR>;
         };
         lbrace { // braces
@@ -199,7 +209,7 @@
             bindings = <
 &td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
 &kp LSHFT  &kp LCTRL  &kp LGUI  &kp LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
-           &td2ss     &kp INS   &kp ENTER                                   &kp BSPC    &none     &none
+           &td2ss     &kp INS   &kp ENTER                               &kp BSPC    &none     &none
                                 &trans    &trans          &trans        &trans
             >;
         };
