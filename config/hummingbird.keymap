@@ -102,11 +102,10 @@
             bindings = <&kp LG(SPACE)>;
         };
         bootloader {
-            key-positions = <
-        }
-        // empty combos: 
-        // right hand homerow
-        // left hand pinky+ring homerow
+            key-positions = <12 13 16 17 21 22 23 24>;
+            bindings = <&bootloader>;
+        };
+        // pinky+ring combos are FREE
 
     // one-off symbols
         dash {
