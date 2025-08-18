@@ -11,7 +11,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define default 0
+#define base 0
 #define qwerty 1
 #define num 2
 #define mouse 3
@@ -177,13 +177,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        def {
-            display-name = "default";
+        base {
+            display-name = "base";
             bindings = <
-&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K       &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) SINGLE_QUOTE
-&kp A                &kp R  &kp S        &kp T       &kp G              &kp M       &kp N        &kp E        &kp I     &kp O
-                     &kp X  &kp C        &kp D                                      &kp H        &kp COMMA &kp DOT
-                                         &lt 2 ENTER &mt LSFT BSPC      &lt 4 SPACE &lt 3 BSPC
+&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) SINGLE_QUOTE
+&kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
+                     &kp X  &kp C        &kp D                                       &kp H        &kp COMMA &kp DOT
+                                         &mo 2       &mt LSFT BSPC      &lt 4 SPACE  &mo 3
             >;
         };
 
