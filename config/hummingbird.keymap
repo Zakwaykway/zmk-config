@@ -183,7 +183,7 @@
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) SINGLE_QUOTE
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
                      &kp X  &kp C        &kp D                                       &kp H        &kp COMMA &kp DOT
-                                         &mo 2       &mt LSFT BSPC      &lt 4 SPACE  &mo 3
+                                         &mo 2       &mt LSFT BSPC      &lt 4 SPACE  &none
             >;
         };
 
@@ -192,7 +192,7 @@
             bindings = <
 &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P
 &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp B
-       &kp X  &kp C  &kp V                &kp M  &kp Z  &none
+       &kp X  &kp C  &kp V                &kp M  &kp Z  &kp DOT
                      &trans &trans &trans &trans
             >;
         };
