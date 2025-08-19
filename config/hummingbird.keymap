@@ -46,7 +46,7 @@
                 <&kp LS(LA(LC(LG(N4))))>;
             tapping-term-ms = <300>;
         };
-        cztd: controlz_screenshot {}
+        cztd: controlz_screenshot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&td1ss>, <&kp LC(Z)>;
