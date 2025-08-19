@@ -25,8 +25,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            tapping-term-ms = <170>;
-            require-prior-idle-ms = <25>;
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <30>;
         };
         td1ss: td1ss { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
@@ -83,14 +83,14 @@
             key-positions = <12 13>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
-            timeout-ms = <40>;
+            timeout-ms = <35>;
             layers = <0 1 2 3>;
         };
         Renter {
             key-positions = <16 17>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
-            timeout-ms = <40>;
+            timeout-ms = <35>;
             layers = <0 1 2 3>;
         };
         mission_control {
@@ -180,7 +180,7 @@
         BASE {
             display-name = "base";
             bindings = <
-&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
+&hrm LC(LA(LGUI)) Z  &hrm LCTRL W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &hrm LCTRL Y     &hrm LC(LA(LGUI)) APOS
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
                      &kp X  &kp C        &kp D                                       &kp H        &kp COMMA    &kp DOT
                                          &mo NUM       &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE // < this &mo still sends backspace on tap. 
