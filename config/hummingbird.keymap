@@ -12,10 +12,11 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
-//#define qwerty 1
-#define NUM 1
-#define MOUSE 2
-#define NAV 3
+#define QWERTY 1
+#define NUM 2
+#define MOUSE 3
+#define NAV 4
+#define FUN 5
 
 
 / {
@@ -28,23 +29,23 @@
             tapping-term-ms = <180>;
             require-prior-idle-ms = <30>;
         };
-        td1ss: td1ss { // copy screenshots
+        td1ss: screenshot_tapdance12 { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings =
                 <&kp LS(LA(LC(LG(N1))))>,
-                <&kp LS(LA(LC(LG(N2))))>,
-                <&kp PRINTSCREEN>;
-            tapping-term-ms = <200>;
+                <&mt PRINTSCREEN LS(LA(LC(LG(N2))))>;
+            tapping-term-ms = <300>;
         };
-        td2ss: td2ss { // save screenshots
+        td2ss: screenshot_tapdance34 { // save screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings =
                 <&kp LS(LA(LC(LG(N3))))>,
                 <&kp LS(LA(LC(LG(N4))))>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
         };
+        cztd:  
     };
 
     combos {
@@ -56,16 +57,24 @@
             bindings = <&kp Q>;
         };
         v {
-            key-positions = <21 22>;
+            key-positions = <2 3>;
             bindings = <&kp V>;
         };
         j {
-            key-positions = <2 3>;
+            key-positions = <21 22>;
             bindings = <&kp J>;
         };
         semicolon {
             key-positions = <7 8>;
             bindings = <&kp SCLN>;
+        };
+        dash {
+            key-positions = <23 24>;
+            bindings = <&kp MINUS>;
+        };
+        slash {
+            key-positions = <24 25>;
+            bindings = <&kp SLASH>;
         };
 
     // functions
@@ -73,29 +82,20 @@
             key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
-        tab {
-            key-positions = <11 12>;
-            bindings = <&kp TAB>;
-            require-prior-idle-ms = <40>;
-            timeout-ms = <40>;
-        };
         Lenter {
-            key-positions = <12 13>;
-            bindings = <&kp ENTER>;
-            require-prior-idle-ms = <40>;
-            timeout-ms = <35>;
-            layers = <0 1 2 3>;
-        };
-        Renter {
-            key-positions = <16 17>;
+            key-positions = <11 12>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
             layers = <0 1 2 3>;
         };
         mission_control {
-            key-positions = <1 2 3>;
+            key-positions = <4 14>;
             bindings = <&kp LC(UP)>;
+        };
+        alt_shift { // language swap
+            key-positions = <0 10>;
+            bindings = <&kp LA(LEFT_SHIFT)>; // LVert pinky
         };
         raycast {
             key-positions = <16 23>;
@@ -105,30 +105,21 @@
             key-positions = <12 13 16 17 21 22 23 24>;
             bindings = <&bootloader>;
         };
+        util_layer {
+            key-positions = <26 27>;
+            bindings = <&mo FUN>;
+        };
         // pinky+ring combos are FREE
         // thumb combos are FREE
-        // inner bracket positions are BAD rn, can be changed
 
-    // one-off symbols
-        dash {
-            key-positions = <23 24>;
-            bindings = <&kp MINUS>;
-        };
-        slash {
-            key-positions = <24 25>;
-            bindings = <&kp SLASH>;
+    // symbols
+        exclam {
+            key-positions = <0 1>;
+            bindings = <&kp EXCL>;
         };
         underscore {
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
-        };
-        exclam {
-            key-positions = <0 20>;
-            bindings = <&kp EXCL>;
-        };
-        alt_shift {
-            key-positions = <0 10>;
-            bindings = <&kp LA(LEFT_SHIFT)>; // LVert pinky
         };
         at_symbol {
             key-positions = <13 3>;
@@ -138,22 +129,18 @@
             key-positions = <16 6>;
             bindings = <&kp ASTERISK>;
         };
-        hash {
+        pound {
             key-positions = <13 22>;
-            bindings = <&kp HASH>;
-        };
-        tilde {
-            key-positions = <9 25>; // RBot pinky + ring
-            bindings = <&kp TILDE>;
+            bindings = <&kp POUND>;
         };
 
     // mirrored symbols
         lbracket { // brackets
-            key-positions = <1 11>;
+            key-positions = <0 10>;
             bindings = <&kp LBKT>;
         };
         rbracket {
-            key-positions = <8 18>;
+            key-positions = <9 19>;
             bindings = <&kp RBKT>;
         };
         lpar { // parentheses
@@ -164,55 +151,57 @@
             key-positions = <7 17>;
             bindings = <&kp RPAR>;
         };
-        lbrace { // braces
-            key-positions = <4 14>;
-            bindings = <&kp LBRC>;
-        };
-        rbrace {
-            key-positions = <5 15>;
-            bindings = <&kp RBRC>;
-        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         BASE {
-            display-name = "base";
+            display-name = "Colemak";
             bindings = <
-&hrm LC(LA(LGUI)) Z  &hrm LCTRL W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &hrm LCTRL Y     &hrm LC(LA(LGUI)) APOS
+&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
-                     &kp X  &kp C        &kp D                                       &kp H        &kp COMMA    &kp DOT
-                                         &mo NUM       &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE // < this &mo still sends backspace on tap. 
+                     &hrm LCTRL X  &kp C        &kp D                                       &kp H        &kp COMMA    &hrm LCTRL DOT
+                                         &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE
             >;
         };
-//        qwerty {
-//            display-name = "qwerty";
-//            bindings = <
-//&kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P
-//&kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L  &kp B
-//       &kp X  &kp C  &kp V                &kp M  &kp Z  &kp DOT
-//                     &trans &trans &trans &trans
-//            >;
-//        };
+        QWERTY {
+            display-name = "Qwerty";
+            bindings = <
+&kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P
+&kp A  &hrm LCTRL S  &hrm LGUI D  &hrm LALT F  &kp G  &kp H  &hrm LALT J  &hrm LGUI K  &hrm LCTRL L  &kp B
+       &kp X  &kp C  &kp V                &kp M  &kp Z  &kp DOT
+                     &trans &trans &trans &trans
+            >;
+        };
 
         NUM {
-            display-name = "numbers";
+            display-name = "Nums";
             bindings = <
 &kp  BSLH        &kp  PLUS        &kp  POUND       &kp  DLLR       &kp CARET   &none     &kp N7  &kp N8  &kp N9  &kp SCLN
-&hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &kp N4  &kp N5  &kp N6  &kp N0
+&hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &hrm LALT N4  &hrm LGUI N5  &hrm LCTRL N6  &hrm LSHIFT N0
                  &kp  COMMA       &kp  DOT         &kp  TILDE                            &kp N1  &kp N2  &kp N3
                                                    &trans          &trans      &trans    &trans
             >;
         };
 
         MOUSE {
-            display-name = "mouse";
+            display-name = "Mouse";
             bindings = <
 &none      &mkp MB2         &msc SCRL_DOWN  &none           &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
 &kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP    &msc SCRL_LEFT  &kp C_VOL_DN  &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
            &kp LCTRL        &kp LGUI        &kp LALT                                    &kp BACKSPACE   &none           &none
                                             &mkp MB3        &mkp MB1      &trans        &trans
+            >;
+        };
+
+        FUN {
+            display-name = "Function";
+            bindings = <
+&kp F1 &kp F2 &kp F3 &kp F4 &kp F5           &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
+&kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &bt BT_CLR_ALL  &bt BT_SEL 2  &none         &none        &bt BT_SEL 0
+       &kp F11 &kp F12 &kp F13                         &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
+                     &trans &trans &trans          &trans 
             >;
         };
 
