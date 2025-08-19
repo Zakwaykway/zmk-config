@@ -45,7 +45,12 @@
                 <&kp LS(LA(LC(LG(N4))))>;
             tapping-term-ms = <300>;
         };
-        cztd:  
+        cztd: controlz_screenshot {}
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&td1ss>, <&kp LC(Z)>;
+            mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI|MOD_LSFT)>;
+        };
     };
 
     combos {
@@ -82,12 +87,11 @@
             key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
-        Lenter {
+        enter {
             key-positions = <11 12>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
-            layers = <0 1 2 3>;
         };
         mission_control {
             key-positions = <4 14>;
@@ -162,7 +166,7 @@
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
                      &hrm LCTRL X  &kp C        &kp D                                       &kp H        &kp COMMA    &hrm LCTRL DOT
-                                         &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE
+                                         &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE ENTER
             >;
         };
         QWERTY {
@@ -208,7 +212,7 @@
         NAV {
             display-name = "navigation";
             bindings = <
-&td1ss     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
+&cztd     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
 &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
            &td2ss     &kp INS   &kp ENTER                               &kp BSPC    &none     &none
                                 &trans    &trans          &trans        &trans
