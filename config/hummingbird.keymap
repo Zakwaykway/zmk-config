@@ -95,14 +95,6 @@
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
-        mission_control {
-            key-positions = <4 14>;
-            bindings = <&kp LC(UP)>;
-        };
-        alt_shift { // language swap
-            key-positions = <0 10>;
-            bindings = <&kp LA(LEFT_SHIFT)>; // LVert pinky
-        };
         raycast {
             key-positions = <16 23>;
             bindings = <&kp LG(SPACE)>;
@@ -119,11 +111,36 @@
             key-positions = <28 29>;
             bindings = <&mo FUN>;
         };
-        // pinky+ring combos are FREE
-
-    // symbols
-        exclam {
+        
+        // mirrored symbols
+        lbracket { // brackets
+            key-positions = <0 10>;
+            bindings = <&kp LBKT>;
+        };
+        rbracket {
+            key-positions = <9 19>;
+            bindings = <&kp RBKT>;
+        };
+        lpar { // parentheses
+            key-positions = <2 12>;
+            bindings = <&kp LPAR>;
+        };
+        rpar {
+            key-positions = <7 17>;
+            bindings = <&kp RPAR>;
+        };
+        
+        //iffy ones
+        alt_shift { // language swap
+            key-positions = <0 1 10 11>;
+            bindings = <&kp LA(LEFT_SHIFT)>; // LVert pinky
+        };
+        bang {
             key-positions = <0 1>;
+            bindings = <&kp EXCL>;
+        };
+        bang2 {
+            key-positions = <10 20>
             bindings = <&kp EXCL>;
         };
         underscore {
@@ -143,38 +160,24 @@
             bindings = <&kp POUND>;
         };
 
-    // mirrored symbols
-        lbracket { // brackets
-            key-positions = <0 10>;
-            bindings = <&kp LBKT>;
-        };
-        rbracket {
-            key-positions = <9 19>;
-            bindings = <&kp RBKT>;
-        };
-        lpar { // parentheses
-            key-positions = <2 12>;
-            bindings = <&kp LPAR>;
-        };
-        rpar {
-            key-positions = <7 17>;
-            bindings = <&kp RPAR>;
-        };
-    };
+        // pinky+ring combos are FREE
+        // 
 
+    };
+    
     keymap {
         compatible = "zmk,keymap";
-
+        
         BASE { //0
             display-name = "Colemak";
             bindings = <
-&hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
-&kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
-                     &hrm LCTRL X  &kp C        &kp D                                       &kp H        &kp COMMA    &hrm LCTRL DOT
-                                         &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE TAB
+            &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
+            &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
+            &hrm LCTRL X  &kp C        &kp D                                       &kp H        &kp COMMA    &hrm LCTRL DOT
+            &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE TAB
             >;
         };
-
+        
         QWERTY { //1
             display-name = "Qwerty";
             bindings = <
