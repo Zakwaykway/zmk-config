@@ -171,7 +171,7 @@
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
                      &hrm LCTRL X  &kp C        &kp D                                       &kp H        &kp COMMA    &hrm LCTRL DOT
-                                         &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE ENTER
+                                         &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE TAB
             >;
         };
 
@@ -219,7 +219,7 @@
             display-name = "Function";
             bindings = <
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &none           &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
-&kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &none        &bt BT_SEL 0
+&kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &bt BT_DISC  &bt BT_SEL 0
        &kp F11 &kp F12 &none                            &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
                      &trans &trans &trans          &trans 
             >;
