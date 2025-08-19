@@ -140,7 +140,7 @@
             bindings = <&kp EXCL>;
         };
         bang2 {
-            key-positions = <10 20>
+            key-positions = <10 20>;
             bindings = <&kp EXCL>;
         };
         underscore {
