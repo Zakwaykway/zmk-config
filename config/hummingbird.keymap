@@ -53,6 +53,15 @@
             bindings = <&td1ss>, <&kp LG(Z)>;
             mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI|MOD_LSFT)>;
         };
+        bt_dc_all: bt_dc_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&bt BT_DISC 0>,
+                <&bt BT_DISC 1>,
+                <&bt BT_DISC 2>,
+                <&bt BT_DISC 3>;
+        };
     };
 
     combos {
@@ -222,7 +231,7 @@
             display-name = "Function";
             bindings = <
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &none           &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
-&kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &bt BT_DISC  &bt BT_SEL 0
+&kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &bt_dc_all  &bt BT_SEL 0
        &kp F11 &kp F12 &none                            &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
                      &trans &trans &trans          &trans 
             >;
