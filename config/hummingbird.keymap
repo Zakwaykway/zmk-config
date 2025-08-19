@@ -183,7 +183,7 @@
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
 &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
                      &kp X  &kp C        &kp D                                       &kp H        &kp COMMA    &kp DOT
-                                         &mo NUM       &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE
+                                         &mo NUM       &mt LSHIFT BSPC    &lt NAV SPACE  &mo MOUSE // < this &mo still sends backspace on tap. 
             >;
         };
 //        qwerty {
