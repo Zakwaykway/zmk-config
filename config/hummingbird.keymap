@@ -165,7 +165,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        BASE {
+        BASE { //0
             display-name = "Colemak";
             bindings = <
 &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
@@ -174,7 +174,8 @@
                                          &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE ENTER
             >;
         };
-        QWERTY {
+
+        QWERTY { //1
             display-name = "Qwerty";
             bindings = <
 &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P
@@ -184,7 +185,7 @@
             >;
         };
 
-        NUM {
+        NUM { //2
             display-name = "Nums";
             bindings = <
 &kp  BSLH        &kp  PLUS        &kp  POUND       &kp  DLLR       &kp CARET   &none     &kp N7  &kp N8  &kp N9  &kp SCLN
@@ -194,7 +195,7 @@
             >;
         };
 
-        MOUSE {
+        MOUSE { //3
             display-name = "Mouse";
             bindings = <
 &none      &mkp MB2         &msc SCRL_DOWN  &none           &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
@@ -204,7 +205,17 @@
             >;
         };
 
-        FUN {
+        NAV { //4
+            display-name = "navigation";
+            bindings = <
+        &cztd     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
+        &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
+           &td2ss     &kp INS   &kp ENTER                               &kp BSPC    &none     &none
+                                &trans    &trans          &trans        &trans
+            >;
+        };
+
+        FUN { //5
             display-name = "Function";
             bindings = <
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5     &none      &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
@@ -214,14 +225,5 @@
             >;
         };
 
-        NAV {
-            display-name = "navigation";
-            bindings = <
-&cztd     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
-&sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
-           &td2ss     &kp INS   &kp ENTER                               &kp BSPC    &none     &none
-                                &trans    &trans          &trans        &trans
-            >;
-        };
     };
 };
