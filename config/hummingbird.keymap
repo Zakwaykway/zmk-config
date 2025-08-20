@@ -81,7 +81,7 @@
             bindings = <&kp J>;
         };
         semicolon {
-            key-positions = <7 8>;
+            key-positions = <24 25>;
             bindings = <&kp SCLN>;
         };
         dash {
@@ -89,7 +89,7 @@
             bindings = <&kp MINUS>;
         };
         slash {
-            key-positions = <24 25>;
+            key-positions = <7 8>;
             bindings = <&kp SLASH>;
         };
 
@@ -104,6 +104,18 @@
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
+        backspace {
+            key-positions = <17 18>;
+            bindings = <&kp BSPC>;
+            require-prior-idle-ms = <40>;
+            timeout-ms = <35>;
+        };
+        tab2 {
+            key-positions = <2 12>;
+            bindings = <&kp TAB>;
+            require-prior-idle-ms = <40>;
+            timeout-ms = <35>;
+        };
         raycast {
             key-positions = <16 23>;
             bindings = <&kp LG(SPACE)>;
@@ -112,13 +124,13 @@
             key-positions = <12 13 16 17 21 22 23 24>;
             bindings = <&bootloader>;
         };
-        Lutil_layer {
-            key-positions = <26 27>;
+        fun_layer {
+            key-positions = <26 29>;
             bindings = <&mo FUN>;
         };
-        Rutil_layer {
-            key-positions = <28 29>;
-            bindings = <&mo FUN>;
+        thumb_layer {
+            key-positions = <27 28>;
+            bindings = <&tg QWERTY>;
         };
         
         // mirrored symbols
@@ -130,7 +142,7 @@
             key-positions = <9 19>;
             bindings = <&kp RBKT>;
         };
-        lpar { // parentheses
+        lpar {
             key-positions = <2 12>;
             bindings = <&kp LPAR>;
         };
@@ -138,20 +150,15 @@
             key-positions = <7 17>;
             bindings = <&kp RPAR>;
         };
-        
-        //iffy ones
-        alt_shift { // language swap
-            key-positions = <0 1 10 11>;
-            bindings = <&kp LA(LEFT_SHIFT)>; // LVert pinky
-        };
-        bang {
-            key-positions = <0 1>;
+        bang {// !
+            key-positions = <4 14>;
             bindings = <&kp EXCL>;
         };
-        bang2 {
-            key-positions = <10 20>;
-            bindings = <&kp EXCL>;
+        interro {// ?
+            key-positions = <5 15>;
+            bindings = <&kp QMARK>;
         };
+
         underscore {
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
@@ -164,13 +171,11 @@
             key-positions = <16 6>;
             bindings = <&kp ASTERISK>;
         };
+
         pound {
             key-positions = <13 22>;
             bindings = <&kp POUND>;
         };
-
-        // pinky+ring combos are FREE
-        // 
 
     };
     
@@ -233,7 +238,7 @@
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &none           &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &bt_dc_all  &bt BT_SEL 0
        &kp F11 &kp F12 &none                            &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-                     &trans &trans &trans          &trans 
+                     &trans &trans      &trans          &trans 
             >;
         };
 
