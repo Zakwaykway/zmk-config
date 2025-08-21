@@ -12,8 +12,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
-#include <input/processors.dtsi>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 #define BASE 0
 #define QWERTY 1
@@ -242,7 +240,7 @@
         };
 
         NAV { //4
-            display-name = "navigation";
+            display-name = "Navigation";
             bindings = <
         &cztd     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
         &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
