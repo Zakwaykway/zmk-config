@@ -81,27 +81,27 @@
         compatible = "zmk,combos";
 
     // alphas
-        q {
+        q { // q
             key-positions = <20 21>;
             bindings = <&kp Q>;
         };
-        v {
+        v { // v
             key-positions = <2 3>;
             bindings = <&kp V>;
         };
-        j {
+        j { // j
             key-positions = <21 22>;
             bindings = <&kp J>;
         };
-        semicolon {
+        scln { // ;
             key-positions = <24 25>;
             bindings = <&kp SCLN>;
         };
-        dash {
+        dash { // -
             key-positions = <23 24>;
             bindings = <&kp MINUS>;
         };
-        slash {
+        slsh { // /
             key-positions = <7 8>;
             bindings = <&kp SLASH>;
         };
@@ -111,51 +111,51 @@
             key-positions = <1 2>;
             bindings = <&kp ESC>;
         };
-        enter {
+        entr {
             key-positions = <11 12>;
             bindings = <&kp ENTER>;
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
-        backspace {
+        bspc {
             key-positions = <17 18>;
             bindings = <&kp BSPC>;
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
         tab2 {
-            key-positions = <2 12>;
+            key-positions = <1 11>;
             bindings = <&kp TAB>;
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
-        raycast {
+        rycst {
             key-positions = <16 23>;
             bindings = <&kp LG(SPACE)>;
         };
-        bootloader {
+        btldr {
             key-positions = <12 13 16 17 21 22 23 24>;
             bindings = <&bootloader>;
         };
-        fun_layer {
+        fun_l {
             key-positions = <26 29>;
             bindings = <&mo FUN>;
         };
-        thumb_layer {
+        thumb_l {
             key-positions = <27 28>;
             bindings = <&tog QWERTY>;
         };
-        base_layer {
+        base_l {
             key-positions = <11 12 13 16 17 18>;
             bindings = <&to BASE>; 
         };
         
         // mirrored symbols
-        lbracket { // brackets
+        lbrack { // brackets
             key-positions = <0 10>;
             bindings = <&kp LBKT>;
         };
-        rbracket {
+        rbrack {
             key-positions = <9 19>;
             bindings = <&kp RBKT>;
         };
@@ -163,7 +163,7 @@
             key-positions = <2 12>;
             bindings = <&kp LPAR>;
         };
-        rpar {
+        rpar {// 
             key-positions = <7 17>;
             bindings = <&kp RPAR>;
         };
@@ -171,24 +171,24 @@
             key-positions = <4 14>;
             bindings = <&kp EXCL>;
         };
-        interro {// ?
+        interr {// ?
             key-positions = <5 15>;
             bindings = <&kp QMARK>;
         };
-
+        at_symbol { // @
+            key-positions = <13 3>;
+            bindings = <&kp AT>;
+        };
+        astrsk { // *
+            key-positions = <16 6>;
+            bindings = <&kp ASTERISK>;
+        };
+        
+        // unmirrored
         underscore {
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
         };
-        at_symbol {
-            key-positions = <13 3>;
-            bindings = <&kp AT>;
-        };
-        asterisk {
-            key-positions = <16 6>;
-            bindings = <&kp ASTERISK>;
-        };
-
         pound {
             key-positions = <13 22>;
             bindings = <&kp POUND>;
