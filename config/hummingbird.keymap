@@ -3,28 +3,28 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1600  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1800  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 11    // default: 10
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define BASE 0
-#define QWERTY 1
-#define NUM 2
-#define MOUSE 3
-#define NAV 4
-#define FUN 5
+#define CMK 0
+#define QWR 1
+#define WIN 2
+#define NUM 3
+#define MSE 4
+#define NAV 5
+#define FUN 6
+#define MMV 7
 
 &mmv {
     trigger-period-ms = <8>;
     delay-ms = <10>;
-    time-to-max-speed-ms = <500>;
-    acceleration-exponent = <2>;
+    time-to-max-speed-ms = <450>;
+    acceleration-exponent = <1>;
 };
 &msc {
     trigger-period-ms = <8>;
@@ -43,7 +43,14 @@
             tapping-term-ms = <180>;
             require-prior-idle-ms = <30>;
         };
-        
+        thrm: transparent_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&trans>;
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <30>;
+        };
         td1ss: screenshot_tapdance12 { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -129,12 +136,16 @@
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
-        rycst {
+        rcst {
             key-positions = <16 23>;
             bindings = <&kp LG(SPACE)>;
         };
-        btldr {
-            key-positions = <12 13 16 17 21 22 23 24>;
+        bootloader_l {
+            key-positions = <11 12 13 20 21 22>;
+            bindings = <&bootloader>;
+        };
+        bootloader_r {
+            key-positions = <16 17 18 23 24 25>;
             bindings = <&bootloader>;
         };
         fun_l {
@@ -151,11 +162,11 @@
         };
         
         // mirrored symbols
-        lbrack { // brackets
+        lbrck { // brackets
             key-positions = <0 10>;
             bindings = <&kp LBKT>;
         };
-        rbrack {
+        rbrck {
             key-positions = <9 19>;
             bindings = <&kp RBKT>;
         };
@@ -171,7 +182,7 @@
             key-positions = <4 14>;
             bindings = <&kp EXCL>;
         };
-        interr {// ?
+        inter {// ?
             key-positions = <5 15>;
             bindings = <&kp QMARK>;
         };
@@ -179,17 +190,17 @@
             key-positions = <13 3>;
             bindings = <&kp AT>;
         };
-        astrsk { // *
+        astrk { // *
             key-positions = <16 6>;
             bindings = <&kp ASTERISK>;
         };
-        
+
         // unmirrored
-        underscore {
+        underscore { // _
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
         };
-        pound {
+        pound { // #
             key-positions = <13 22>;
             bindings = <&kp POUND>;
         };
@@ -199,65 +210,77 @@
     keymap {
         compatible = "zmk,keymap";
         
-        BASE { //0
+        CMK { //0
             display-name = "Colemak";
             bindings = <
-            &hrm LC(LA(LGUI)) Z  &kp W  &hrm LGUI F  &hrm LALT P &kp B              &kp K        &hrm LALT L  &hrm LGUI U  &kp Y     &hrm LC(LA(LGUI)) APOS
-            &kp A                &kp R  &kp S        &kp T       &kp G              &kp M        &kp N        &kp E        &kp I     &kp O
-            &hrm LCTRL X  &kp C        &kp D                                       &kp H        &kp COMMA    &hrm LCTRL DOT
-            &lt NUM TAB      &mt LSHIFT BSPC    &lt NAV SPACE  &lt MOUSE TAB
+&hrm LC(LA(LGUI)) Z &kp W  &hrm LGUI F  &hrm LALT P &kp B      &kp K  &hrm LALT L &hrm LGUI U &kp Y          &hrm LC(LA(LGUI)) APOS
+&kp A               &kp R  &kp S        &kp T       &kp G      &kp M  &kp N       &kp E       &kp I          &kp O
+                    &hrm LCTRL X        &kp C       &kp D             &kp H       &kp COMMA   &hrm LCTRL DOT
+&lt NUM BSPC &mt LSHIFT SPACE &lt NAV SPACE &lt MOUSE TAB
             >;
         };
-        
-        QWERTY { //1
+        QWR { //1
             display-name = "Qwerty";
             bindings = <
 &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P
 &kp A  &hrm LCTRL S  &hrm LGUI D  &hrm LALT F  &kp G  &kp H  &hrm LALT J  &hrm LGUI K  &hrm LCTRL L  &kp B
        &kp X  &kp C  &kp V                &kp M  &kp Z  &kp DOT
-                     &trans &trans &trans &trans
+&trans &trans &trans &trans
             >;
         };
-
-        NUM { //2
+        WIN { //2
+            display-name = "Windows";
+            bindings = <
+&trans &trans &thrm LCTRL &trans &trans &trans &trans &thrm LCTRL &trans &trans
+&trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
+        &thrm LGUI X &trans &trans      &trans &trans &thrm LGUI DOT
+&trans &trans &trans &trans 
+            >;
+        };
+        NUM { //3
             display-name = "Nums";
             bindings = <
-&kp  BSLH        &kp  PLUS        &kp  POUND       &kp  DLLR       &kp CARET   &none     &kp N7  &kp N8  &kp N9  &kp SCLN
+&kp  BSLH          &kp  PLUS        &kp  POUND      &kp  DLLR       &kp CARET   &none     &kp N7  &kp N8  &kp N9  &kp SCLN
 &hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &hrm LALT N4  &hrm LGUI N5  &hrm LCTRL N6  &hrm LSHIFT N0
-                 &kp  COMMA       &kp  DOT         &kp  TILDE                            &kp N1  &kp N2  &kp N3
-                                                   &trans          &trans      &trans    &trans
+                   &kp  COMMA       &kp  DOT        &kp  TILDE                            &kp N1  &kp N2  &kp N3
+&trans &trans &trans &trans
             >;
         };
-
-        MOUSE { //3
+        MSE { //4
             display-name = "Mouse";
             bindings = <
 &none      &mkp MB2         &msc SCRL_DOWN  &none  &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
 &kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP    &msc SCRL_LEFT  &kp C_VOL_DN  &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
            &kp LCTRL        &kp LGUI        &kp LALT                                    &kp BACKSPACE   &none           &none
-                                            &mkp MB3        &mkp MB1      &trans        &trans
+&mkp MB3 &mkp MB1 &trans &trans
             >;
         };
-
         NAV { //4
             display-name = "Navigation";
             bindings = <
-        &cztd     &none      &kp TAB   &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
-        &sk LSHFT  &sk LCTRL  &sk LGUI  &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
-           &td2ss     &kp INS   &kp ENTER                               &kp BSPC    &none     &none
-                                &trans    &trans          &trans        &trans
+&cztd     &kp LGUI     &kp TAB  &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
+&sk LSHFT &sk LCTRL &sk LGUI &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
+          &td2ss    &kp INS  &kp SPACE                               &kp BSPC    &none     &none
+&trans &trans &trans &trans
             >;
         };
-
         FUN { //5
             display-name = "Function";
             bindings = <
 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &none           &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &bt_dc_all  &bt BT_SEL 0
        &kp F11 &kp F12 &none                            &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-                     &trans &trans      &trans          &trans 
+&trans &trans &trans &trans
             >;
         };
-
+        MMV { //6  TEMP EDIT SOON FOR SPEEDY MOUSE USING LAYER INPUT TRANSFORM
+            display-name = "Fast";
+            bindings = <
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+       &trans &trans &trans               &trans &trans &trans
+                     &trans &trans &trans &trans
+            >;
+        };
     };
 };
