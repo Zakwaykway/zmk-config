@@ -21,7 +21,7 @@
 #define FUN 6
 #define MMV 7
 
-&mmv_listener {
+&mmv_input_listener {
     speeder = {
         input-processors = <&zip_xy_scaler 3 2>;
         layers = <MMV>;
