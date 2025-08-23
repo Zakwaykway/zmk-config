@@ -141,10 +141,6 @@
             require-prior-idle-ms = <40>;
             timeout-ms = <35>;
         };
-        rcst {
-            key-positions = <16 23>;
-            bindings = <&kp LG(SPACE)>;
-        };
         msctl {
             key-positions = <1 2 3>;
             bindings = <&kp LC(UP)>;
@@ -195,6 +191,8 @@
             key-positions = <5 15>;
             bindings = <&kp QMARK>;
         };
+        
+        // unmirrored
         at_symbol { // @
             key-positions = <13 3>;
             bindings = <&kp AT>;
@@ -203,9 +201,11 @@
             key-positions = <16 6>;
             bindings = <&kp ASTERISK>;
         };
-
-        // unmirrored
-        underscore { // _
+        tilde { // ~
+            key-positions = <16 23>;
+            bindings = <&kp TILDE>;
+        };
+        underscore { // _ has an alpha
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
         };
