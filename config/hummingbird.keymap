@@ -22,10 +22,9 @@
 #define MMV 7
 
 &mmv_input_listener {
-    speeder = {
-        input-processors = <&zip_xy_scaler 3 2>;
+    speeder {
         layers = <MMV>;
-        process-next;
+        input-processors = <&zip_xy_scaler 3 2>;
     }
 }
 &mmv {
