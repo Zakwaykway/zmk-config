@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/bt.h>
+#include <input/processors.dtsi>
 
 #define CMK 0
 #define QWR 1
@@ -20,6 +21,13 @@
 #define FUN 6
 #define MMV 7
 
+&mmv_listener {
+    speeder = {
+        input-processors = <&zip_xy_scaler 3 2>;
+        layers = <MMV>;
+        process-next;
+    }
+}
 &mmv {
     trigger-period-ms = <8>;
     delay-ms = <10>;
@@ -73,15 +81,13 @@
             bindings = <&td1ss>, <&kp LG(Z)>;
             mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI|MOD_LSFT)>;
         };
-        bt_dc_all: bt_dc_all {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+        ZMK_MACRO(bt_dc_all,
             bindings =
                 <&bt BT_DISC 0>,
                 <&bt BT_DISC 1>,
                 <&bt BT_DISC 2>,
                 <&bt BT_DISC 3>;
-        };
+        )
     };
 
     combos {
@@ -253,7 +259,7 @@
         MSE { //4
             display-name = "Mouse";
             bindings = <
-&none      &mkp MB2         &msc SCRL_DOWN  &none  &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
+&none      &mkp MB2         &msc SCRL_DOWN  &mo MMV  &kp C_VOL_UP  &kp C_VOL_UP  &kp C_PREV      &mmv MOVE_UP    &kp C_NEXT         &kp C_PP
 &kp LSHFT  &msc SCRL_RIGHT  &msc SCRL_UP    &msc SCRL_LEFT  &kp C_VOL_DN  &kp C_VOL_DN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp DEL
            &kp LCTRL        &kp LGUI        &kp LALT                                    &kp BACKSPACE   &none           &none
 &mkp MB3 &mkp MB1 &trans &trans
@@ -277,7 +283,7 @@
 &trans &trans &trans &trans
             >;
         };
-        MMV { //6  TEMP EDIT SOON FOR SPEEDY MOUSE USING LAYER INPUT TRANSFORM
+        MMV {
             display-name = "Fast";
             bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
