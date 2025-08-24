@@ -153,15 +153,15 @@
             key-positions = <16 17 18 23 24 25>;
             bindings = <&bootloader>;
         };
-        fun_l {
+        FUN {
             key-positions = <26 29>;
             bindings = <&mo FUN>;
         };
-        thumb_l {
+        QWR {
             key-positions = <27 28>;
             bindings = <&tog QWR>;
         };
-        base_l {
+        CMK {
             key-positions = <11 12 13 16 17 18>;
             bindings = <&to CMK>; 
         };
@@ -208,12 +208,12 @@
         underscore { // _ has an alpha
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
+            timeout-ms = <40>;
         };
         pound { // #
             key-positions = <13 22>;
             bindings = <&kp POUND>;
         };
-
     };
     
     keymap {
@@ -225,7 +225,7 @@
 &hrm LC(LA(LGUI)) Z &kp W  &hrm LGUI F  &hrm LALT P &kp B      &kp K  &hrm LALT L &hrm LGUI U &kp Y          &hrm LC(LA(LGUI)) APOS
 &kp A               &kp R  &kp S        &kp T       &kp G      &kp M  &kp N       &kp E       &kp I          &kp O
                     &hrm LCTRL X        &kp C       &kp D             &kp H       &kp COMMA   &hrm LCTRL DOT
-&lt NUM BSPC &mt LSHIFT SPACE &lt NAV SPACE &lt MSE TAB
+&lt NUM BSPC &mt LSHIFT BSPC &lt NAV SPACE &lt MSE TAB
             >;
         };
         QWR { //1
@@ -287,8 +287,8 @@
             bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-       &trans &trans &trans               &trans &trans &trans
-                     &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans
             >;
         };
     };
