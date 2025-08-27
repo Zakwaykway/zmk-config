@@ -47,16 +47,16 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            tapping-term-ms = <180>;
-            require-prior-idle-ms = <30>;
+            tapping-term-ms = <190>;
+            require-prior-idle-ms = <35>;
         };
         thrm: transparent_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&trans>;
-            tapping-term-ms = <180>;
-            require-prior-idle-ms = <30>;
+            tapping-term-ms = <190>;
+            require-prior-idle-ms = <35>;
         };
         td1ss: screenshot_tapdance12 { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
