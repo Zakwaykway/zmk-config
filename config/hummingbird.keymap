@@ -24,7 +24,7 @@
 &mmv_input_listener {
     speeder {
         layers = <MMV>;
-        input-processors = <&zip_xy_scaler 2 1>;
+        input-processors = <&zip_xy_scaler 3 1>;
     };
 };
 &mmv {
@@ -91,6 +91,7 @@
 
     combos {
         compatible = "zmk,combos";
+
     // alphas
         q { // q
             key-positions = <20 21>;
@@ -131,7 +132,7 @@
         bspc {
             key-positions = <17 18>;
             bindings = <&kp BSPC>;
-            require-prior-idle-ms = <40>;
+            require-prior-idle-ms = <55>;
             timeout-ms = <35>;
         };
         tab2 {
@@ -221,12 +222,11 @@
         CMK { //0
             display-name = "Colemak";
             bindings = <
-// TODO edit this first hrm. bad spot, easier to operate manually now
-
+// TODO edit LC(LA(LGUI)). they can be done with hrm now, so their spot is compromised.
 &hrm LC(LA(LGUI)) Z               &kp W  &kp F        &kp P       &kp B      &kp K  &kp L       &kp U       &kp Y          &hrm LC(LA(LGUI)) APOS
 &kp A &hrm LCTRL R  &hrm LGUI S  &hrm LALT T &kp G      &kp M  &hrm LALT N &hrm LGUI E &hrm LCTRL I          &kp O
                     &kp X        &kp C       &kp D             &kp H       &kp COMMA   &kp DOT
-&lt NUM BSPC &mt LSHIFT BSPC &lt NAV SPACE &lt MSE TAB
+&lt NUM BSPC &mt LSHIFT TAB &lt NAV SPACE &mo MSE
             >;
         };
         QWR { //1
@@ -250,7 +250,7 @@
         NUM { //3
             display-name = "Nums";
             bindings = <
-&kp  BSLH          &kp  PLUS        &kp  POUND      &kp  DLLR       &kp CARET   &none     &kp N7  &kp N8  &kp N9  &kp SCLN
+&kp  BSLH          &kp  PLUS        &kp  POUND      &kp  DLLR       &kp CARET   &kp PIPE  &kp N7  &kp N8  &kp N9  &kp SCLN
 &hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &hrm LALT N4  &hrm LGUI N5  &hrm LCTRL N6  &hrm LSHIFT N0
                    &kp  COMMA       &kp  DOT        &kp  TILDE                            &kp N1  &kp N2  &kp N3
 &trans &trans &trans &trans
