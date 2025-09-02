@@ -135,7 +135,7 @@
             require-prior-idle-ms = <55>;
             timeout-ms = <35>;
         };
-        tab2 {
+        tab {
             key-positions = <1 11>;
             bindings = <&kp TAB>;
             require-prior-idle-ms = <40>;
@@ -167,21 +167,21 @@
         };
         
         // mirrored symbols
-        lbrck { // brackets
-            key-positions = <0 10>;
-            bindings = <&kp LBKT>;
-        };
-        rbrck {
-            key-positions = <9 19>;
-            bindings = <&kp RBKT>;
-        };
-        lpar {
+        lpar { // (
             key-positions = <2 12>;
             bindings = <&kp LPAR>;
         };
-        rpar {// 
+        rpar {// )
             key-positions = <7 17>;
             bindings = <&kp RPAR>;
+        };
+        lbrck { // [
+            key-positions = <1 11>;
+            bindings = <&kp LBKT>;
+        };
+        rbrck { // ]
+            key-positions = <8 18>;
+            bindings = <&kp RBKT>;
         };
         bang {// !
             key-positions = <4 14>;
@@ -222,11 +222,16 @@
         CMK { //0
             display-name = "Colemak";
             bindings = <
-// TODO edit LC(LA(LGUI)). they can be done with hrm now, so their spot is compromised.
+// TODO edit LC(LA(LGUI)). they can be done with hrm. Could be a layer?
+// TODO mouse layer is the least used layer. Put it on a combo.
+// try to move to 2 thumb key? :3
+
+// TODO remove comma and period, add v and q
+
 &hrm LC(LA(LGUI)) Z               &kp W  &kp F        &kp P       &kp B      &kp K  &kp L       &kp U       &kp Y          &hrm LC(LA(LGUI)) APOS
 &kp A &hrm LCTRL R  &hrm LGUI S  &hrm LALT T &kp G      &kp M  &hrm LALT N &hrm LGUI E &hrm LCTRL I          &kp O
                     &kp X        &kp C       &kp D             &kp H       &kp COMMA   &kp DOT
-&lt NUM BSPC &mt LSHIFT TAB &lt NAV SPACE &mo MSE
+&mo NUM &mt LSHIFT TAB &lt NAV SPACE &mo MSE
             >;
         };
         QWR { //1
