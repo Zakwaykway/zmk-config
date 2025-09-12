@@ -82,12 +82,12 @@
         ZMK_MACRO(bt_dc_all,
             bindings =
                 <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
-        );
+        )
         win_usb: win_usb {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings = <&out OUT_USB &tog WIN>;
-        };
+        }
     };
 
     combos {
