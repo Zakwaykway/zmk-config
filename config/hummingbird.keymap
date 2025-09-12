@@ -242,14 +242,14 @@
         WIN { //2
             display-name = "Windows";
             bindings = <
-&trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans
-&trans &thrm LGUI &thrm LCTRL &trans &trans  &trans &trans &thrm LCTRL &thrm LGUI &trans
-       &trans &trans &trans                         &trans &trans &trans
+&trans &trans     &trans      &trans &trans  &trans &trans &trans      &trans     &trans
+&trans &hrm LGUI R &hrm LCTRL S &trans &trans  &trans &trans &hrm LCTRL E &hrm LGUI I &trans
+       &trans     &trans      &trans                &trans &trans      &trans
 &trans &trans &trans &trans 
             >;
         };
         NUM { //3
-            display-name = "Nums";
+            display-name = "Numbers";
             bindings = <
 &kp  BSLH          &kp  PLUS        &kp  POUND      &kp  DLLR       &kp CARET   &kp PIPE  &kp N7  &kp N8  &kp N9  &kp SCLN
 &hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &hrm LALT N4  &hrm LGUI N5  &hrm LCTRL N6  &hrm LSHIFT N0
