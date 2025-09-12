@@ -80,14 +80,11 @@
             mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI|MOD_LSFT)>;
         };
         ZMK_MACRO(bt_dc_all,
-            bindings =
-                <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
+            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
         )
-        win_usb: win_usb {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
+        ZMK_MACRO(win_usb,
         bindings = <&out OUT_USB &tog WIN>;
-        }
+        )
     };
 
     combos {
