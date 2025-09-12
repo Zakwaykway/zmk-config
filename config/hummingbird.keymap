@@ -24,7 +24,7 @@
 &mmv_input_listener {
     speeder {
         layers = <MMV>;
-        input-processors = <&zip_xy_scaler 3 1>;
+        input-processors = <&zip_xy_scaler 7 2>;
     };
 };
 &mmv {
@@ -39,7 +39,6 @@
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <0>;
 };
-
 / {
     behaviors {
         hrm: homerow_mods { //  ion, a, ei, rs 
@@ -82,11 +81,11 @@
         };
         ZMK_MACRO(bt_dc_all,
             bindings =
-                <&bt BT_DISC 0>,
-                <&bt BT_DISC 1>,
-                <&bt BT_DISC 2>,
-                <&bt BT_DISC 3>;
-        )
+                <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
+        );
+        ZMK_MACRO(win_usb,
+            bindings = <&out OUT_USB &tog WIN>;
+        );
     };
 
     combos {
@@ -244,9 +243,9 @@
         WIN { //2
             display-name = "Windows";
             bindings = <
-&trans &trans &thrm LCTRL &trans &trans &trans &trans &thrm LCTRL &trans &trans
-&trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
-        &thrm LGUI X &trans &trans      &trans &trans &thrm LGUI DOT
+&trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans
+&trans &thrm LGUI &thrm LCTRL &trans &trans  &trans &trans &thrm LCTRL &thrm LGUI &trans
+       &trans &trans &trans                         &trans &trans &trans
 &trans &trans &trans &trans 
             >;
         };
@@ -268,7 +267,7 @@
 &mkp MB3 &mkp MB1 &trans &trans
             >;
         };
-        NAV { //4
+        NAV { //5
             display-name = "Navigation";
             bindings = <
 &cztd     &kp LGUI     &kp TAB  &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
@@ -277,16 +276,16 @@
 &trans &trans &trans &trans
             >;
         };
-        FUN { //5
+        FUN { //6
             display-name = "Function";
             bindings = <
-&kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &none           &bt BT_PRV    &bt BT_CLR    &bt BT_NXT   &none
+&kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &none           &none    &bt BT_CLR    &none   &none
 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10     &bt BT_CLR_ALL  &out OUT_BLE  &out OUT_USB  &bt_dc_all  &bt BT_SEL 0
        &kp F11 &kp F12 &none                            &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
 &trans &trans &trans &trans
             >;
         };
-        MMV {
+        MMV { // topmost
             display-name = "Fast";
             bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans

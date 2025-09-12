@@ -21,6 +21,6 @@ include:
   - board: seeeduino_xiao_ble
     shield: hummingbird
     artifact-name: hummingbird_ble
-  - board: seeeduino_xiao_rp2040
-    shield: hummingbird
-    artifact-name: hummingbird_rp2040
+#  - board: seeeduino_xiao_rp2040
+#    shield: hummingbird
+#    artifact-name: hummingbird_rp2040
