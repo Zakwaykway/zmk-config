@@ -124,7 +124,13 @@
             bindings = <&kp BSPC>;
             require-prior-idle-ms = <55>;
             timeout-ms = <35>;
-        }
+        };
+        bspc2 {
+            key-positions = <20 21 22>;
+            bindings = <&kp BSPC>;
+            require-prior-idle-ms = <55>;
+            timeout-ms = <35>;
+        };
         tab {
             key-positions = <1 11>;
             bindings = <&kp TAB>;
