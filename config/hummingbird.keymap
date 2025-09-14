@@ -163,11 +163,11 @@
         };
         lcag {
             key-positions = <11 12 13>;
-            bindings = <&kp C(A(LGUI))>;
+            bindings = <&kp LC(LA(LGUI))>;
         };
         lcag_r {
             key-positions = <16 17 18>;
-            bindings = <&kp C(A(LGUI))>;
+            bindings = <&kp LC(LA(LGUI))>;
         };
         // mirrored symbols
         rpar {// )
