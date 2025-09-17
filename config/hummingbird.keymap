@@ -36,16 +36,24 @@
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>;
 };
-&sk {
-    release-after-ms = <350>;
-};
-bt_c_c: bt_c_c {
-    compatible = "zmk,behavior-macro-one-param";
-    #binding-cells = <1>;
-    bindings = <&macro_para_1to1>, <&bt BT_SEL MACRO_PLACEHOLDER>;
+
+/ {
+    macros {
+        ZMK_MACRO(bt_dc_all,
+            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
+        )
+        ZMK_MACRO(win_usb,
+        bindings = <&out OUT_USB &tog WIN>;
+        )
+        bt_c_c: bt_c_c {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_para_1to1>, <&bt BT_SEL MACRO_PLACEHOLDER>;
+        };
+    };
 };
 / {
-    behaviors {
+    behaviours {
         //autoshift? test parameterized macro from autoshift example) 
         hrm: homerow_mods { //  ion, a, ei, rs 
             compatible = "zmk,behavior-hold-tap";
@@ -54,6 +62,9 @@ bt_c_c: bt_c_c {
             bindings = <&kp>, <&kp>;
             tapping-term-ms = <200>;
             require-prior-idle-ms = <35>;
+        };
+        &sk {
+            release-after-ms = <350>;
         };
         td1ss: screenshot_tapdance12 { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
@@ -77,13 +88,9 @@ bt_c_c: bt_c_c {
             bindings = <&td1ss>, <&kp LG(Z)>;
             mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI|MOD_LSFT)>;
         };
-        ZMK_MACRO(bt_dc_all,
-            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
-        )
-        ZMK_MACRO(win_usb,
-        bindings = <&out OUT_USB &tog WIN>;
-        )
     };
+};
+/ {
     combos {
         compatible = "zmk,combos";
 
@@ -202,7 +209,8 @@ bt_c_c: bt_c_c {
             bindings = <&kp POUND>;
         };
     };
-    
+};
+/ {
     keymap {
         compatible = "zmk,keymap";
         
