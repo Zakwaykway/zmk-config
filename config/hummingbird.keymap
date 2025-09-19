@@ -36,7 +36,9 @@
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>;
 };
-
+&sk {
+    release-after-ms = <350>;
+};
 / {
     macros {
         ZMK_MACRO(bt_dc_all,
@@ -62,9 +64,6 @@
             bindings = <&kp>, <&kp>;
             tapping-term-ms = <200>;
             require-prior-idle-ms = <35>;
-        };
-        &sk {
-            release-after-ms = <350>;
         };
         td1ss: screenshot_tapdance12 { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
