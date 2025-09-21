@@ -106,9 +106,14 @@
             key-positions = <20 21>;
             bindings = <&kp Q>;
         };
+        v_win { // v on win layer
+            layers = <WIN>;
+            key-positions = <2 3>;
+            bindings = <&am LC(V) V>;
+        };
         v { // v
             key-positions = <2 3>;
-            bindings = <&kp V>;
+            bindings = <&am LG(V) V>;
         };
         j { // j
             key-positions = <21 22>;
