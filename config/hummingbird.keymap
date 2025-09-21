@@ -37,7 +37,7 @@
     acceleration-exponent = <1>;
 };
 &sk {
-    release-after-ms = <350>;
+    release-after-ms = <300>;
 };
 / {
     macros {
@@ -63,7 +63,7 @@
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
             tapping-term-ms = <200>;
-            require-prior-idle-ms = <35>;
+            require-prior-idle-ms = <40>;
         };
         td1ss: screenshot_tapdance12 { // copy screenshots
             compatible = "zmk,behavior-tap-dance";
