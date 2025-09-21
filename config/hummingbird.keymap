@@ -60,7 +60,7 @@
         hrm: homerow_mods { //  ion, a, ei, rs 
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
             tapping-term-ms = <200>;
             require-prior-idle-ms = <40>;
@@ -200,7 +200,7 @@
         underscore { // _ has an alpha
             key-positions = <6 7>;
             bindings = <&kp UNDER>;
-            timeout-ms = <40>;
+            timeout-ms = <35>;
         };
         pound { // #
             key-positions = <13 22>;
