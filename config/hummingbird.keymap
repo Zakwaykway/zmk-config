@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1800  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1900  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 14    // default: 10
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -161,7 +161,7 @@
         };
         lcag {
             key-positions = <11 12 13>;
-            bindings = <&kp LC(LA(LGUI))>;
+            bindings = <&mt LC(LA(LGUI)) TAB>;
         };
         lcag_r {
             key-positions = <16 17 18>;
@@ -219,7 +219,7 @@
 // TODO try to move to 2 thumb keys? :3
 // TODO remove comma and period, add v and q
 // LCAG is not defined anywhere
-&mt LGUI(Z) &kp W         &kp F        &kp P       &kp B      &kp K  &kp L       &kp U       &kp Y          &kp APOS
+&mt LG(Z) Z &kp W         &kp F        &kp P       &kp B      &kp K  &kp L       &kp U       &kp Y          &kp APOS
 &hrm LSHIFT A &hrm LCTRL R  &hrm LGUI S  &hrm LALT T &kp G      &kp M  &hrm LALT N &hrm LGUI E &hrm LCTRL I &hrm LSHIFT O
       &kp X        &kp C       &kp D             &kp H       &kp COMMA   &kp DOT
 &mo NUM &mt LSHIFT TAB &lt NAV SPACE &mo MSE
