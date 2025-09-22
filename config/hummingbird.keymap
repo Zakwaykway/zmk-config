@@ -180,6 +180,10 @@
             key-positions = <16 17 18>;
             bindings = <&kp LC(LA(LGUI))>;
         };
+        msctrl {
+            key-positions = <1 2 3>;
+            bindings = <&kp LC(UP)>;
+        };
         // mirrored symbols
         lpar {// (
             key-positions = <2 12>;
