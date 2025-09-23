@@ -83,13 +83,14 @@
         ZMK_MACRO(bt_dc_all,
             bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;)
         ZMK_MACRO(win_usb,
-            bindings = <&out OUT_USB &tog WIN>;)
+            bindings = <&out OUT_USB &tog WCMK>;)
         ZMK_MACRO(qu,
             bindings = <&kp Q &kp U>;)
         bt_c_c: bt_c_c {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&macro_param_1to1>, <&bt BT_SEL MACRO_PLACEHOLDER>;};
+            bindings = <&macro_param_1to1>, <&bt BT_SEL MACRO_PLACEHOLDER>;
+        };
     };
 
     combos {
@@ -171,7 +172,7 @@
         };
         msctrl {
             key-positions = <1 2 3>;
-            bindings = <&kp LC(A(UP))>;
+            bindings = <&kp LC(LA(UP))>;
         };
         // mirrored symbols
         par {// (
@@ -195,15 +196,15 @@
             key-positions = <13 3>;
             bindings = <&mt POUND AT>;
         };
-        astrk_btick { // * `
+        astrk_grv { // * `
             key-positions = <16 6>;
-            bindings = <&mt BACKTICK ASTERISK>;
+            bindings = <&mt GRAVE ASTERISK>;
         };
-        free { // ~ // lower right index
-            key-positions = <16 23>;
+        free1 { // ~ 
+            key-positions = <16 23>; // lower right index
             bindings = <&none>;
         };
-        free { // #
+        free2 { // #
             key-positions = <13 22>; // lower left index
             bindings = <&none>;
         };
@@ -245,7 +246,7 @@
         NUM { //3
             display-name = "Numbers";
             bindings = <
-&kp  BSLH          &kp  LESS        &kp  MORE       &kp  DLLR       &kp CARET   &kp PIPE  &kp N7  &kp N8  &kp N9  &kp PLUS
+&kp  BSLH          &kp  LT        &kp  MT       &kp  DLLR       &kp CARET   &kp PIPE  &kp N7  &kp N8  &kp N9  &kp PLUS
 &hrm LSHIFT GRAVE  &hrm LCTRL EQUAL &hrm LGUI FSLH  &hrm LALT MINUS &kp PRCNT   &kp AMPS  &hrm LALT N4  &hrm LGUI N5  &hrm LCTRL N6  &hrm LSHIFT N0
                    &kp  COMMA       &kp  DOT        &kp  TILDE                            &kp N1  &kp N2  &kp N3
 &trans &trans &trans &trans
