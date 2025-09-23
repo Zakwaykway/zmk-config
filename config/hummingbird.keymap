@@ -80,21 +80,12 @@
     };
 
     macros {
-        bt_dc_all: bt_dc_all {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
-        };
-        win_usb: win_usb {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&out OUT_USB &tog WIN>;
-        };
-        qu: qu {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp Q &kp U>;
-        };
+        ZMK_MACRO(bt_dc_all,
+            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;)
+        ZMK_MACRO(win_usb,
+            bindings = <&out OUT_USB &tog WCMK>;)
+        ZMK_MACRO(qu,
+            bindings = <&kp Q &kp U>;)
         bt_c_c: bt_c_c {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
