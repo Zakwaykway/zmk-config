@@ -196,9 +196,9 @@
             key-positions = <13 3>;
             bindings = <&mt POUND AT>;
         };
-        astrk_btick { // * `
+        astrk_grv { // * `
             key-positions = <16 6>;
-            bindings = <&mt BACKTICK ASTERISK>;
+            bindings = <&mt GRAVE ASTERISK>;
         };
         free { // ~ // lower right index
             key-positions = <16 23>;
