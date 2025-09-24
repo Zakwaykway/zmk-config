@@ -200,11 +200,11 @@
             key-positions = <16 6>;
             bindings = <&mt GRAVE ASTERISK>;
         };
-        free { // ~ // lower right index
-            key-positions = <16 23>;
+        free1 { // ~ 
+            key-positions = <16 23>; // lower right index
             bindings = <&none>;
         };
-        free { // #
+        free2 { // #
             key-positions = <13 22>; // lower left index
             bindings = <&none>;
         };
