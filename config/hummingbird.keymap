@@ -172,7 +172,7 @@
         };
         msctrl {
             key-positions = <1 2 3>;
-            bindings = <&kp LC(A(UP))>;
+            bindings = <&kp LC(LA(UP))>;
         };
         // mirrored symbols
         par {// (
