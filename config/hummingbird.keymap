@@ -51,11 +51,11 @@ ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
         <&mt LS(LA(LC(LG(N2)))) LS(LA(LC(LG(N1))))>,
         <&kp PRINTSCREEN>;
 )
-ZMK_TAP_DANCE(ss_crop, // tap copy, hold save
+ZMK_TAP_DANCE(ss_crop, // same as ^
     tapping-term-ms = <300>;
     bindings =
-        <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>;
-        <&none>;
+        <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
+        <&kp LS(LG(S))>;
 )
 
 / {
