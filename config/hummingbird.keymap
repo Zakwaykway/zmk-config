@@ -45,6 +45,21 @@
     release-after-ms = <300>;
 };
 
+
+ZMK_HOLD_TAP(hrm, // homerow mods
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+    require-prior-idle-ms = <45>;
+    quick-tap-ms = <180>;
+    bindings = <&kp>, <&kp>;
+)
+ZMK_HOLD_TAP(am, // automod
+    flavor = "tap-preferred";
+    tapping-term-ms = <190>;
+    require-prior-idle-ms = <100>;
+    quick-tap-ms = <200>;
+    bindings = <&kp>, <&kp>;
+)
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
     bindings =
@@ -59,27 +74,6 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
 )
 
 / {
-    behaviors {
-        //autoshift? test parameterized macro from autoshift example) 
-        hrm: homerow_mods { //  ion, a, ei, rs 
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            require-prior-idle-ms = <40>;
-            quick-tap-ms = <180>; 
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
-        };
-        am: automod  {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick_tap_ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
-    
     macros {
         bt_dc_all: bt_dc_all {
             compatible = "zmk,behavior-macro";
