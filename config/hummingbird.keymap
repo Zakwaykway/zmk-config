@@ -45,6 +45,19 @@
     release-after-ms = <300>;
 };
 
+ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
+    tapping-term-ms = <300>;
+    bindings =
+        <&mt LS(LA(LC(LG(N2)))) LS(LA(LC(LG(N1))))>,
+        <&kp PRINTSCREEN>;
+)
+ZMK_TAP_DANCE(ss_crop, // tap copy, hold save
+    tapping-term-ms = <300>;
+    bindings =
+        <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>;
+        <&none>;
+)
+
 / {
     behaviors {
         //autoshift? test parameterized macro from autoshift example) 
@@ -65,20 +78,8 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
-            tapping-term-ms = <300>;
-            bindings =
-                <&mt LS(LA(LC(LG(N1)))) LS(LA(LC(LG(N2))))>,
-                <&kp PRINTSCREEN>;
-        )
-        ZMK_TAP_DANCE(ss_crop, // tap copy, hold save
-            tapping-term-ms = <300>;
-            bindings =
-                <&mt LS(LA(LC(LG(N3)))) LS(LA(LC(LG(N4))))>;
-                <&none>;
-        )
     };
-
+    
     macros {
         bt_dc_all: bt_dc_all {
             compatible = "zmk,behavior-macro";
