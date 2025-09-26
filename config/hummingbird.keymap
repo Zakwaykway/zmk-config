@@ -65,14 +65,17 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        td1ss: screenshot_tapdance12 { // copy screenshots
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LS(LA(LC(LG(N1))))>,
-                <&mt PRINTSCREEN LS(LA(LC(LG(N2))))>;
+        ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
             tapping-term-ms = <300>;
-        };
+            bindings =
+                <&mt LS(LA(LC(LG(N1)))) LS(LA(LC(LG(N2))))>,
+                <&kp PRINTSCREEN>;
+        )
+        ZMK_TAP_DANCE(ss_save, // tap copy, hold save
+            tapping-term-ms = <300>;
+            bindings =
+                <&mt LS(LA(LC(LG(N3)))) LS(LA(LC(LG(N4))))>;
+        )
         td2ss: screenshot_tapdance34 { // save screenshots
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -109,13 +112,13 @@
     combos {
         compatible = "zmk,combos";
     // alphas
-        semicolon { // .
+        v { // v
             key-positions = <2 3>;
-            bindings = <&am SCLN COLON>;
+            bindings = <&kp V>;
         };
-        comma_period { // , .
+        semicolon { // , .
             key-positions = <24 25>;
-            bindings = <&am DOT COMMA>;
+            bindings = <&mt COLON SCLN>;
         };
         qucombo { // qu
             key-positions = <20 21>;
@@ -236,7 +239,7 @@
 // TODO try to move to 2 thumb keys? :3
 &am LG(Z) Z &kp W         &kp F        &kp P       &kp B      &kp K  &kp L       &kp U       &kp Y          &kp APOS
 &hrm LSHIFT A &hrm LCTRL R  &hrm LGUI S  &hrm LALT T &kp G      &kp M  &hrm LALT N &hrm LGUI E &hrm LCTRL I &hrm LSHIFT O
-      &am LG(V) V  &am LG(C) C    &kp D             &kp H       &kp COMMA   &kp X
+      &am LG(X) X  &am LG(C) C    &kp D             &kp H       &kp COMMA   &kp DOT
 &mo NUM &mt LSHIFT TAB &lt NAV SPACE &mo MSE
             >;
         };
