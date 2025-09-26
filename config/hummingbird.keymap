@@ -6,6 +6,7 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1900  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 14    // default: 10
 #define ZMK_HELPER_KEEP_NATIVE 1 // native c macro for macro
+
 #include "zmk-helpers/key-labels/hummingbird.h"
 #include <behaviors.dtsi>
 #include "zmk-helpers/helper.h"
@@ -82,12 +83,21 @@
     };
 
     macros {
-        ZMK_MACRO(bt_dc_all,
-            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;)
-        ZMK_MACRO(win_usb,
-            bindings = <&out OUT_USB &tog WCMK>;)
-        ZMK_MACRO(qu,
-            bindings = <&kp Q &kp U>;)
+        bt_dc_all: bt_dc_all {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
+        };
+        win_usb: win_usb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_USB &tog WCMK>;
+        };
+        qu: qu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Q &kp U>;
+        };
         bt_c_c: bt_c_c {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
