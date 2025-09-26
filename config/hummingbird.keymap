@@ -71,19 +71,12 @@
                 <&mt LS(LA(LC(LG(N1)))) LS(LA(LC(LG(N2))))>,
                 <&kp PRINTSCREEN>;
         )
-        ZMK_TAP_DANCE(ss_save, // tap copy, hold save
+        ZMK_TAP_DANCE(ss_crop, // tap copy, hold save
             tapping-term-ms = <300>;
             bindings =
                 <&mt LS(LA(LC(LG(N3)))) LS(LA(LC(LG(N4))))>;
+                <&none>;
         )
-        td2ss: screenshot_tapdance34 { // save screenshots
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LS(LA(LC(LG(N3))))>,
-                <&kp LS(LA(LC(LG(N4))))>;
-            tapping-term-ms = <300>;
-        };
     };
 
     macros {
@@ -282,9 +275,9 @@
         NAV { //5
             display-name = "Navigation";
             bindings = <
-&td1ss     &kp LGUI     &kp TAB  &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
-&sk LSHFT &sk LCTRL &sk LGUI &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
-          &td2ss    &kp INS  &kp SPACE                               &kp BSPC    &none     &none
+&ss_screen &kp LGUI     &kp TAB  &kp ESC   &kp C_VOL_UP    &kp C_VOL_UP  &kp C_PREV  &kp UP    &kp C_FF   &kp C_PP
+&sk LSHFT  &sk LCTRL &sk LGUI &sk LALT  &kp C_VOL_DN    &kp C_VOL_DN  &kp LEFT    &kp DOWN  &kp RIGHT  &kp DEL
+           &ss_crop    &kp INS  &kp SPACE                               &kp BSPC    &none     &none
 &trans &trans &trans &trans
             >;
         };
