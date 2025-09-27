@@ -86,9 +86,6 @@ ZMK_MOD_MORPH(5arrow, // TEST TEST TEST TEST
 ZMK_MACRO(bt_dc_all, // disconnect all bt
     bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
 )
-ZMK_MACRO(win_usb, // usb and winlayer
-    bindings = <&out OUT_USB &tog WCK>;
-)
 ZMK_MACRO(qu,
     bindings = <&kp Q &kp U>;
 )
@@ -106,7 +103,6 @@ ZMK_MACRO_ONE_PARAM(5arr, //5x arrow on ctrl held
 */
 
 // combos
-ZMK_COMBO(v_win,        &am LC(V) V,          LT2 LT1,            WCK) // ctrl instead of gui
 ZMK_COMBO(v,            &am LG(V) V           LT2 LT1,            ALL) // v
 ZMK_COMBO(semicolon,    &mt COLON SCLN,       RB2 RB3,            ALL) // ; :
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
@@ -194,20 +190,20 @@ ZMK_LAYER(Function, // FUN 5
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp F6         &kp F7         &kp F8         &kp F9         &kp F10            &none         &bt_c 0        &bt_c 1        &bt_c 2        &bt_c 3
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp F11        &kp F12        &none                                           &tog CMK       &tog WCK       &none     
+                   &kp F11        &kp F12        &none                                           &to CMK        &none          &none     
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 ZMK_LAYER(FastMouse, // MMV 6 topmost
-    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans
 )
 
 
 
-/*ZMK_LAYER(Windows, // WCK2
+/*ZMK_LAYER(Windows, // WCK 2
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &am LC(Z) Z    &trans         &trans         &trans         &trans             &trans        &trans         &trans         &trans         &trans
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
