@@ -41,10 +41,10 @@
 
 
 // overrides
-&mmv_input_listener { speeder {
+/*&mmv_input_listener { speeder {
         layers = <MMV>;
         input-processors = <&zip_xy_scaler 7 2>;
-    }; };
+    }; };*/
 &mmv {
     trigger-period-ms = <8>;
     time-to-max-speed-ms = <350>;
