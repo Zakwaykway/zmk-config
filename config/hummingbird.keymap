@@ -96,7 +96,7 @@ ZMK_MACRO(qu,
     bindings = <&kp Q &kp U>;
 )
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
-    bindings = <&macro_param_1to2  &bt BT_SEL param  &out OUT_BLE>;
+    bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
 /* 
 ZMK_MACRO_ONE_PARAM(placeholder, // parametric placeholder for modmorph
@@ -148,7 +148,7 @@ ZMK_LAYER(Colemak, //0
 )
 
 
-/{
+/ {
     keymap {
         compatible = "zmk,keymap";
         QWR { //1
