@@ -17,12 +17,12 @@
 #include "zmk-helpers/key-labels/hummingbird.h"
 
 #define CMK 0
-#define QWR 1
-#define NUM 2
-#define MSE 3
-#define NAV 4
-#define FUN 5
-#define MMV 6
+#define NUM 1
+#define MSE 2
+#define NAV 3
+#define FUN 4
+#define MMV 5
+
 
 
 // mouse layer is the least used layer. Move it somehow?
@@ -105,7 +105,7 @@ ZMK_MACRO_ONE_PARAM(5arr, //5x arrow on ctrl held
 */
 
 // combos
-ZMK_COMBO(v,            &am LG(V) V           LT2 LT1,            ALL) // v
+ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
 ZMK_COMBO(semicolon,    &mt COLON SCLN,       RB2 RB3,            ALL) // ; :
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
@@ -118,7 +118,6 @@ ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxili
 ZMK_COMBO(bl_l,         &bootloader,          LT4 LT0 LM4 LM0,    ALL) // bootloader left (inner+outer)
 ZMK_COMBO(bl_r,         &bootloader,          RT0 RT4 RM0 RM4,    ALL) // bootloader right (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              LH1 LH0,            ALL) // FUN layer
-ZMK_COMBO(QWR,          &tog QWR,             LT4 RT4 LM4 RM4,    ALL) // QWR layer (all pinkies)
 ZMK_COMBO(CMK,          &to CMK,         LM3 LM2 LM1 RM1 RM2 RM3, ALL) // colemak layer
 ZMK_COMBO(msctrl,       &kp LC(LA(UP)),       LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // ( 
@@ -129,6 +128,7 @@ ZMK_COMBO(at_pound,     &mt POUND AT,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
 ZMK_COMBO(free1,        &trans,/*L BOT index*/ LM1 LB1,           ALL) // ~ (free)
 ZMK_COMBO(free2,        &trans,/*R BOT index*/ RM1 RB1,           ALL) // # (free)
+//ZMK_COMBO(QWR,          &tog QWR,             LT4 RT4 LM4 RM4,    ALL) // QWR layer (all pinkies)
 
 
 ZMK_LAYER(Colemak, // CMK 0
@@ -139,32 +139,21 @@ ZMK_LAYER(Colemak, // CMK 0
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &kp COMMA      &kp DOT
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &mo NUM        &mt LSHIFT TAB     &lt NAV SPACE &mo MSE
+                                                 &mo NUM        &mt LSHIFT TAB     &lt NAV SPACE &none //&mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Qwerty, // QWR 1
+ZMK_LAYER(Numbers, // NUM 1
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y         &kp U          &kp I          &kp O          &kp P
+    &kp BSLH       &kp LT         &kp GT         &kp DLLR       &kp CARET          &kp PIPE      &kp N7         &kp N8         &kp N9         &kp PLUS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT A  &hrm LCTRL S   &hrm LGUI D    &hrm LALT F    &kp G              &kp H         &hrm LALT J    &hrm LGUI K    &hrm LCTRL L   &hrm LSHIFT B
+    &hrm LSHIFT GRAVE &hrm LCTRL EQUAL &hrm LGUI FSLH &hrm LALT MINUS &kp PRCNT    &kp AMPS      &hrm LALT N4   &hrm LGUI N5   &hrm LCTRL N6  &hrm LSHIFT N0
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LG(X) X    &am LG(C) C    &kp V                                           &kp N          &kp COMMA      &kp DOT
+                   &kp  COMMA     &kp  DOT       &kp  TILDE                                      &kp N1         &kp N2         &kp N3
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Numbers, // NUM 2
-// ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp GRAVE      &kp LT         &kp GT         &kp DLLR       &kp CARET          &kp PIPE      &kp N7         &kp N8         &kp N9         &kp PLUS
-// ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT BSLH &hrm LCTRL EQUAL &hrm LGUI FSLH &hrm LALT MINUS &kp PRCNT     &kp AMPS      &hrm LALT N4   &hrm LGUI N5   &hrm LCTRL N6  &hrm LSHIFT N0 
-// ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp COMMA      &kp DOT        &kp TILDE                                       &kp N1         &kp N2         &kp N3
-//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &trans         &trans             &trans        &trans
-//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
-)
-ZMK_LAYER(Mouse, // MSE 3
+ZMK_LAYER(Mouse, // MSE 2
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &none          &mkp MB2       &msc SCRL_DOWN &mo MMV        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &mmv MOVE_UP   &kp C_NEXT     &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -175,29 +164,29 @@ ZMK_LAYER(Mouse, // MSE 3
                                                  &mkp MB3       &mkp MB1           &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Navigation, // NAV 4
+ZMK_LAYER(Navigation, // NAV 3
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &ss_screen     &kp LGUI       &kp TAB        &kp ESC        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &sk LSHFT      &sk LCTRL      &sk LGUI       &sk LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       &kp INS        &kp SPACE                                       &kp BSPC       &none          &none      
+                   &ss_crop       &kp INS        &kp SPACE                                       &kp BSPC       &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Function, // FUN 5
+ZMK_LAYER(Function, // FUN 4
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &none         &out OUT_BLE   &out OUT_USB   &none          &none
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp F6         &kp F7         &kp F8         &kp F9         &kp F10            &none         &bt_c 0        &bt_c 1        &bt_c 2        &bt_c 3
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp F11        &kp F12        &none                                           &to CMK        &none          &none     
+                   &kp F11        &kp F12        &none                                           &to CMK        &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(FastMouse, // MMV 6 topmost
+ZMK_LAYER(Fast, // MMV 5 topmost
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans
@@ -206,7 +195,18 @@ ZMK_LAYER(FastMouse, // MMV 6 topmost
 
 
 
-/*ZMK_LAYER(Windows, // WCK 2
+/*ZMK_LAYER(Qwerty, // QWR 1
+// ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
+    &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y         &kp U          &kp I          &kp O          &kp P
+// ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &hrm LSHIFT A  &hrm LCTRL S   &hrm LGUI D    &hrm LALT F    &kp G              &kp H         &hrm LALT J    &hrm LGUI K    &hrm LCTRL L   &hrm LSHIFT B
+// ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
+                   &am LG(X) X    &am LG(C) C    &kp V                                           &kp N          &kp COMMA      &kp DOT
+//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
+                                                 &trans         &trans             &trans        &trans
+//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
+)
+ZMK_LAYER(Windows, // WCK 2
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &am LC(Z) Z    &trans         &trans         &trans         &trans             &trans        &trans         &trans         &trans         &trans
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
