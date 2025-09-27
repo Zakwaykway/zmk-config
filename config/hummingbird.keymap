@@ -69,13 +69,13 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
         <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
         <&kp LS(LG(S))>;
 )
-
 /*
 ZMK_MOD_MORPH(5arrow, // TEST TEST TEST TEST
     bindings = <&placeholder>, <&5arr>;
     mods = <(MOD_LCTL)>;
 )
 */
+
 
 // macros
 ZMK_MACRO(bt_dc_all, // disconnect all bt
@@ -88,10 +88,10 @@ ZMK_MACRO(qu,
     bindings = <&kp Q &kp U>;
 )
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
-    bindings = <&macro_param_1to1>, <&bt BT_SEL param>, <&out OUT_BLE>;
+    bindings = <&macro_param_1to2>, <&bt BT_SEL param>, <&out OUT_BLE>;
 )
-
-/* ZMK_MACRO_ONE_PARAM(placeholder, // parametric placeholder for modmorph
+/* 
+ZMK_MACRO_ONE_PARAM(placeholder, // parametric placeholder for modmorph
     bindings = <&macro_param_1to1>, <&kp param>;
 )
 ZMK_MACRO_ONE_PARAM(5arr, //5x arrow on ctrl held
