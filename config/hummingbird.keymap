@@ -26,6 +26,14 @@
 #define FUN 7
 #define MMV 8
 
+
+// mouse layer is the least used layer. Move it somehow?
+// try to move to 2 thumb keys? alpha thumb? new layout????
+// 5x arrow on holding ctrl
+// combo for altshift
+// --> mastercam layer
+
+
 // overrides
 &mmv_input_listener { speeder {
         layers = <MMV>;
@@ -88,15 +96,15 @@ ZMK_MACRO(qu,
     bindings = <&kp Q &kp U>;
 )
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
-    bindings = <&macro_param_1to2>, <&bt BT_SEL param>, <&out OUT_BLE>;
+    bindings = <&macro_param_1to2  &bt BT_SEL param  &out OUT_BLE>;
 )
 /* 
 ZMK_MACRO_ONE_PARAM(placeholder, // parametric placeholder for modmorph
     bindings = <&macro_param_1to1>, <&kp param>;
 )
 ZMK_MACRO_ONE_PARAM(5arr, //5x arrow on ctrl held
-    bindings = <&macro_param_1to1>, <&kp param &kp param &kp param &kp param &kp param>;
-)           // theoretically, it'll look like ... &5arrow LEFT, &5arrow DOWN, etc
+    bindings = <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>;
+)           // theoretically, keymap'll look like ... &5arrow LEFT, &5arrow DOWN, etc
             // should turn into [param], [5x param]
 */
 
@@ -125,7 +133,6 @@ ZMK_COMBO(at_pound,     &mt POUND AT,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
 ZMK_COMBO(free1,        &none,/*L BOT index*/ LM1 LB1,            ALL) // ~ (free)
 ZMK_COMBO(free2,        &none,/*R BOT index*/ RM1 RB1,            ALL) // # (free)
-// TODO add a combo for altshift
 
 
 ZMK_LAYER(Colemak, //0
@@ -144,8 +151,6 @@ ZMK_LAYER(Colemak, //0
 /{
     keymap {
         compatible = "zmk,keymap";
-// TODO mouse layer is the least used layer. Put it on a combo.
-// TODO try to move to 2 thumb keys? :3
         QWR { //1
             display-name = "Qwerty";
             bindings = <
