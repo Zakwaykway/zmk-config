@@ -52,7 +52,14 @@
 ZMK_HOLD_TAP(hrm, // HRM
     flavor = "tap-preferred";
     tapping-term-ms = <200>;
-    require-prior-idle-ms = <45>;
+    require-prior-idle-ms = <50>;
+    quick-tap-ms = <180>;
+    bindings = <&kp>, <&kp>;
+)
+ZMK_HOLD_TAP(tl, // timeless
+    flavor = "balanced";
+    tapping-term-ms = <350>;
+    require-prior-idle-ms = <50>;
     quick-tap-ms = <180>;
     bindings = <&kp>, <&kp>;
 )
@@ -76,10 +83,10 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
         <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
         <&kp LS(LG(S))>;
 )
-ZMK_MOD_MORPH(arrows, // TEST TEST TEST TEST
-    bindings = <&placeholder>, <&5arr>;
-    mods = <(MOD_LCTL)>;
-)
+ZMK_MOD_MORPH(5U, bindings = <&kp UP>, <&M5L>; mods = <(MOD_LCTL)>;)
+ZMK_MOD_MORPH(5L, bindings = <&kp LEFT>, <&M5L>; mods = <(MOD_LCTL)>;)
+ZMK_MOD_MORPH(5D, bindings = <&kp DOWN>, <&M5D>; mods = <(MOD_LCTL)>;)
+ZMK_MOD_MORPH(5R, bindings = <&kp RIGHT>, <&M5R>; mods = <(MOD_LCTL)>;)
 
 
 // macros
@@ -93,13 +100,10 @@ ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
 
-ZMK_MACRO_ONE_PARAM(placeholder, // parametric placeholder for modmorph
-    bindings = <&macro_param_1to1>, <&kp param>;
-)
-ZMK_MACRO_ONE_PARAM(5arr, //5x arrow on ctrl held
-    bindings = <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>;
-)           // theoretically, keymap'll look like ... &5arrow LEFT, &5arrow DOWN, etc
-            // should turn into [param], [5x param]
+ZMK_MACRO_ONE_PARAM(M5U, bindings = <&kp UP &kp UP &kp UP &kp UP &kp UP>;)
+ZMK_MACRO_ONE_PARAM(M5L, bindings = <&kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT>;)
+ZMK_MACRO_ONE_PARAM(M5D, bindings = <&kp DOWN &kp DOWN &kp DOWN &kp DOWN &kp DOWN>;)
+ZMK_MACRO_ONE_PARAM(M5R, bindings = <&kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT>;)
 
 // combos
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
@@ -109,7 +113,7 @@ ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slash,        &kp SLASH,            RT2 RT3,            ALL) // /
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 20) // esc
-ZMK_COMBO(entr,         &kp ENTER,            LM3 LM2,            ALL, 33, 45) // enter
+ZMK_COMBO(tab,          &kp TAB,              LM3 LM2,            ALL, 33, 45) // tab
 ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            ALL, 33, 52) // backspace
 ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace 
 ZMK_COMBO(bl_l,         &bootloader,          LT4 LT0 LM4 LM0,    ALL) // bootloader left (inner+outer)
@@ -136,7 +140,7 @@ ZMK_LAYER(Colemak, // CMK 0
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &kp COMMA      &kp DOT
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &mo NUM        &mt LSHIFT TAB     &lt NAV SPACE &mo MSE
+                                                 &mo NUM        &mt LSHIFT ENTER   &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 ZMK_LAYER(Numbers, // NUM 1
