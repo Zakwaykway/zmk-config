@@ -16,6 +16,10 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/hummingbird.h"
 
+#define LH1 27
+#define LH0 28
+#define RH0 29
+#define RH1 30
 #define CMK 0
 #define NUM 1
 #define MSE 2
@@ -23,7 +27,7 @@
 #define FUN 4
 #define MMV 5
 
-
+// hold-while-undecided(-linger)
 // disable permissive hold specifically for pinkies;
 // mouse layer is the least used layer. Move it somehow?
 // try to move to 2 thumb keys? alpha thumb? new layout????
@@ -76,6 +80,11 @@ ZMK_HOLD_TAP(am, // automod
     quick-tap-ms = <200>;
     bindings = <&kp>, <&kp>;
 )
+ZMK_HOLD_TAP(blr, // bootloader + reset
+    flavor = "balanced";
+    tapping-term-ms = <350>;
+    bindings = <&bootloader>, <&reset>;
+)
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
     bindings =
@@ -88,6 +97,9 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
         <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
         <&kp LS(LG(S))>;
 )
+
+//ZMK_TAP_DANCE()
+
 /*
 ZMK_MOD_MORPH(5U, 
     bindings = <&kp UP>, <&M5L>; 
@@ -114,21 +126,21 @@ ZMK_MACRO_ONE_PARAM(M5L, bindings = <&kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEF
 ZMK_MACRO_ONE_PARAM(M5D, bindings = <&kp DOWN &kp DOWN &kp DOWN &kp DOWN &kp DOWN>;)
 ZMK_MACRO_ONE_PARAM(M5R, bindings = <&kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT>;)
 
-// combos
+// combos                                                         lyr, t/o, idl
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
 ZMK_COMBO(semicolon,    &mt COLON SCLN,       RB2 RB3,            ALL) // ; :
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slash,        &kp SLASH,            RT2 RT3,            ALL) // /
-ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 20) // esc
+ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 25) // esc
 ZMK_COMBO(tab,          &kp TAB,              LM3 LM2,            ALL, 33, 45) // tab
-ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            ALL, 33, 52) // backspace
-ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace 
-ZMK_COMBO(bl_l,         &bootloader,          LT4 LT0 LM4 LM0,    ALL) // bootloader left (inner+outer)
-ZMK_COMBO(bl_r,         &bootloader,          RT0 RT4 RM0 RM4,    ALL) // bootloader right (inner+outer)
-ZMK_COMBO(FUN,          &mo FUN,              26 27,            ALL) // FUN layer
-ZMK_COMBO(CMK,          &to CMK,         LM3 LM2 LM1 RM1 RM2 RM3, ALL) // colemak layer
+ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            ALL, 55) // backspace
+ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace
+ZMK_COMBO(blr_l,        &blr,                 LT4 LT0 LM4 LM0,    ALL) // bootloader left (inner+outer)
+ZMK_COMBO(blr_r,        &blr,                 RT0 RT4 RM0 RM4,    ALL) // bootloader right (inner+outer)
+ZMK_COMBO(FUN,          &mo FUN,              26 27,              ALL) // FUN layer
+ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // colemak layer
 ZMK_COMBO(msctrl,       &kp LC(LA(UP)),       LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // ( 
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // [
@@ -138,7 +150,7 @@ ZMK_COMBO(at_pound,     &mt POUND AT,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
 ZMK_COMBO(free1,        &trans,/*L BOT index*/ LM1 LB1,           ALL) // ~ (free)
 ZMK_COMBO(free2,        &trans,/*R BOT index*/ RM1 RB1,           ALL) // # (free)
-//ZMK_COMBO(QWR,          &tog QWR,             LT4 RT4 LM4 RM4,    ALL) // QWR layer (all pinkies)
+// ZMK_COMBO(QWR,          &tog QWR,             LT4 RT4 LM4 RM4,    ALL) // QWR layer (all pinkies)
 
 
 ZMK_LAYER(Colemak, // CMK 0
