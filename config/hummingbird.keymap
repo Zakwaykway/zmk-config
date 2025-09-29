@@ -1,11 +1,5 @@
-/*
- * Copyright (c) 2022 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1900  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 14    // default: 10
-// #define ZMK_HELPER_KEEP_NATIVE 1
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -82,8 +76,8 @@ ZMK_HOLD_TAP(am, // automod
 )
 ZMK_HOLD_TAP(blr, // bootloader + reset
     flavor = "balanced";
-    tapping-term-ms = <350>;
-    bindings = <&bootloader>, <&reset>;
+    tapping-term-ms = <275>;
+    bindings = <&bootloader>, <&sys_reset>;
 )
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
@@ -99,16 +93,6 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
 )
 
 //ZMK_TAP_DANCE()
-
-/*
-ZMK_MOD_MORPH(5U, 
-    bindings = <&kp UP>, <&M5L>; 
-    mods = <(MOD_LCTL)>;
-)
-ZMK_MOD_MORPH(5L, bindings = <&kp LEFT>, <&M5L>; mods = <(MOD_LCTL)>;)
-ZMK_MOD_MORPH(5D, bindings = <&kp DOWN>, <&M5D>; mods = <(MOD_LCTL)>;)
-ZMK_MOD_MORPH(5R, bindings = <&kp RIGHT>, <&M5R>; mods = <(MOD_LCTL)>;)
-*/
 
 // macros
 ZMK_MACRO(bt_dc_all, // disconnect all bt
@@ -137,27 +121,27 @@ ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 25) /
 ZMK_COMBO(tab,          &kp TAB,              LM3 LM2,            ALL, 33, 45) // tab
 ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            ALL, 55) // backspace
 ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace
-ZMK_COMBO(blr_l,        &blr,                 LT4 LT0 LM4 LM0,    ALL) // bootloader left (inner+outer)
-ZMK_COMBO(blr_r,        &blr,                 RT0 RT4 RM0 RM4,    ALL) // bootloader right (inner+outer)
-ZMK_COMBO(FUN,          &mo FUN,              26 27,              ALL) // FUN layer
-ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // colemak layer
-ZMK_COMBO(msctrl,       &kp LC(LA(UP)),       LT3 LT2 LT1,        ALL) // mission control
-ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // ( 
-ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // [
+ZMK_COMBO(blr_l,        &blr,                 LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
+ZMK_COMBO(blr_r,        &blr,                 RT0 RT4 RM0 RM4,    ALL) // rst right (inner+outer)
+ZMK_COMBO(FUN,          &mo FUN,              LH1 LH0,/*27 28*/   ALL) // FUN
+ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK
+ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
+ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
+ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
 ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
 ZMK_COMBO(at_pound,     &mt POUND AT,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
-ZMK_COMBO(free1,        &trans,/*L BOT index*/ LM1 LB1,           ALL) // ~ (free)
-ZMK_COMBO(free2,        &trans,/*R BOT index*/ RM1 RB1,           ALL) // # (free)
-// ZMK_COMBO(QWR,          &tog QWR,             LT4 RT4 LM4 RM4,    ALL) // QWR layer (all pinkies)
+ZMK_COMBO(period,       &kp DOT,/*LB index*/  LM1 LB1,            ALL) // .
+ZMK_COMBO(comma,        &kp COMMA,/*LB mid*/  LM2 LB2,            ALL) // ,
+ZMK_COMBO(free,         &trans,/*RB index*/   RM1 RB1,            ALL) // (free)
 
 
 ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &am LG(Z) Z    &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT A  &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &am LPAR G         &am RPAR M    &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrm LSHIFT O
+    &hrm LSHIFT A  &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &am LPAR G         &am AMPS M    &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrm LSHIFT O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &kp COMMA      &kp DOT
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
