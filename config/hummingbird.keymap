@@ -5,7 +5,7 @@
  */
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1900  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 14    // default: 10
-#define ZMK_HELPER_KEEP_NATIVE 1
+// #define ZMK_HELPER_KEEP_NATIVE 1
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -24,12 +24,17 @@
 #define MMV 5
 
 
-
+// disable permissive hold specifically for pinkies;
 // mouse layer is the least used layer. Move it somehow?
 // try to move to 2 thumb keys? alpha thumb? new layout????
 // 5x arrow on holding ctrl
 // combo for altshift
-// --> macro layer
+// --> macro layer, triggering on mouse (sensor? processor?)
+//      save
+//      del (morph?)
+//      esc/enter
+//      send held when holding mods
+//      macro for  +Lalt 1, f1 -Lalt
 
 
 // overrides
@@ -46,7 +51,7 @@
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>;
 };
-&sk { release-after-ms = <250>; };
+// &sk { release-after-ms = <250>; };
 
 // behaviours
 ZMK_HOLD_TAP(hrm, // HRM
@@ -173,7 +178,7 @@ ZMK_LAYER(Navigation, // NAV 3
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &ss_screen     &kp LGUI       &kp TAB        &kp ESC        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &sk LSHFT      &sk LCTRL      &sk LGUI       &sk LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
+    &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &ss_crop       &kp INS        &kp SPACE                                       &kp BSPC       &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
