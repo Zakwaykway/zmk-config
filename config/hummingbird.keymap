@@ -83,6 +83,7 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
         <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
         <&kp LS(LG(S))>;
 )
+/*
 ZMK_MOD_MORPH(5U, 
     bindings = <&kp UP>, <&M5L>; 
     mods = <(MOD_LCTL)>;
@@ -90,7 +91,7 @@ ZMK_MOD_MORPH(5U,
 ZMK_MOD_MORPH(5L, bindings = <&kp LEFT>, <&M5L>; mods = <(MOD_LCTL)>;)
 ZMK_MOD_MORPH(5D, bindings = <&kp DOWN>, <&M5D>; mods = <(MOD_LCTL)>;)
 ZMK_MOD_MORPH(5R, bindings = <&kp RIGHT>, <&M5R>; mods = <(MOD_LCTL)>;)
-
+*/
 
 // macros
 ZMK_MACRO(bt_dc_all, // disconnect all bt
