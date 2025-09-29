@@ -76,12 +76,10 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
         <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
         <&kp LS(LG(S))>;
 )
-/*
-ZMK_MOD_MORPH(5arrow, // TEST TEST TEST TEST
+ZMK_MOD_MORPH(arrows, // TEST TEST TEST TEST
     bindings = <&placeholder>, <&5arr>;
     mods = <(MOD_LCTL)>;
 )
-*/
 
 
 // macros
@@ -94,7 +92,7 @@ ZMK_MACRO(qu,
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
-/* 
+
 ZMK_MACRO_ONE_PARAM(placeholder, // parametric placeholder for modmorph
     bindings = <&macro_param_1to1>, <&kp param>;
 )
@@ -102,7 +100,6 @@ ZMK_MACRO_ONE_PARAM(5arr, //5x arrow on ctrl held
     bindings = <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>, <&macro_param_1to1>, <&kp param>;
 )           // theoretically, keymap'll look like ... &5arrow LEFT, &5arrow DOWN, etc
             // should turn into [param], [5x param]
-*/
 
 // combos
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
@@ -177,11 +174,11 @@ ZMK_LAYER(Navigation, // NAV 3
 )
 ZMK_LAYER(Function, // FUN 4
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &out OUT_BLE  &to CMK        &none          &none          &none
+    &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &bt BT_CLR_ALL &out OUT_BLE  &out OUT_USB   &to CMK        &none
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp F6         &kp F7         &kp F8         &kp F9         &kp F10            &out OUT_USB  &bt_c 0        &bt_c 1        &bt_c 2        &bt_c 3
+    &kp F6         &kp F7         &kp F8         &kp F9         &kp F10            &bt BT_CLR    &bt_c 0        &bt_c 1        &bt_c 2        &bt_c 3
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp F11        &kp F12        &none                                           &bt_dc_all     &bt BT_CLR     &bt BT_CLR_ALL
+                   &kp F11        &kp F12        &none                                           &bt_dc_all     &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
@@ -193,15 +190,15 @@ ZMK_LAYER(Fast, // MMV 5 topmost
 &trans &trans &trans &trans
 )
 
-/*ZMK_LAYER(Macro,
+/*ZMK_LAYER(Productivity, // PRD *
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
-    &placeholder  &placeholder  &placeholder  &placeholder  &placeholder       &placeholder &placeholder  &placeholder  &placeholder  &placeholder
+    &tapdance [view macro] mt([view macro 2] [save])          &kp N9         &kp N8         &kp N7         &none              &none &none  &none  &none  &none
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &placeholder  &placeholder  &placeholder  &placeholder  &placeholder       &placeholder &placeholder  &placeholder  &placeholder  &placeholder
+    &hrm LSHIFT N0 &hrm LCTRL N6  &hrm LGUI N5   &hrm LALT N4   &none              &none &none  &none  &none  &none
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &placeholder  &placeholder  &placeholder                                  &placeholder  &placeholder  &placeholder
+                   &kp N3         &kp N2         &kp N1                                  &none  &none  &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &trans         &trans             &trans        &trans
+                                                 &kp BSPC       &mo NUM            &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 ZMK_LAYER(Qwerty, // QWR 1
