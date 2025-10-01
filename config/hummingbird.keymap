@@ -23,14 +23,11 @@
 #define MMV 5
 
 // --- enable ctrl tab somehow
-// --- enable shift enter
-// hold-while-undecided(-linger)
 // test balanced hrm for middle, index, inner
 // with tap-preferred for pinky, ring
 // mouse layer is the least used layer. Move it somehow?
 // try to move to 2 thumb keys? alpha thumb? new layout????
 // 5x arrow on holding ctrl
-// combo for altshift
 // --> macro layer, triggering on mouse (sensor? processor?)
 //      save
 //      del (morph?)
@@ -46,8 +43,8 @@
 };
 &mmv {
     trigger-period-ms = <8>;
-    time-to-max-speed-ms = <350>;
-    acceleration-exponent = <2>;
+    time-to-max-speed-ms = <340>;
+    acceleration-exponent = <1>;
 };
 &msc {
     time-to-max-speed-ms = <1000>;
@@ -70,6 +67,13 @@ ZMK_HOLD_TAP(hrl, // HR layer
     require-prior-idle-ms = <75>;
     quick-tap-ms = <180>;
     bindings = <&mo>, <&kp>;
+)
+ZMK_HOLD_TAP(hrsk, // HR sticky
+    flavor = "balanced";
+    tapping-term-ms = <180>;
+    require-prior-idle-ms = <75>;
+    quick-tap-ms = <180>;
+    bindings = <&sk>, <&kp>;
 )
 ZMK_HOLD_TAP(tl, // timeless
     flavor = "balanced";
@@ -104,13 +108,14 @@ ZMK_TAP_DANCE(ss_crop, // same as ^
 )
 ///////////
 //make period/comma HORIZONTAL combos instead of vertical
+//  &tapdance [view macro] mt([view macro 2] [save]) 
+// LA(LSHIFT) language swap
 ZMK_TAP_DANCE(cam,
     tapping-term-ms = <200>;
     bindings =
     <&mt LA(F1) LA(N1)>,
     <&kp LC(S)>;
 )
-//  &tapdance [view macro] mt([view macro 2] [save]) 
 ZMK_MOD_MORPH(cmdq,
     bindings = <&qu>, <&kp LG(Q)>;
     mods = <MOD_LGUI>;
@@ -128,18 +133,20 @@ ZMK_MACRO(qu,
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
+ZMK_MACRO(free, bindings = <&none>;) // marker for free spots
 
 // combos                                                         lyr, t/o, idl
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
+ZMK_COMBO(v2,           &am LG(V) V,          LM1 LM0,            ALL) // v2
 ZMK_COMBO(semicolon,    &mt COLON SCLN,       RB2 RB3,            ALL) // ; :
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 25, 50) // _
 ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slash,        &kp SLASH,            RT2 RT3,            ALL) // /
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(tab,          &kp TAB,              LM3 LM2,            ALL, 33, 50) // tab
-ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            ALL, 55, 50) // backspace
+ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            ALL, 55, 40) // backspace
 ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace
 ZMK_COMBO(blr_l,        &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(blr_r,        &blr 0 0,             RT0 RT4 RM0 RM4,    ALL) // rst right (inner+outer)
@@ -154,12 +161,13 @@ ZMK_COMBO(at_pound,     &mt POUND AT,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
 ZMK_COMBO(period,       &kp DOT,/*LB index*/  LM1 LB1,            ALL) // .
 ZMK_COMBO(comma,        &kp COMMA,/*LB mid*/  LM2 LB2,            ALL) // ,
-ZMK_COMBO(free,         &trans,/*RB index*/   RM1 RB1,            ALL) // (free)
-
+ZMK_COMBO(free,         &free, /*RB index*/   RM1 RB1,            ALL) //
+ZMK_COMBO(free2,        &free, /*RM innin*/   RM0 RM1,            ALL) //
+// LA(LSHIFT) language swap
 
 ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &am LG(Z) Z    &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
+    &hrm LSHIFT Z  &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &am LPAR G         &am RPAR M    &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrm LSHIFT O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
@@ -170,9 +178,9 @@ ZMK_LAYER(Colemak, // CMK 0
 )
 ZMK_LAYER(Numbers, // NUM 1
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp BSLH       &kp LT         &kp GT         &kp DLLR       &kp CARET          &kp PIPE      &kp N7         &kp N8         &kp N9         &kp PLUS
+    &none          &kp PLUS       &kp BSLH       &kp DLLR       &kp CARET          &kp PIPE      &kp N7         &kp N8         &kp N9         &kp GRAVE
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp GRAVE      &hrm LCTRL EQUAL &hrm LGUI FSLH &hrm LALT MINUS &kp PRCNT    &kp AMPS      &hrm LALT N4   &hrm LGUI N5   &hrm LCTRL N6  &hrm LSHIFT N0
+    &none          &hrm LCTRL EQUAL &hrm LGUI FSLH &hrm LALT MINUS &kp PRCNT       &kp AMPS      &hrm LALT N4   &hrm LGUI N5   &hrm LCTRL N6  &hrm LSHIFT N0
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &kp  COMMA     &kp  DOT       &kp  TILDE                                      &kp N1         &kp N2         &kp N3
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
@@ -192,11 +200,11 @@ ZMK_LAYER(Mouse, // MSE 2
 )
 ZMK_LAYER(Navigation, // NAV 3
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_screen     &kp LGUI       &kp TAB        &kp ESC        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_screen     &free          &kp TAB        &kp ESC        &free              &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
+    &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &free              &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       &kp INS        &kp SPACE                                       &kp BSPC       &none          &none
+                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &free          &free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
@@ -207,7 +215,7 @@ ZMK_LAYER(Function, // FUN 4
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp F6         &kp F7         &kp F8         &kp F9         &kp F10            &bt BT_CLR    &bt_c 0        &bt_c 1        &bt_c 2        &bt_c 3
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp F11        &kp F12        &none                                           &bt_dc_all     &none          &none
+                   &kp F11        &kp F12        &kp INS                                         &bt_dc_all     &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
@@ -221,12 +229,13 @@ ZMK_LAYER(Fast, // MMV 5 topmost
 
 //&zip_temp_layer PRD <time>
 /*ZMK_LAYER(Productivity, // PRD *
+layer-specific combos?
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
-    &tapdance [view macro] mt([view macro 2] [save])          &kp N9         &kp N8         &kp N7         &none              &none &none  &none  &none  &none
+    &cam           &kp N9         &kp N8         &kp N7         &free              &trans        &trans         &trans         &trans         &trans
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT N0 &hrm LCTRL N6  &hrm LGUI N5   &hrm LALT N4   &none              &none &none  &none  &none  &none
+    &hrsk LSHIFT N0 &hrsk LCTRL N6 &hrsk LGUI N5 &hrsk LALT N4  &free              &trans        &trans         &trans         &trans         &trans
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp N3         &kp N2         &kp N1                                  &none  &none  &none
+                   &kp N3         &kp N2         &kp N1                                          &trans         &trans         &trans
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &kp BSPC       &mo NUM            &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
