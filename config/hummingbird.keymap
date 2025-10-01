@@ -139,7 +139,7 @@ ZMK_MACRO(free, bindings = <&none>;) // marker for free spots
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
-ZMK_COMBO(v2,           &am LG(V) V,          LM1 LM0,            ALL) // v2
+ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
 ZMK_COMBO(semicolon,    &mt COLON SCLN,       RB2 RB3,            ALL) // ; :
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 25, 50) // _
 ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
@@ -189,7 +189,7 @@ ZMK_LAYER(Numbers, // NUM 1
 )
 ZMK_LAYER(Mouse, // MSE 2
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &none          &mkp MB2       &msc SCRL_DOWN &mo MMV        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &mmv MOVE_UP   &kp C_NEXT     &kp C_PP
+    &none          &mkp MB2       &msc SCRL_DOWN &mo MMV        &kp C_VOL_UP       &kp C_VOL_UP  &mkp MB4       &mmv MOVE_UP   &mkp MB5       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &msc SCRL_RIGHT &msc SCRL_UP  &msc SCRL_LEFT &kp C_VOL_DN       &kp C_VOL_DN  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
@@ -200,9 +200,9 @@ ZMK_LAYER(Mouse, // MSE 2
 )
 ZMK_LAYER(Navigation, // NAV 3
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_screen     &free          &kp TAB        &kp ESC        &free              &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_screen     &free          &kp TAB        &kp ESC        &kp C_VOL_UP       &free         &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &free              &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
+    &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &free         &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &ss_crop       &free          &kp SPACE                                       &kp BSPC       &free          &free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
