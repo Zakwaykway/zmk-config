@@ -160,7 +160,7 @@ ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // ()
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
 ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
-ZMK_COMBO(at_pound,     &mt POUND AT,         LT1 LM1,            ALL) // @ #
+ZMK_COMBO(pound_at,     &mt AT POUND,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
 ZMK_COMBO(period,       &kp DOT,/*LB index*/  LM1 LB1,            ALL) // .
 ZMK_COMBO(comma,        &kp COMMA,/*LB mid*/  LM2 LB2,            ALL) // ,
@@ -242,7 +242,7 @@ ZMK_LAYER(Fast, // MMV 6 topmost
 &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans
 )
-
+/*
 ZMK_LAYER(Qwerty, // QWR 1
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y         &kp U          &kp I          &kp O          &kp P
