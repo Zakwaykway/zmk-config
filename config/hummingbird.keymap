@@ -23,6 +23,8 @@
 #define FUN 5
 #define MMV 6
 
+
+// semicolon and colon are too sensitive when rolling to space
 // --- enable ctrl tab somehow
 // test balanced hrm for middle, index, inner
 // with tap-preferred for pinky, ring
@@ -40,7 +42,7 @@
 // overrides
 &mmv_input_listener { 
     speeder { layers = <MMV>;
-        input-processors = <&zip_xy_scaler 7 2>; }; 
+        input-processors = <&zip_xy_scaler 4 1>; }; 
 };
 &mmv {
     trigger-period-ms = <8>;
@@ -55,7 +57,6 @@
 
 
 // behaviours
-// modify hrm, it is being annoying (bei, br, as, rs,)
 ZMK_HOLD_TAP(hrm, // HR mods
     flavor = "tap-preferred";
     tapping-term-ms = <225>;
@@ -149,6 +150,7 @@ ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slash,        &kp SLASH,            RT2 RT3,            ALL) // /
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(tab,          &kp TAB,              LM3 LM2,            ALL, 30, 50) // tab
+ZMK_COMBO(bspc_w,       &kp LA(BSPC),         RM1 RM2 RM3,        CMK NUM NAV FUN MMV, 55, 40) // word bspc
 ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            CMK NUM NAV FUN MMV, 55, 40) // backspace
 ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace
 ZMK_COMBO(blr_l,        &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
@@ -212,11 +214,11 @@ ZMK_LAYER(Productivity, // PRD 3
 )
 ZMK_LAYER(Navigation, // NAV 4
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_screen     &free          &kp TAB        &kp ESC        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_screen     &free          &kp TAB        &free          &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &free          &free
+                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
