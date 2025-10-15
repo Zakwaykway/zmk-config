@@ -23,6 +23,6 @@ include:
     artifact-name: metasepia_ble
 #   snippet: studio-rpc-usb-uart
 #   cmake-args: -DCONFIG_ZMK_STUDIO=y
-#  - board: seeeduino_xiao_rp2040
-#    shield: hummingbird
-#    artifact-name: hummingbird_rp2040
+  - board: seeeduino_xiao_rp2040
+    shield: hummingbird
+    artifact-name: metasepia_wired
