@@ -3,3 +3,6 @@
 
 config SHIELD_HUMMINGBIRD
    def_bool $(shields_list_contains,hummingbird)
+
+config SHIELD_METASEPIA
+   def_bool $(shields_list_contains,metasepia)

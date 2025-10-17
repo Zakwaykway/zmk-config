@@ -4,6 +4,11 @@
 if SHIELD_HUMMINGBIRD
 
 config ZMK_KEYBOARD_NAME
+    default "Hummingbird"
+
+if SHIELD_METASEPIA
+
+config ZMK_KEYBOARD_NAME
     default "Metasepia"
 config USB_DEVICE_MANUFACTURER
     default "Zakwaykway"
