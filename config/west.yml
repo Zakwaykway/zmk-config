@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: zakwaykway
+      url-base: https://github.com/zakwaykway
     - name: urob
       url-base: https://github.com/urob
   projects:
@@ -11,6 +13,9 @@ manifest:
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
+      revision: main
+    - name: zmk-keyboard-metasepia
+      remote: zakwaykway
       revision: main
   self:
     path: config
