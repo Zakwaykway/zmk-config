@@ -6,4 +6,3 @@ url: https://github.com/zakwaykway/metasepia
 requires: [seeed_xiao]
 features:
   - keys
-#  - studio
