@@ -137,7 +137,7 @@ ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
 ZMK_MACRO_ONE_PARAM(med, // debugging media controls, k_ vs c_
-    bindings = <&macro_param_1to1 &kp 0>;
+    bindings = <&macro_param_1to1 &macro_tap &kp 0>;
 )
 ZMK_MACRO(free, bindings = <&none>;) // marker for free spots
 
@@ -195,9 +195,9 @@ ZMK_LAYER(Numbers, // NUM 1
 )
 ZMK_LAYER(Mouse, // MSE 2
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &none          &mkp MB2       &msc SCRL_DOWN &mo MMV        &kp K_VOL_UP       &med C_VOL_UP  &mkp MB4       &mmv MOVE_UP   &mkp MB5       &med C_PP
+    &none          &mkp MB2       &msc SCRL_DOWN &mo MMV        &med K_VOL_UP      &med C_VOL_UP &mkp MB4       &mmv MOVE_UP   &mkp MB5       &med C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LSHFT      &msc SCRL_RIGHT &msc SCRL_UP  &msc SCRL_LEFT &kp K_VOL_DN       &med C_VOL_DN  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL
+    &kp LSHFT      &msc SCRL_RIGHT &msc SCRL_UP  &msc SCRL_LEFT &med K_VOL_DN      &med C_VOL_DN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &kp LCTRL      &kp LGUI       &kp LALT                                        &kp BACKSPACE  &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
