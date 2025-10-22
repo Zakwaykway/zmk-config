@@ -155,6 +155,8 @@ ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            CMK NUM NAV FU
 ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace
 ZMK_COMBO(blr_l,        &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(blr_r,        &blr 0 0,             RT0 RT4 RM0 RM4,    ALL) // rst right (inner+outer)
+ZMK_COMBO(lcag_l,       &kp LC(LA(LGUI)),     LM3 LM2 LM1,        ALL) // LCAG left
+ZMK_COMBO(lcag_r,       &kp LC(LA(LGUI)),     RM1 RM2 RM3,        ALL) // LCAG right
 ZMK_COMBO(FUN,          &mo FUN,              LH1 LH0,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (LCAG mirror positions)
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
@@ -218,7 +220,7 @@ ZMK_LAYER(Navigation, // NAV 4
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &free
+                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &kp K_VOL_DN
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
