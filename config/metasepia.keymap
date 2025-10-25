@@ -59,16 +59,16 @@
 // behaviours
 ZMK_HOLD_TAP(hrm, // HR mods
     flavor = "tap-preferred";
-    tapping-term-ms = <225>;
+    tapping-term-ms = <220>;
     require-prior-idle-ms = <80>;
     quick-tap-ms = <180>;
     bindings = <&kp>, <&kp>;
 )
 ZMK_HOLD_TAP(hrl, // HR layer
     flavor = "tap-preferred";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <150>;
     require-prior-idle-ms = <60>;
-    quick-tap-ms = <180>;
+    quick-tap-ms = <150>;
     bindings = <&mo>, <&kp>;
 )
 ZMK_HOLD_TAP(hrsk, // HR sticky
@@ -78,24 +78,22 @@ ZMK_HOLD_TAP(hrsk, // HR sticky
     quick-tap-ms = <180>;
     bindings = <&sk>, <&kp>;
 )
-ZMK_HOLD_TAP(tl, // timeless
-    flavor = "balanced";
-    tapping-term-ms = <350>;
-    require-prior-idle-ms = <50>;
-    quick-tap-ms = <180>;
-    bindings = <&kp>, <&kp>;
-)
 ZMK_HOLD_TAP(am, // automod
     flavor = "tap-preferred";
-    tapping-term-ms = <175>;
-    require-prior-idle-ms = <95>;
+    tapping-term-ms = <150>;
+    require-prior-idle-ms = <90>;
     quick-tap-ms = <200>;
     bindings = <&kp>, <&kp>;
 )
 ZMK_HOLD_TAP(blr, // bootloader + reset
     flavor = "tap-preferred";
-    tapping-term-ms = <275>;
+    tapping-term-ms = <200>;
     bindings = <&bootloader>, <&sys_reset>;
+)
+ZMK_HOLD_TAP(c_w_l, // caps word/lock
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&caps_word>;
 )
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
@@ -174,7 +172,7 @@ ZMK_LAYER(Colemak, // CMK 0
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &am LPAR G         &am RPAR M    &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &kp O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &am SCLN COMMA &mt COLON DOT
+                   &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &am SCLN COMMA &am COLON DOT
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &mo NUM        &mt LSHIFT ENTER   &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
@@ -209,7 +207,7 @@ ZMK_LAYER(Productivity, // PRD 3
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &hrsk LSHIFT N0 &hrsk LCTRL N6 &hrsk LGUI N5 &hrsk LALT N4  &free              &trans        &trans         &trans         &trans         &trans
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp N3         &kp N2         &kp N1                                          &trans         &trans         &trans
+                   &am LG(X) N3   &am LG(C) N2   &kp N1                                          &trans         &trans         &trans
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &kp BSPC       &mo NUM            &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
@@ -220,7 +218,7 @@ ZMK_LAYER(Navigation, // NAV 4
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &none
+                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
