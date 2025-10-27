@@ -24,12 +24,12 @@
 #define MMV 6
 
 
-// semicolon and colon are too sensitive when rolling to space
+// colon and semicolon: tap on spacebar roll, hold for rest
+// (short taptime)
+
+
 // --- enable ctrl tab somehow
-// test balanced hrm for middle, index, inner
-// with tap-preferred for pinky, ring
 // mouse layer is the least used layer. Move it somehow?
-// try to move to 2 thumb keys? alpha thumb? new layout????
 // 5x arrow on holding ctrl
 // --> macro layer, triggering on mouse (sensor? processor?)
 //      save
@@ -66,7 +66,7 @@ ZMK_HOLD_TAP(hrm, // HR mods
 )
 ZMK_HOLD_TAP(hrl, // HR layer
     flavor = "tap-preferred";
-    tapping-term-ms = <150>;
+    tapping-term-ms = <185>;
     require-prior-idle-ms = <60>;
     quick-tap-ms = <150>;
     bindings = <&mo>, <&kp>;
@@ -80,7 +80,7 @@ ZMK_HOLD_TAP(hrsk, // HR sticky
 )
 ZMK_HOLD_TAP(am, // automod
     flavor = "tap-preferred";
-    tapping-term-ms = <150>;
+    tapping-term-ms = <140>;
     require-prior-idle-ms = <90>;
     quick-tap-ms = <200>;
     bindings = <&kp>, <&kp>;
