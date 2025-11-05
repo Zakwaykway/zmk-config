@@ -18,10 +18,11 @@
 #define CMK 0 // parameterize layer names
 #define NUM 1
 #define MSE 2
-#define PRD 3
-#define NAV 4
-#define FUN 5
-#define MMV 6
+#define MMV 3
+#define PRD 4
+#define NAV 5
+#define XTR 6
+#define FUN 7
 
 
 // colon and semicolon: tap on spacebar roll, hold for rest
@@ -135,42 +136,39 @@ ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
 ZMK_MACRO(free, bindings = <&none>;) // marker for free spots
-
+ZMK_MACRO(5trns, 
+    bindings = <&trans &trans &trans &trans &trans>;
+)
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
-ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =     *REMEMBER this exists*
-ZMK_COMBO(semicolon,    &mt GT LT,            RB2 RB3,            ALL) // < >
+ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
+ZMK_COMBO(chevrons,     &mt GT LT,            RB2 RB3,            ALL) // < >
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 23, 50) // _
 ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
-ZMK_COMBO(slash,        &kp SLASH,            RT2 RT3,            ALL) // /
+ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / \ 
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
-ZMK_COMBO(tab,          &kp TAB,              LM3 LM2,            ALL, 30, 50) // tab
-ZMK_COMBO(bspc_w,       &kp LA(BSPC),         RM1 RM2 RM3,        CMK NUM NAV FUN MMV, 55, 40) // word bspc
-ZMK_COMBO(bspc,         &kp BSPC,             RM2 RM3,            CMK NUM NAV FUN MMV, 55, 40) // backspace
-ZMK_COMBO(bspc_l,       &kp BSPC,             LB3 LB2 LB1,        ALL) // auxiliary backspace
-ZMK_COMBO(blr_l,        &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
-ZMK_COMBO(blr_r,        &blr 0 0,             RT0 RT4 RM0 RM4,    ALL) // rst right (inner+outer)
-ZMK_COMBO(lcag_l,       &kp LC(LA(LGUI)),     LM3 LM2 LM1,        ALL) // LCAG left
-ZMK_COMBO(lcag_r,       &kp LC(LA(LGUI)),     RM1 RM2 RM3,        ALL) // LCAG right
+ZMK_COMBO(bspc,         &kp BSPC,             LM3 LM2,            ALL, 30, 50) // backspace
+ZMK_COMBO(tab,          &kp TAB,              RM2 RM3,            CMK NUM NAV FUN, 40, 40) // tab
+ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              LH1 LH0,            ALL) // FUN
-ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (LCAG mirror positions)
+ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
 ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
-ZMK_COMBO(pound_at,     &mt AT POUND,         LT1 LM1,            ALL) // @ #
 ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
-// LA(LSHIFT) language swap
+ZMK_COMBO(pound_at,     &mt AT POUND,         RT2 RM2,            ALL) // # @
+ZMK_COMBO(equal_plus,   &mt PLUS EQUAL,       RT3 RM3,            ALL) // = +)
 
 ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &hrm LSHIFT Z  &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &am LPAR G         &am RPAR M    &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &kp O
+    &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &kp G              &kp M         &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &kp O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &am SCLN COMMA &am COLON DOT
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
@@ -199,8 +197,11 @@ ZMK_LAYER(Mouse, // MSE 2
                                                  &mkp MB3       &mkp MB1           &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
+ZMK_LAYER(Speed, // MMV 3
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+)
+ZMK_LAYER(Productivity, // PRD 4
 //&zip_temp_layer PRD <time>
-ZMK_LAYER(Productivity, // PRD 3
 //layer-specific combos?
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
     &cam           &kp N9         &kp N8         &kp N7         &free              &trans        &trans         &trans         &trans         &trans
@@ -212,9 +213,9 @@ ZMK_LAYER(Productivity, // PRD 3
                                                  &kp BSPC       &mo NUM            &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Navigation, // NAV 4
+ZMK_LAYER(Navigation, // NAV 5
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_screen     &free          &kp TAB        &free          &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_screen     &free          &kp TAB        &mo XTR        &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
@@ -223,7 +224,13 @@ ZMK_LAYER(Navigation, // NAV 4
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Function, // FUN 5
+ZMK_LAYER(Extra, // XTR 6
+&trans &trans &trans &trans &trans &trans &trans &5trns &trans &trans 
+&trans &trans &trans &trans &trans &trans &5trns &5trns &5trns &trans 
+       &trans &trans &trans               &trans &trans &trans 
+                     &trans &trans &trans &trans
+)
+ZMK_LAYER(Function, // FUN 7
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &bt BT_CLR    &out OUT_BLE  &out OUT_USB   &to CMK        &bt BT_CLR_ALL
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -234,12 +241,7 @@ ZMK_LAYER(Function, // FUN 5
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Fast, // MMV 6 topmost
-&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans
-)
+
 /*
 ZMK_LAYER(Qwerty, // QWR 1
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
@@ -252,14 +254,4 @@ ZMK_LAYER(Qwerty, // QWR 1
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Windows, // WCK 2
-// ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &am LC(Z) Z    &trans         &trans         &trans         &trans             &trans        &trans         &trans         &trans         &trans
-// ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &trans         &trans         &trans         &trans             &trans        &trans         &trans         &trans         &trans
-// ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LC(X) X    &am LC(C) C    &trans                                          &trans         &trans         &trans
-//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &trans         &trans             &trans        &trans
-//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
-)*/
+*/
