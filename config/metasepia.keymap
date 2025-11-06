@@ -21,8 +21,7 @@
 #define MMV 3
 #define PRD 4
 #define NAV 5
-#define XTR 6
-#define FUN 7
+#define FUN 6
 
 
 // colon and semicolon: tap on spacebar roll, hold for rest
@@ -145,7 +144,7 @@ ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
 ZMK_COMBO(chevrons,     &mt GT LT,            RB2 RB3,            ALL) // < >
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 23, 50) // _
 ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
-ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / \ 
+ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(bspc,         &kp BSPC,             LM3 LM2,            ALL, 30, 50) // backspace
 ZMK_COMBO(tab,          &kp TAB,              RM2 RM3,            CMK NUM NAV FUN, 40, 40) // tab
@@ -221,13 +220,7 @@ ZMK_LAYER(Navigation, // NAV 5
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Extra, // XTR 6
-&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-       &trans &trans &trans               &trans &trans &trans 
-                     &trans &trans &trans &trans
-)
-ZMK_LAYER(Function, // FUN 7
+ZMK_LAYER(Function, // FUN 6
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &bt BT_CLR    &out OUT_BLE  &out OUT_USB   &to CMK        &bt BT_CLR_ALL
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
