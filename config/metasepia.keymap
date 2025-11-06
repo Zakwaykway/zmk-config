@@ -136,9 +136,6 @@ ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
 ZMK_MACRO(free, bindings = <&none>;) // marker for free spots
-ZMK_MACRO(5trns, 
-    bindings = <&trans &trans &trans &trans &trans>;
-)
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
@@ -225,8 +222,8 @@ ZMK_LAYER(Navigation, // NAV 5
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 ZMK_LAYER(Extra, // XTR 6
-&trans &trans &trans &trans &trans &trans &trans &5trns &trans &trans 
-&trans &trans &trans &trans &trans &trans &5trns &5trns &5trns &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
        &trans &trans &trans               &trans &trans &trans 
                      &trans &trans &trans &trans
 )
