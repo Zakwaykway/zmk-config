@@ -121,7 +121,14 @@ ZMK_MOD_MORPH(cmdq,
     bindings = <&qu>, <&kp LG(Q)>;
     mods = <MOD_LGUI>;
 )
-
+ZMK_MOD_MORPH(comma,
+    bindings = <&am LT COMMA>, <&kp SCLN>;
+    mods = <MOD_LSHIFT>;
+)
+ZMK_MOD_MORPH(dot,
+    bindings = <&am GT DOT>, <&kp COLON>;
+    mods = <MOD_LSHIFT>;
+)
 
 
 // macros
@@ -166,7 +173,7 @@ ZMK_LAYER(Colemak, // CMK 0
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &kp G              &kp M         &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &kp O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &am SCLN COMMA &am COLON DOT
+                   &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &comma         &dot
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &mo NUM        &mt LSHIFT ENTER   &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
