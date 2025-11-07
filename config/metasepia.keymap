@@ -123,11 +123,11 @@ ZMK_MOD_MORPH(cmdq,
 )
 ZMK_MOD_MORPH(comma,
     bindings = <&am LT COMMA>, <&kp SCLN>;
-    mods = <MOD_LSHIFT>;
+    mods = <MOD_LSFT>;
 )
 ZMK_MOD_MORPH(dot,
     bindings = <&am GT DOT>, <&kp COLON>;
-    mods = <MOD_LSHIFT>;
+    mods = <MOD_LSFT>;
 )
 
 
