@@ -1,4 +1,4 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1900  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 14    // default: 10
 
 #include <behaviors.dtsi>
@@ -23,6 +23,7 @@
 #define NAV 5
 #define FUN 6
 
+#define &trans &free
 
 // colon and semicolon: tap on spacebar roll, hold for rest
 // (short taptime)
@@ -80,7 +81,7 @@ ZMK_HOLD_TAP(hrsk, // HR sticky
 )
 ZMK_HOLD_TAP(am, // automod
     flavor = "tap-preferred";
-    tapping-term-ms = <140>;
+    tapping-term-ms = <155>;
     require-prior-idle-ms = <90>;
     quick-tap-ms = <200>;
     bindings = <&kp>, <&kp>;
@@ -130,7 +131,6 @@ ZMK_MOD_MORPH(dot,
     mods = <MOD_LSFT>;
 )
 
-
 // macros
 ZMK_MACRO(bt_dc_all, // disconnect all bt
     bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
@@ -141,7 +141,7 @@ ZMK_MACRO(qu,
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
-ZMK_MACRO(free, bindings = <&none>;) // marker for free spots
+
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
