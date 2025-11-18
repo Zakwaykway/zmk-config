@@ -23,7 +23,7 @@
 #define NAV 5
 #define FUN 6
 
-#define &trans &free
+#define &free &trans
 
 // colon and semicolon: tap on spacebar roll, hold for rest
 // (short taptime)
