@@ -141,9 +141,13 @@ ZMK_MACRO(qu,
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
 )
-ZMK_MACRO(é,
-    bindings = <&macro_press &kp ALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3 &macro_release &kp ALT>;
+ZMK_MACRO(esharp,
+    bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3 &macro_release &kp LALT>;
 )
+ZMK_MACRO(sesharp,
+    bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N1 &macro_release &kp LALT>;
+)
+
 
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
@@ -221,7 +225,7 @@ ZMK_LAYER(Productivity, // PRD 4
 )
 ZMK_LAYER(Navigation, // NAV 5
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_screen     &é             &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_screen     &esharp             &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
