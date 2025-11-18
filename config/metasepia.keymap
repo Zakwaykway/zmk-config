@@ -161,6 +161,7 @@ ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(bspc,         &kp BSPC,             LM3 LM2,            ALL, 30, 50) // backspace
+ZMK_COMBO(bspc2,        &kp BSPC,             RM1 RM2,            ALL, 22, 50) // backspace
 ZMK_COMBO(tab,          &kp TAB,              RM2 RM3,            CMK NUM NAV FUN, 40, 40) // tab
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              LH1 LH0,            ALL) // FUN
