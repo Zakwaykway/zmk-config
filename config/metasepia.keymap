@@ -79,9 +79,9 @@ ZMK_HOLD_TAP(hrsk, // HR sticky
     quick-tap-ms = <180>;
     bindings = <&sk>, <&kp>;
 )
-ZMK_HOLD_TAP(am, // automod
+ZMK_HOLD_TAP(am, // automodify
     flavor = "tap-preferred";
-    tapping-term-ms = <155>;
+    tapping-term-ms = <175>;
     require-prior-idle-ms = <90>;
     quick-tap-ms = <200>;
     bindings = <&kp>, <&kp>;
@@ -149,8 +149,8 @@ ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
 ZMK_COMBO(chevrons,     &mt GT LT,            RB2 RB3,            ALL) // < >
-ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 23, 50) // _
-ZMK_COMBO(dashes,       &mt UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
+ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
+ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(bspc,         &kp BSPC,             LM3 LM2,            ALL, 30, 50) // backspace
