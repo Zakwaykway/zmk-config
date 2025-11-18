@@ -23,7 +23,7 @@
 #define NAV 5
 #define FUN 6
 
-#define &free &trans
+#define free &trans
 
 // colon and semicolon: tap on spacebar roll, hold for rest
 // (short taptime)
@@ -210,9 +210,9 @@ ZMK_LAYER(Productivity, // PRD 4
 //&zip_temp_layer PRD <time>
 //layer-specific combos?
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
-    &cam           &kp N9         &kp N8         &kp N7         &free              &trans        &trans         &trans         &trans         &trans
+    &cam           &kp N9         &kp N8         &kp N7         free              &trans        &trans         &trans         &trans         &trans
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrsk LSHIFT N0 &hrsk LCTRL N6 &hrsk LGUI N5 &hrsk LALT N4  &free              &trans        &trans         &trans         &trans         &trans
+    &hrsk LSHIFT N0 &hrsk LCTRL N6 &hrsk LGUI N5 &hrsk LALT N4  free              &trans        &trans         &trans         &trans         &trans
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) N3   &am LG(C) N2   &kp N1                                          &trans         &trans         &trans
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
@@ -225,7 +225,7 @@ ZMK_LAYER(Navigation, // NAV 5
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       &free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
+                   &ss_crop       free          &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
