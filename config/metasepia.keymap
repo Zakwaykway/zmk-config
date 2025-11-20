@@ -107,10 +107,10 @@ ZMK_TAP_DANCE(cam,
     <&mt LA(F1) LA(N1)>,
     <&kp LC(S)>;
 )
-/*ZMK_MOD_MORPH(cmdq,
-    bindings = <&qu>, <&kp LG(Q)>;
+ZMK_MOD_MORPH(cmdq,
+    bindings = <&qu Q>, <&kp LG(Q)>;
     mods = <MOD_LGUI>;
-)*/
+)
 ZMK_MOD_MORPH(comma,
     bindings = <&am LT COMMA>, <&kp SCLN>;
     mods = <MOD_LSFT>;
