@@ -151,7 +151,7 @@ ZMK_MACRO(sesharp,
 
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
-ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL) // v
+ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
 ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
@@ -160,11 +160,12 @@ ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) /
 ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
-ZMK_COMBO(bspc,         &kp BSPC,             LM3 LM2,            ALL, 30, 50) // backspace
-ZMK_COMBO(bspc2,        &kp BSPC,             RM1 RM2,            ALL, 22, 50) // backspace
-ZMK_COMBO(tab,          &kp TAB,              RM2 RM3,            CMK NUM NAV FUN, 30, 40) // tab
+ZMK_COMBO(bspc,         &kp BSPC,             LM3 LM2,            CMK NUM PRD NAV FUN, 30, 50) // backspace
+ZMK_COMBO(bspc2,        &kp BSPC,             RM1 RM2,            CMK NUM PRD NAV FUN, 22, 50) // backspace
+ZMK_COMBO(del_p,        &kp DEL,              LM3 LM2,            CMK NUM PRD NAV FUN, 30, 50) // delete
+ZMK_COMBO(tab,          &kp TAB,              RM2 RM3,            CMK NUM PRD NAV FUN, 30, 40) // tab
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
-ZMK_COMBO(FUN,          &mo FUN,              LH1 LH0,            ALL) // FUN
+ZMK_COMBO(FUN,          &mo FUN,              RH0 RH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
@@ -219,10 +220,17 @@ ZMK_LAYER(Productivity, // PRD 4
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &hrsk LSHIFT N0 &hrsk LCTRL N6 &hrsk LGUI N5 &hrsk LALT N4  free               &trans        &trans         &trans         &trans         &trans
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LG(X) N3   &am LG(C) N2   &kp N1                                          &trans         &trans         &trans
+                   &am LC(X) N3   &am LC(C) N2   &kp N1                                          &trans         &trans         &trans
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &kp BSPC       &mo NUM            &trans        &trans
+                                                 &kp DEL        free/*layer*/      &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
+// --> macro layer, triggering on mouse (sensor, input processor)
+//      save
+//      del (combo on PRD layer)
+//      esc/enter (combo on PRD layer)
+//      &hrm on base. &sk on combo with thumb.
+//      Alternatively, thumb becomes a layer button with:
+//          copy, paste, cut, save, LA(N1), LA(F1), F4
 )
 ZMK_LAYER(Navigation, // NAV 5
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
