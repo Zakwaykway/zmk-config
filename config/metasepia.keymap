@@ -81,18 +81,11 @@ ZMK_HOLD_TAP(am, // automodify
     bindings = <&kp>, <&kp>;
 )
 ZMK_HOLD_TAP(blr, // bootloader + reset
-    flavor = "tap-preferred"; 
-    tapping-term-ms = <200>; 
-    bindings = <&bootloader>, <&sys_reset>; )
+    flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&bootloader>, <&sys_reset>; )
 ZMK_HOLD_TAP(c_w_l, // caps word/lock
-    flavor = "tap-preferred"; 
-    tapping-term-ms = <200>; 
-    bindings = <&kp>, <&caps_word>; )
+    flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; )
 ZMK_HOLD_TAP(qu, // qu q
-    flavor = "tap-preferred"; 
-    tapping-term-ms = <135>; 
-    quick-tap-ms = <135>; 
-    bindings = <&qu>, <&kp>; )
+    flavor = "tap-preferred"; tapping-term-ms = <135>; quick-tap-ms = <135>; bindings = <&qu>, <&kp>; )
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
     bindings =
@@ -114,10 +107,10 @@ ZMK_TAP_DANCE(cam,
     <&mt LA(F1) LA(N1)>,
     <&kp LC(S)>;
 )
-ZMK_MOD_MORPH(cmdq,
+/*ZMK_MOD_MORPH(cmdq,
     bindings = <&qu>, <&kp LG(Q)>;
     mods = <MOD_LGUI>;
-)
+)*/
 ZMK_MOD_MORPH(comma,
     bindings = <&am LT COMMA>, <&kp SCLN>;
     mods = <MOD_LSFT>;
