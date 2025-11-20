@@ -73,13 +73,6 @@ ZMK_HOLD_TAP(hrl, // HR layer
     quick-tap-ms = <150>;
     bindings = <&mo>, <&kp>;
 )
-ZMK_HOLD_TAP(hrsk, // HR sticky
-    flavor = "balanced";
-    tapping-term-ms = <180>;
-    require-prior-idle-ms = <75>;
-    quick-tap-ms = <180>;
-    bindings = <&sk>, <&kp>;
-)
 ZMK_HOLD_TAP(am, // automodify
     flavor = "tap-preferred";
     tapping-term-ms = <175>;
@@ -88,15 +81,11 @@ ZMK_HOLD_TAP(am, // automodify
     bindings = <&kp>, <&kp>;
 )
 ZMK_HOLD_TAP(blr, // bootloader + reset
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    bindings = <&bootloader>, <&sys_reset>;
-)
+    flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&bootloader>, <&sys_reset>; )
 ZMK_HOLD_TAP(c_w_l, // caps word/lock
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    bindings = <&kp>, <&caps_word>;
-)
+    flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; )
+ZMK_HOLD_TAP(qu, // qu q
+    flavor = "tap-preferred"; tapping-term-ms = <135>; quick-tap-ms = <135>; bindings = <&qu>, <&kp>; )
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
     bindings =
@@ -135,7 +124,7 @@ ZMK_MOD_MORPH(dot,
 ZMK_MACRO(bt_dc_all, // disconnect all bt
     bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
 )
-ZMK_MACRO(qu,
+ZMK_MACRO(qu_m,
     bindings = <&kp Q &kp U>;
 )
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
@@ -152,7 +141,7 @@ ZMK_MACRO(sesharp,
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
-ZMK_COMBO(qucombo,      &qu,                  LB3 LB2,            ALL) // qu
+ZMK_COMBO(qucombo,      &qu 0 Q,              LB3 LB2,            ALL) // qu q
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
 ZMK_COMBO(chevrons,     &mt GT LT,            RB2 RB3,            ALL) // < >
@@ -218,7 +207,7 @@ ZMK_LAYER(Productivity, // PRD 4
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
     &cam           &kp N9         &kp N8         &kp N7         free               &trans        &trans         &trans         &trans         &trans
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrsk LSHIFT N0 &hrsk LCTRL N6 &hrsk LGUI N5 &hrsk LALT N4  free               &trans        &trans         &trans         &trans         &trans
+    &hrm LSHIFT N0 &hrm LCTRL N6  &hrm LGUI N5  &hrm LALT N4    free               &trans        &trans         &trans         &trans         &trans
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LC(X) N3   &am LC(C) N2   &kp N1                                          &trans         &trans         &trans
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
