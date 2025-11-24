@@ -85,7 +85,7 @@ ZMK_HOLD_TAP(blr, // bootloader + reset
 ZMK_HOLD_TAP(c_w_l, // caps word/lock
     flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; )
 ZMK_HOLD_TAP(qu, // qu q
-    flavor = "tap-preferred"; tapping-term-ms = <135>; quick-tap-ms = <135>; bindings = <&qu>, <&kp>; )
+    flavor = "tap-preferred"; tapping-term-ms = <135>; quick-tap-ms = <135>; bindings = <&qu_m>, <&kp>; )
 ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
     tapping-term-ms = <300>;
     bindings =
@@ -141,7 +141,7 @@ ZMK_MACRO(sesharp,
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
-ZMK_COMBO(qucombo,      &qu 0 Q,              LB3 LB2,            ALL) // qu q
+ZMK_COMBO(qucombo,      &cmdq 0 Q,              LB3 LB2,            ALL) // qu q
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
 ZMK_COMBO(chevrons,     &mt GT LT,            RB2 RB3,            ALL) // < >
