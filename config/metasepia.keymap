@@ -149,10 +149,10 @@ ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) /
 ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
-ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 30, 50) // backspace
+ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
 ZMK_COMBO(bspc_d2,      &mt DEL BSPC,         RM2 RM3,            CMK NUM PRD NAV FUN, 22, 50) // backspace
 ZMK_COMBO(del_p,        &mt BSPC DEL,         LM3 LM2,            CMK NUM PRD NAV FUN, 30, 50) // delete
-ZMK_COMBO(tab,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 30, 40) // tab
+ZMK_COMBO(tab,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              RH0 RH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
