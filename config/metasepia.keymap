@@ -20,8 +20,9 @@
 #define MSE 2
 #define MMV 3
 #define PRD 4
-#define NAV 5
-#define FUN 6
+#define BRW 5
+#define NAV 6
+#define FUN 7
 
 #define free &trans
 
@@ -156,6 +157,7 @@ ZMK_COMBO(tab,          &kp TAB,              RM1 RM2,            CMK NUM PRD NA
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              RH0 RH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
+ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
@@ -221,7 +223,18 @@ ZMK_LAYER(Productivity, // PRD 4
 //      Alternatively, thumb becomes a layer button with:
 //          copy, paste, cut, save, LA(N1), LA(F1), F4
 )
-ZMK_LAYER(Navigation, // NAV 5
+ZMK_LAYER(Browser, // BRW 5
+// ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
+    &kp Z          &kp LG(W)      &kp LC(LS(TAB)) &kp LC(TAB)   free               free          free           free           free           free  
+// ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &kp LC(LEFT)   &kp LG(R)      &kp LGUI       &kp LC(RIGHT)  &to CMK            free          free           free           free           free
+// ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
+                   free           free           free                                            free           free           free
+//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
+                                                 &trans         &trans             &trans        &trans
+//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
+)
+ZMK_LAYER(Navigation, // NAV 6
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &ss_screen     &esharp        &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -245,7 +258,7 @@ ZMK_LAYER(Util, // MCR 6
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 */
-ZMK_LAYER(Function, // FUN 6
+ZMK_LAYER(Function, // FUN 7
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &bt BT_CLR    &out OUT_BLE  &out OUT_USB   &to CMK        &bt BT_CLR_ALL
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
