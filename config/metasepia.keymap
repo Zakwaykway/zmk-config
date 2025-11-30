@@ -225,11 +225,11 @@ ZMK_LAYER(Productivity, // PRD 4
 )
 ZMK_LAYER(Browser, // BRW 5
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp Z          &kp LG(W)      &kp LC(LS(TAB)) &kp LC(TAB)   free               free          free           free           free           free  
+    &kp Z          &kp LG(W)      &kp LC(LS(TAB)) &kp LC(TAB)   &kp C_VOL_UP       free          free           free           free           free  
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LC(LEFT)   &kp LG(R)      &kp LGUI       &kp LC(RIGHT)  &to CMK            free          free           free           free           free
+    &kp LC(LEFT)   &kp LG(R)      &kp LGUI       &kp LC(RIGHT)  &kp C_VOL_DN       free          free           free           free           free
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   free           free           free                                            free           free           free
+                   free           free           &to CMK                                         free           free           free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
