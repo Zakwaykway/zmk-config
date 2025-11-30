@@ -56,7 +56,7 @@
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>;
 };
-&lt { quick_tap_ms = <125>; }; // repeat space
+&lt { quick-tap-ms = <125>; }; // repeat space
 
 
 // behaviours
