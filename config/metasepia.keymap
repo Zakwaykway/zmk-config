@@ -123,8 +123,8 @@ ZMK_MACRO(esharp,
     bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3 &macro_release &kp LALT>; )
 ZMK_MACRO_ONE_PARAM(penta,
     bindings = <&macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0>; )
-ZMK_MACRO_ONE_PARAM(op_clos,
-    bindings = <&macro_param_1to1 &macro_param_2to2 &mt RPAR LPAR &kp LEFT>; )
+ZMK_MACRO_ONE_PARAM(brc,
+    bindings = <&macro_param_1to1 &macro_param_2to2 &mt 0 0 &kp LEFT>; )
 
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
@@ -224,7 +224,7 @@ ZMK_LAYER(Browser, // BRW 5
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LC(LEFT)   &kp LG(R)      &kp LGUI       &kp LC(RIGHT)  &kp C_VOL_DN       free          free           free           free           free
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp F          &kp LS(LS(T))  &to CMK                                         free           free           free
+                   &kp F          &kp LC(LS(T))  &to CMK                                         free           free           free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
@@ -242,11 +242,11 @@ ZMK_LAYER(Navigation, // NAV 6
 )
 ZMK_LAYER(Util, // MCR 7
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp Z          &kp LG(W)      &kp LC(LS(TAB)) &kp LC(TAB)   &kp C_VOL_UP       free          free           &penta UP      free           free  
+    free           free           free           free           &kp C_VOL_UP       free          free           &penta UP      free           free  
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LC(LEFT)   &kp LG(R)      &kp LGUI       &kp LC(RIGHT)  &kp C_VOL_DN       free          &penta LEFT    &penta DOWN    &penta RIGHT   &penta DEL
+    free           free           free           free           &kp C_VOL_DN       free          &penta LEFT    &penta DOWN    &penta RIGHT   &penta DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &kp F          &kp LS(LS(T))  &penta SPACE                                    &penta BSPC    free           free
+                   free           free           &penta SPACE                                    &penta BSPC    free           free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯                                            ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
