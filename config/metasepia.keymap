@@ -22,7 +22,8 @@
 #define PRD 4
 #define BRW 5
 #define NAV 6
-#define FUN 7
+#define MCR 7
+#define FUN 8
 
 #define HYPR(keycode) LS(LC(LG(LA(keycode))))  // shorten hyper key definition
 #define free &trans
@@ -121,7 +122,7 @@ ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
 ZMK_MACRO(esharp,
     bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3 &macro_release &kp LALT>; )
 ZMK_MACRO_ONE_PARAM(penta,
-    bindings = <&macro_param_1to1 &kp &macro_param1to1 &kp &macro_param1to1 &kp &macro_param1to1 &kp &macro_param1to1 &kp>; )
+    bindings = <&macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0>; )
 ZMK_MACRO_ONE_PARAM(op_clos,
     bindings = <&macro_param_1to1 &macro_param_2to2 &mt RPAR LPAR &kp LEFT>; )
 
@@ -230,29 +231,27 @@ ZMK_LAYER(Browser, // BRW 5
 )
 ZMK_LAYER(Navigation, // NAV 6
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_s     &esharp        &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_s          &esharp        &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_c       free           &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
+                   &ss_c          free           &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &trans         &trans             &trans        &trans
+                                                 &mo UTIL       &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-/*
-ZMK_LAYER(Util, // MCR 6
+ZMK_LAYER(Util, // MCR 7
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp LG(Z)      &kp LG(W)      &kp LG(F)      free           &kp T              &kp Y         &kp U          &kp I          &kp O          &kp P
+    &kp Z          &kp LG(W)      &kp LC(LS(TAB)) &kp LC(TAB)   &kp C_VOL_UP       free          free           &penta UP      free           free  
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT A  &hrm LCTRL S   &hrm LGUI D    &hrm LALT F    &kp G              &kp H         &hrm LALT J    &hrm LGUI K    &hrm LCTRL L   &hrm LSHIFT B
+    &kp LC(LEFT)   &kp LG(R)      &kp LGUI       &kp LC(RIGHT)  &kp C_VOL_DN       free          &penta LEFT    &penta DOWN    &penta RIGHT   &penta DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LG(X) X    &am LG(C) C    &kp V                                           &kp N          &kp COMMA      &kp DOT
+                   &kp F          &kp LS(LS(T))  &penta SPACE                                    &penta BSPC    free           free
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
-//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
+//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯                                            ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-*/
-ZMK_LAYER(Function, // FUN 7
+ZMK_LAYER(Function, // FUN 8
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &bt BT_CLR    &out OUT_BLE  &out OUT_USB   &to CMK        &bt BT_CLR_ALL
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
