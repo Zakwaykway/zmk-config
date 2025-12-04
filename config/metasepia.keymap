@@ -24,15 +24,13 @@
 #define NAV 6
 #define FUN 7
 
+#define HYPR(keycode) LS(LC(LG(LA(keycode))))  // shorten hyper key definition
 #define free &trans
 
 // scrolling is very slow on windows
-
-
-// --- enable ctrl tab onehanded somehow
 // mouse layer is the least used layer. Move it? lefthand combo: w + p
-// 5x arrow on holding ctrl
-// --> macro layer, triggering on mouse (sensor, input processor)
+// 5x arrow on BLANK TRIGGER!!!!!!!
+// --> macro layer with easy combo trigger
 //      save
 //      del (combo on PRD layer)
 //      esc/enter (combo on PRD layer)
@@ -60,45 +58,41 @@
 
 
 // behaviours
+// mt is hold-pref
 ZMK_HOLD_TAP(hrm, // HR mods
     flavor = "tap-preferred";
     tapping-term-ms = <220>;
     require-prior-idle-ms = <80>;
     quick-tap-ms = <180>;
-    bindings = <&kp>, <&kp>;
-)
+    bindings = <&kp>, <&kp>; )
 ZMK_HOLD_TAP(hrl, // HR layer
     flavor = "tap-preferred";
-    tapping-term-ms = <185>;
+    tapping-term-ms = <190>;
     require-prior-idle-ms = <60>;
     quick-tap-ms = <150>;
-    bindings = <&mo>, <&kp>;
-)
+    bindings = <&mo>, <&kp>; )
 ZMK_HOLD_TAP(am, // automodify
-    flavor = "tap-preferred";
+    flavor = "tap-preferred"; // but tap-term reduced from hrm to make holding easier
     tapping-term-ms = <175>;
     require-prior-idle-ms = <90>;
     quick-tap-ms = <200>;
-    bindings = <&kp>, <&kp>;
-)
+    bindings = <&kp>, <&kp>; )
 ZMK_HOLD_TAP(blr, // bootloader + reset
     flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&bootloader>, <&sys_reset>; )
 ZMK_HOLD_TAP(c_w_l, // caps word/lock
-    flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; )
+    flavor = "tap-preferred"; tapping-term-ms = <180>; bindings = <&kp>, <&caps_word>; )
 ZMK_HOLD_TAP(qu, // qu q
     flavor = "tap-preferred"; tapping-term-ms = <135>; quick-tap-ms = <135>; bindings = <&kp>, <&qu_m>; )
-ZMK_TAP_DANCE(ss_screen, // tap copy, hold save
+ZMK_TAP_DANCE(ss_s, // tap copy, hold save
     tapping-term-ms = <300>;
     bindings =
-        <&mt LS(LA(LC(LG(N2)))) LS(LA(LC(LG(N1))))>,
-        <&kp PRINTSCREEN>;
-)
-ZMK_TAP_DANCE(ss_crop, // same as ^
+        <&mt HYPR(N2) HYPR(N1)>,
+        <&kp PRINTSCREEN>; )
+ZMK_TAP_DANCE(ss_c, // same as ^
     tapping-term-ms = <300>;
     bindings =
-        <&mt LS(LA(LC(LG(N4)))) LS(LA(LC(LG(N3))))>,
-        <&kp LS(LG(S))>;
-)
+        <&mt HYPR(N4) HYPR(N3)>,
+        <&kp LS(LG(S))>; )
 ///////////
 //  &tapdance [view macro] mt([view macro 2] [save]) 
 // LA(LSHIFT) language swap
@@ -106,72 +100,72 @@ ZMK_TAP_DANCE(cam,
     tapping-term-ms = <200>;
     bindings =
     <&mt LA(F1) LA(N1)>,
-    <&kp LC(S)>;
-)
+    <&kp LC(S)>; )
 ZMK_MOD_MORPH(cmdq,
     bindings = <&qu Q 0>, <&kp LG(Q)>;
-    mods = <MOD_LGUI>;
-)
+    mods = <MOD_LGUI>; )
 ZMK_MOD_MORPH(comma,
     bindings = <&am LT COMMA>, <&kp SCLN>;
-    mods = <MOD_LSFT>;
-)
+    mods = <MOD_LSFT>; )
 ZMK_MOD_MORPH(dot,
     bindings = <&am GT DOT>, <&kp COLON>;
-    mods = <MOD_LSFT>;
-)
+    mods = <MOD_LSFT>; )
 
 // macros
 ZMK_MACRO(bt_dc_all, // disconnect all bt
-    bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>;
-)
+    bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>; )
 ZMK_MACRO(qu_m,
-    bindings = <&kp Q &kp U>;
-)
+    bindings = <&kp Q &kp U>; )
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
-    bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>;
-)
+    bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>; )
 ZMK_MACRO(esharp,
-    bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3 &macro_release &kp LALT>;
-)
-ZMK_MACRO(sesharp,
-    bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N1 &macro_release &kp LALT>;
-)
-
+    bindings = <&macro_press &kp LALT &macro_tap &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3 &macro_release &kp LALT>; )
+ZMK_MACRO_ONE_PARAM(penta,
+    bindings = <&macro_param_1to1 &kp &macro_param1to1 &kp &macro_param1to1 &kp &macro_param1to1 &kp &macro_param1to1 &kp>; )
+ZMK_MACRO_ONE_PARAM(op_clos,
+    bindings = <&macro_param_1to1 &macro_param_2to2 &mt RPAR LPAR &kp LEFT>; )
 
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
+// order: left-right hand, horiz-vert, left-right, top-bottom
+ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
+ZMK_COMBO(undo,         &kp LG(Z),            LT4 LT3,            ALL) // cmd z
+ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
+ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
+ZMK_COMBO(tab2,         &kp TAB,              LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(qucombo,      &cmdq Q 0,            LB3 LB2,            ALL) // qu q
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
-ZMK_COMBO(plus,         &mt PLUS EQUAL,       LM1 LM0,            ALL) // + =
-ZMK_COMBO(chevrons,     &mt GT LT,            RB2 RB3,            ALL) // < >
-ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
-ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
+ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
+ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
-ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
-ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
+ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
+//ZMK_COMBO(del_p,        &mt BSPC DEL,         LM3 LM2,            PRD, 30, 50) // delete
+// mid ring bot+top
+// ring top mid
+// pinky dual
+// thumb + finger
+ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
 ZMK_COMBO(bspc_d2,      &mt DEL BSPC,         RM2 RM3,            CMK NUM PRD NAV FUN, 22, 50) // backspace
-ZMK_COMBO(del_p,        &mt BSPC DEL,         LM3 LM2,            CMK NUM PRD NAV FUN, 30, 50) // delete
 ZMK_COMBO(tab,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
+ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
+ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
+ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
+ZMK_COMBO(pound_at,     &mt AT POUND,         RT2 RM2,            ALL) // # @
+ZMK_COMBO(plus,         &mt PLUS EQUAL,       RT3 RM3,            ALL) // + =
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              RH0 RH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
 ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
-ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
-ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
-ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
-ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
-ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
-ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
-ZMK_COMBO(pound_at,     &mt AT POUND,         RT2 RM2,            ALL) // # @
-ZMK_COMBO(equal_plus,   &mt PLUS EQUAL,       RT3 RM3,            ALL) // = +)
+ZMK_COMBO(home,         &kp HOME,             RT2 RM1,            NAV) // home
+ZMK_COMBO(end,          &kp END,              RM2 RM3,            NAV) // end
+ZMK_COMBO(zero,         &kp N0,               LM4 RM4,            ALL, 75) // 0 mistrigger
 
 ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &hrm LSHIFT Z  &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &kp G              &kp M         &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &kp O
+    &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &kp G              &kp M         &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrl MSE O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &comma         &dot
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
@@ -191,13 +185,13 @@ ZMK_LAYER(Numbers, // NUM 1
 )
 ZMK_LAYER(Mouse, // MSE 2
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &none          &mkp MB2       &msc SCRL_DOWN &mo MMV        &kp C_VOL_UP       &kp C_VOL_UP  &mkp MB4       &mmv MOVE_UP   &mkp MB5       &kp C_PP
+    &mkp MB3       &mkp MB2       &msc SCRL_DOWN &mo MMV        &kp C_VOL_UP       &kp C_VOL_UP  &mkp MB4       &mmv MOVE_UP   &mkp MB5       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &msc SCRL_RIGHT &msc SCRL_UP  &msc SCRL_LEFT &kp C_VOL_DN       &kp C_VOL_DN  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &kp LCTRL      &kp LGUI       &kp LALT                                        &kp BACKSPACE  &none          &none
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &mkp MB3       &mkp MB1           &trans        &trans
+                                                 &mkp MB1       &mkp MB1           &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 ZMK_LAYER(Speed, // MMV 3
@@ -236,11 +230,11 @@ ZMK_LAYER(Browser, // BRW 5
 )
 ZMK_LAYER(Navigation, // NAV 6
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_screen     &esharp        &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_s     &esharp        &kp TAB        &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_crop       free           &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
+                   &ss_c       free           &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
