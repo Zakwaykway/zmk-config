@@ -22,8 +22,8 @@
 #define PRD 4
 #define BRW 5
 #define NAV 6
-#define MCR 7
-#define FUN 8
+//#define MCR 7
+#define FUN 7
 
 #define HYPR(keycode) LS(LC(LG(LA(keycode))))  // shorten hyper key definition
 #define free &trans
@@ -240,6 +240,7 @@ ZMK_LAYER(Navigation, // NAV 6
                                                  &mo MCR        &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
+/*
 ZMK_LAYER(Util, // MCR 7
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     free           free           free           free           &kp C_VOL_UP       free          free           &penta UP      free           free  
