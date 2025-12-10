@@ -245,11 +245,11 @@ ZMK_LAYER(Browser, // BRW 5
 )
 ZMK_LAYER(Navigation, // NAV 6
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &ss_s          &esharp       &c_w_l CAPSLOCK &kp LA(LSHIFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
+    &ss_s          &esharp      &c_w_l CAPSLOCK 0 &kp LA(LSHFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT      &kp LCTRL      &kp LGUI       &kp LALT       &kp C_VOL_DN       &kp C_VOL_DN  &kp LEFT       &kp DOWN       &kp RIGHT      &kp DEL
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &ss_c          free           &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK
+                   &ss_c          free           &kp SPACE                                       &kp BSPC       &kp LA(BSPC)   &c_w_l CAPSLOCK 0
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  /*&mo MCR*/ &trans        &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
