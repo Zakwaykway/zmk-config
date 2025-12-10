@@ -18,11 +18,11 @@
 #     artifact-name: corne_left_with_studio
 ---
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: metasepia
     artifact-name: metasepia_ble
 #   snippet: studio-rpc-usb-uart
 #   cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: seeeduino_xiao_rp2040
+  - board: xiao_rp2040
     shield: metasepia
     artifact-name: metasepia_wired
