@@ -174,6 +174,7 @@ ZMK_LAYER(Colemak, // CMK 0
                                                  &mo NUM        &hrl NUM ENTER     &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
+/*
 ZMK_LAYER(Night, // NGT 1
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp Z          &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
@@ -185,6 +186,7 @@ ZMK_LAYER(Night, // NGT 1
                                                  &mo NUM        &hrl NUM ENTER     &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
+*/
 ZMK_LAYER(Numbers, // NUM 1
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &none          &kp PLUS       &kp BSLH       &kp DLLR       &kp CARET          &kp PIPE      &kp N7         &kp N8         &kp N9         &kp GRAVE
