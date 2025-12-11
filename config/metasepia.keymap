@@ -1,4 +1,4 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2100  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 14    // default: 10
 
 #include <behaviors.dtsi>
@@ -116,6 +116,8 @@ ZMK_MOD_MORPH(dot,
 ZMK_MACRO(bt_dc_all, // disconnect all bt
     bindings = <&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3>; )
 ZMK_MACRO(qu_m,
+    wait-ms = <5>;
+    tap-ms = <5>;
     bindings = <&kp Q &kp U>; )
 ZMK_MACRO_ONE_PARAM(bt_c, // combine bt_sel with out_ble
     bindings = <&macro_param_1to2  &bt BT_SEL 0  /*&out OUT_BLE*/>; )
@@ -125,17 +127,19 @@ ZMK_MACRO_ONE_PARAM(penta,
     bindings = <&macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0 &macro_param_1to1 &kp 0>; )
 ZMK_MACRO_ONE_PARAM(brc,
     bindings = <&macro_param_1to1 &macro_param_2to2 &mt 0 0 &kp LEFT>; )
+ZMK_MACRO_ONE_PARAM(brc2,
+    bindings = <&macro_param_1to1 &macro_param_2to2 &mt 0 0 &kp LEFT>; ) // add shift, for {} ()
 
 // combos                                                         lyr, t/o, idl
 //disable some combos on mouse layer
 // order: left-right hand, horiz-vert, left-right, top-bottom
-ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
-ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
 ZMK_COMBO(undo,         &kp LG(Z),            LT4 LT3,            ALL) // cmd z
-ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
+ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
 ZMK_COMBO(caps,         &c_w_l CAPSLOCK 0,    LT3 LT1,            ALL) // caps word/lock
+ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
+ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
-ZMK_COMBO(tab2,         &kp TAB,              LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
+ZMK_COMBO(tab,          &kp TAB,              LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(qucombo,      &cmdq Q 0,            LB3 LB2,            ALL) // qu q
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
@@ -150,7 +154,7 @@ ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
 ZMK_COMBO(caps,         &c_w_l CAPSLOCK 0,    RT1 RT3,            ALL) // caps word/lock
 ZMK_COMBO(bspc_d2,      &mt DEL BSPC,         RM2 RM3,            CMK NUM PRD NAV FUN, 22, 50) // backspace
-ZMK_COMBO(tab,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
+ZMK_COMBO(tab2,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(bspc_w,       &mt LA(DEL) LA(BSPC), RB2 RB3,            ALL) // word bspc
 ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
@@ -158,9 +162,9 @@ ZMK_COMBO(astrk_gr,     &mt GRAVE ASTERISK,   RT1 RM1,            ALL) // * `
 ZMK_COMBO(pound_at,     &mt AT POUND,         RT2 RM2,            ALL) // # @
 ZMK_COMBO(plus,         &mt PLUS EQUAL,       RT3 RM3,            ALL) // + =
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
-ZMK_COMBO(FUN,          &mo FUN,              RH0 RH1,            ALL) // FUN
+ZMK_COMBO(FUN,          &mo FUN,              LH0 LH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
-ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
+//ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
 ZMK_COMBO(home,         &kp HOME,             RT2 RM1,            NAV) // home
 ZMK_COMBO(end,          &kp END,              RM2 RM3,            NAV) // end
 ZMK_COMBO(zero,         &kp N0,               LM4 RM4,            ALL, 75) // 0 mistrigger
