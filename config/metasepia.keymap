@@ -135,17 +135,18 @@ ZMK_MACRO_ONE_PARAM(brc2,
 // order: left-right hand, horiz-vert, left-right, top-bottom
 ZMK_COMBO(undo,         &kp LG(Z),            LT4 LT3,            ALL) // cmd z
 ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) // esc
-ZMK_COMBO(caps,         &c_w_l CAPSLOCK 0,    LT3 LT1,            ALL) // caps word/lock
+ZMK_COMBO(tab,          &kp TAB,              LT3 LT1,            ALL) // tab
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
-ZMK_COMBO(tab,          &kp TAB,              LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
+ZMK_COMBO(enter,        &mt LS(ENTER) ENTER,  LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(qucombo,      &cmdq Q 0,            LB3 LB2,            ALL) // qu q
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
+ZMK_COMBO(numword,      )
 //ZMK_COMBO(del_p,        &mt BSPC DEL,         LM3 LM2,            PRD, 30, 50) // delete
 // mid ring bot+top
 // ring top mid
@@ -154,7 +155,7 @@ ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
 ZMK_COMBO(caps,         &c_w_l CAPSLOCK 0,    RT1 RT3,            ALL) // caps word/lock
 ZMK_COMBO(bspc_d2,      &mt DEL BSPC,         RM2 RM3,            CMK NUM PRD NAV FUN, 22, 50) // backspace
-ZMK_COMBO(tab2,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
+ZMK_COMBO(tab2,         &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(bspc_w,       &mt LA(DEL) LA(BSPC), RB2 RB3,            ALL) // word bspc
 ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
@@ -165,19 +166,17 @@ ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst le
 ZMK_COMBO(FUN,          &mo FUN,              LH0 LH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
 //ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
-ZMK_COMBO(home,         &kp HOME,             RT2 RM1,            NAV) // home
-ZMK_COMBO(end,          &kp END,              RM2 RM3,            NAV) // end
 ZMK_COMBO(zero,         &kp N0,               LM4 RM4,            ALL, 75) // 0 mistrigger
 
 ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp Z          &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LCTRL A  &hrm LSHIFT R   &hrm LGUI S    &hrm LALT T    &hrm LSHIFT G      &hrm LSHIFT M &hrm LALT N    &hrm LGUI E    &hrm LSHIFT I  &hrm LCTRL O
+    &hrm LSHIFT A  &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &hrm LSHIFT G      &hrm LSHIFT M &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrm LSHIFT O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &comma         &dot
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &mo NUM        &lt NUM ENTER     &lt NAV SPACE &mo MSE
+                                                 &mo NUM        &sk LSHIFT         &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 /*
