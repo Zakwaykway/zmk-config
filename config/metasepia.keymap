@@ -147,7 +147,7 @@ ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
 ZMK_COMBO(par,          &mt RPAR LPAR,        LT2 LM2,            ALL) // () 
 ZMK_COMBO(slashes,      &am BSLH FSLH,        LT1 LM1,            ALL) // / & bslh 
 ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
-ZMK_COMBO(numword,      &num_word NUM,        LT3 LH0,            ALL) // number word
+//ZMK_COMBO(numword,      &num_word NUM,        LT3 LH0,            ALL) // number word
 //ZMK_COMBO(del_p,        &mt BSPC DEL,         LM3 LM2,            PRD, 30, 50) // delete
 // mid ring bot+top
 // ring top mid
