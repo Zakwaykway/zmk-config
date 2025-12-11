@@ -133,6 +133,7 @@ ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) /
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
 ZMK_COMBO(undo,         &kp LG(Z),            LT4 LT3,            ALL) // cmd z
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
+ZMK_COMBO(caps,         &c_w_l CAPSLOCK 0,    LT3 LT1,            ALL) // caps word/lock
 ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
 ZMK_COMBO(tab2,         &kp TAB,              LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(qucombo,      &cmdq Q 0,            LB3 LB2,            ALL) // qu q
@@ -147,6 +148,7 @@ ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 // pinky dual
 // thumb + finger
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
+ZMK_COMBO(caps,         &c_w_l CAPSLOCK 0,    RT1 RT3,            ALL) // caps word/lock
 ZMK_COMBO(bspc_d2,      &mt DEL BSPC,         RM2 RM3,            CMK NUM PRD NAV FUN, 22, 50) // backspace
 ZMK_COMBO(tab,          &kp TAB,              RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // tab
 ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
@@ -167,11 +169,11 @@ ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp Z          &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT A  &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &hrm LSHIFT G      &hrm LSHIFT M &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrl MSE O
+    &hrm LCTRL A  &hrm LSHIFT R   &hrm LGUI S    &hrm LALT T    &hrm LSHIFT G      &hrm LSHIFT M &hrm LALT N    &hrm LGUI E    &hrm LSHIFT I  &hrm LCTRL O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
                    &am LG(X) X    &am LG(C) C    &kp D                                           &kp H          &comma         &dot
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &mo NUM        &hrl NUM ENTER     &lt NAV SPACE &mo MSE
+                                                 &mo NUM        &lt NUM ENTER     &lt NAV SPACE &mo MSE
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 /*
