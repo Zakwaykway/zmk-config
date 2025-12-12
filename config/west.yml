@@ -18,4 +18,7 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-keyboard-metasepia
-    
+      remote: zakwaykway
+      revision: main
+  self:
+    path: config
