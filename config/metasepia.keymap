@@ -136,8 +136,8 @@ ZMK_COMBO(esc,          &kp ESC,              LT3 LT2,            ALL, 33, 50) /
 ZMK_COMBO(v,            &am LG(V) V,          LT2 LT1,            ALL, 50) // v
 ZMK_COMBO(msctrl,       &kp LC(UP),           LT3 LT2 LT1,        ALL) // mission control
 ZMK_COMBO(bspc_d,       &mt DEL BSPC,         LM3 LM2,            CMK NUM PRD NAV FUN, 25, 50) // backspace
-ZMK_COMBO(tab,          &kp TAB,              LM3 LM1,            ALL) // tab
-ZMK_COMBO(enter,        &kp ENTER,            LM2 LM1,            CMK NUM PRD NAV FUN, 27, 40) // tab
+ZMK_COMBO(tab,          &kp TAB,              LM3 LM1,            ALL, 27) // tab
+ZMK_COMBO(enter,        &kp ENTER,            LM2 LM1,            CMK NUM PRD NAV FUN, 25, 50) // enter
 ZMK_COMBO(qucombo,      &cmdq Q 0,            LB3 LB2,            ALL) // qu q
 ZMK_COMBO(j,            &kp J,                LB2 LB1,            ALL) // j
 ZMK_COMBO(bkt,          &mt RBKT LBKT,        LT3 LM3,            ALL) // []
@@ -152,8 +152,8 @@ ZMK_COMBO(bang,         &kp EXCL,             LT0 LM0,            ALL) // !
 // thumb + finger
 ZMK_COMBO(underscore,   &kp UNDERSCORE,       RT1 RT2,            ALL, 22, 50) // _
 ZMK_COMBO(bspc_d2,      &mt DEL BSPC,         RM2 RM3,            CMK NUM PRD NAV FUN, 22, 50) // backspace
-ZMK_COMBO(enter2,       &kp ENTER,            RM1 RM2,            CMK NUM PRD NAV FUN, 27, 40) // enter
-ZMK_COMBO(tab2,         &kp TAB,              RM1 RM3,            ALL) // tab
+ZMK_COMBO(enter2,       &kp ENTER,            RM1 RM2,            CMK NUM PRD NAV FUN, 25, 50) // enter
+ZMK_COMBO(tab2,         &kp TAB,              RM1 RM3,            ALL, 27) // tab
 ZMK_COMBO(dashes,       &am UNDERSCORE MINUS, RB1 RB2,            ALL) // - _
 ZMK_COMBO(bspc_w,       &mt LA(DEL) LA(BSPC), RB2 RB3,            ALL) // word bspc
 ZMK_COMBO(inter,        &kp QMARK,            RT0 RM0,            ALL) // ?
