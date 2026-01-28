@@ -17,8 +17,8 @@ manifest:
   - name: zmk-keyboard-metasepia
     remote: zakwaykway
     revision: main
-  #- name: zmk-keyboard-ravine
-  #  remote: zakwaykway
-  #  revision: main
+  - name: zmk-keyboard-ravine
+    remote: zakwaykway
+    revision: main
   self:
     path: config
