@@ -14,11 +14,10 @@
 #define NUM 1
 #define MSE 2
 #define MMV 3
-#define PRD 4
-#define BRW 5
-#define NAV 6
-#define MCR 7
-#define FUN 8
+#define BRW 4
+#define NAV 5
+#define MCR 6
+#define FUN 7
 
 #define HYPR(keycode) LS(LC(LG(LA(keycode))))  // shorten hyper key definition
 #define free &trans
@@ -39,11 +38,15 @@
 // overrides
 &mmv_input_listener { 
     speeder { layers = <MMV>;
-        input-processors = <&zip_xy_scaler 4 1>; };  };
+      input-processors = <&zip_xy_scaler 4 1>; };  };
 &mmv {
     trigger-period-ms = <8>;
     time-to-max-speed-ms = <340>;
     acceleration-exponent = <1>; };
+&msc_input_listener { 
+    speeder { layers = <MMV>;
+      input-processors = <&zip_x
+      y_scaler 4 1>; };  };
 &msc {
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>; };
@@ -157,11 +160,11 @@ ZMK_COMBO(plus,         &mt PLUS EQUAL,       RT3 RM3,            ALL) // + =
 ZMK_COMBO(boot,         &blr 0 0,             LT4 LT0 LM4 LM0,    ALL) // rst left (inner+outer)
 ZMK_COMBO(FUN,          &mo FUN,              LH0 LH1,            ALL) // FUN
 ZMK_COMBO(CMK,          &to CMK,              LM3 LM2 LM1 RM1 RM2 RM3) // CMK (CAG mirror positions)
-//ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
+ZMK_COMBO(BRW,          &tog BRW,             LH1 LH0,            ALL) // BRW
 
 ZMK_LAYER(Colemak, // CMK 0
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &hrm LSHFT Z   &kp W          &kp F          &kp P         &am LC(LA(LGUI)) B &am LC(LA(LGUI)) K  &kp L     &kp U          &kp Y          &kp APOS
+    &hrm LSHFT Z   &kp W          &kp F        &am LC(LA(LGUI)) P &kp B            &kp K    &am LC(LA(LGUI)) L  &kp U          &kp Y          &kp APOS
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &hrl NUM A     &hrm LCTRL R   &hrm LGUI S    &hrm LALT T    &hrm LSHIFT G      &hrm LSHIFT M &hrm LALT N    &hrm LGUI E    &hrm LCTRL I   &hrl MSE O
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
@@ -208,27 +211,8 @@ ZMK_LAYER(Mouse, // MSE 2
 ZMK_LAYER(Speed, // MMV 3
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 )
-ZMK_LAYER(Productivity, // PRD 4
-//&zip_temp_layer PRD <time>
-//layer-specific combos?
-// ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
-    &cam           &kp N9         &kp N8         &kp N7         free               &trans        &trans         &trans         &trans         &trans
-// ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hrm LSHIFT N0 &hrm LCTRL N6  &hrm LGUI N5  &hrm LALT N4    free               &trans        &trans         &trans         &trans         &trans
-// ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   &am LC(X) N3   &am LC(C) N2   &kp N1                                          &trans         &trans         &trans
-//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &kp DEL        free/*layer*/      &trans        &trans
-//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
-// --> macro layer, triggering on mouse (sensor, input processor)
-//      save
-//      del (combo on PRD layer)
-//      esc/enter (combo on PRD layer)
-//      &hrm on base. &sk on combo with thumb.
-//      Alternatively, thumb becomes a layer button with:
-//          copy, paste, cut, save, LA(N1), LA(F1), F4
-)
-ZMK_LAYER(Browser, // BRW 5
+ZMK_LAYER(Browser, // BRW 4
+// needs work. Integrate encoder for tab switching, volume (layer )
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp Z          &kp LG(W)      &kp LC(LS(TAB)) &kp LC(TAB)   &kp C_VOL_UP       free          free           free           free           free  
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -239,7 +223,7 @@ ZMK_LAYER(Browser, // BRW 5
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Navigation, // NAV 6
+ZMK_LAYER(Navigation, // NAV 5
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &ss_s          &esharp      &c_w_l CAPSLOCK 0 &kp LA(LSHFT) &kp C_VOL_UP       &kp C_VOL_UP  &kp C_PREV     &kp UP         &kp C_FF       &kp C_PP
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -251,7 +235,7 @@ ZMK_LAYER(Navigation, // NAV 6
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
 
-ZMK_LAYER(Util, // MCR 7
+ZMK_LAYER(Util, // MCR 6
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     free           free           free           free           &kp C_VOL_UP       free          free           &penta UP      free           free  
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -262,7 +246,7 @@ ZMK_LAYER(Util, // MCR 7
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯                                            ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
 )
-ZMK_LAYER(Function, // FUN 8
+ZMK_LAYER(Function, // FUN 7
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp F1         &kp F2         &kp F3         &kp F4         &kp F5             &bt BT_CLR    &out OUT_BLE  &out OUT_USB   &to CMK        &bt BT_CLR_ALL
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
@@ -285,5 +269,25 @@ ZMK_LAYER(Qwerty, // QWR 1
 //                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
                                                  &trans         &trans             &trans        &trans
 //                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
+)
+ZMK_LAYER(Productivity, // PRD 4
+//&zip_temp_layer PRD <time>
+//layer-specific combos?
+// ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮)
+    &cam           &kp N9         &kp N8         &kp N7         free               &trans        &trans         &trans         &trans         &trans
+// ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &hrm LSHIFT N0 &hrm LCTRL N6  &hrm LGUI N5  &hrm LALT N4    free               &trans        &trans         &trans         &trans         &trans
+// ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
+                   &am LC(X) N3   &am LC(C) N2   &kp N1                                          &trans         &trans         &trans
+//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
+                                                 &kp DEL        free/*layer* /      &trans        &trans
+//                                              ╰──────────────┴──────────────╯   ╰─────────────┴──────────────╯
+// --> macro layer, triggering on mouse (sensor, input processor)
+//      save
+//      del (combo on PRD layer)
+//      esc/enter (combo on PRD layer)
+//      &hrm on base. &sk on combo with thumb.
+//      Alternatively, thumb becomes a layer button with:
+//          copy, paste, cut, save, LA(N1), LA(F1), F4
 )
 */
