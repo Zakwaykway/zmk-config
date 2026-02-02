@@ -45,8 +45,7 @@
     acceleration-exponent = <1>; };
 &msc_input_listener { 
     speeder { layers = <MMV>;
-      input-processors = <&zip_x
-      y_scaler 4 1>; };  };
+      input-processors = <&zip_xy_scaler 4 1>; };  };
 &msc {
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>; };
