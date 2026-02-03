@@ -22,7 +22,7 @@
 #define HYPR(keycode) LS(LC(LG(LA(keycode))))  // shorten hyper key definition
 #define free &trans
 #define XX   &none
-#define ENC: &inc_dec_kp
+#define ENCODER &inc_dec_kp
 
 // scrolling is very slow on windows
 // mouse layer is the least used layer. Move it? lefthand combo: w + p
@@ -175,7 +175,7 @@ XX, XX,            &am LG(X) X,   &am LG(C) C,   &kp D,         XX,             
 // ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX, &mo NUM,       XX,            &kp C_PP,      &mo NUM,       &mt LSHIFT BSPC,  &lt NAV SPACE, &lt MSE APOS,  &kp BSPC,      XX,            &lt MSE APOS,  XX),
 // ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENC: C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
 )
 /*
 ZMK_LAYER(AKL, // AKL 1
@@ -201,7 +201,7 @@ XX, XX,            &kp  COMMA,    &kp  DOT,      &kp  TILDE,    XX,             
 // ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX, &trans,        XX,            &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
 // ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENC: C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
 )
 ZMK_LAYER(Mouse, // MSE 2
     LAYER_ADAPTER(
@@ -214,7 +214,7 @@ XX, XX,            &kp LCTRL,     &kp LGUI,      &kp LALT,      XX,             
 // ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX, &mkp MB3,      XX,            &trans,        &trans,        &mkp MB1,          &trans,       &trans,        &trans,        XX,            &trans,        XX),
 // ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENC: C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
 )
 ZMK_LAYER(Speed, // MMV 3
     LAYER_ADAPTER(
@@ -222,7 +222,7 @@ XX, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &tra
 XX, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, XX, 
 XX, XX,     &trans, &trans, &trans, XX,     XX,     &trans, &trans, &trans, XX,     XX, 
 XX, &trans, XX,     &trans, &trans, &trans, &trans, &trans, &trans, XX,     &trans, XX),
-ENC: C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
 )
 ZMK_LAYER(Browser, // BRW 4
     LAYER_ADAPTER(
@@ -236,7 +236,7 @@ XX, XX,            &kp F,         &kp LC(LS(T)), &to CMK,       XX,             
 //  ╭─────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX,  &trans,       XX,            &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
 //  ╰─────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENC: LC(TAB) LC(LS(TAB)) //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER LC(TAB) LC(LS(TAB)) //&inc_dec_kp PG_UP PG_DN
 )
 ZMK_LAYER(Navigation, // NAV 5
     LAYER_ADAPTER(
@@ -249,7 +249,7 @@ XX, XX,            &ss_c,         free,          &kp SPACE,     XX,             
 // ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX, &trans,/*&mo MCR*/ XX,        &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
 // ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENC: C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
 )
 /*
 ZMK_LAYER(Util, // MCR 6
@@ -274,7 +274,7 @@ XX, XX,            &kp F11,       &kp F12,       &kp INS,       XX,             
 //  ╭─────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX, &trans,        XX,            &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
 //  ╰─────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENC: C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
 )
 
 /*
