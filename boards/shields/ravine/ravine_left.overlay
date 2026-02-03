@@ -1,4 +1,4 @@
-#include "../boards/shields/ravine/ravine.dtsi"
+#include "ravine.dtsi"
 
 / {
     kscan0: kscan0 {
@@ -23,7 +23,7 @@
 };
 
 &left_encoder {
-    status = "okay";
+    status = "okay"; // change this to "okay" to enable left half encoder
 };
 
 &physical_layout_ravine {
