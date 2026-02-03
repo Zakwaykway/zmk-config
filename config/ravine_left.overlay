@@ -1,4 +1,4 @@
-#include "../../boards/shields/ravine/ravine.dtsi"
+#include "../boards/shields/ravine/ravine.dtsi"
 
 / {
     kscan0: kscan0 {
