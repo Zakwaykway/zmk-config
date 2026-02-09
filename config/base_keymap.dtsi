@@ -16,8 +16,8 @@
 #define MMV 3
 #define BRW 4
 #define NAV 5
-//#define MCR 6
-#define FUN 6
+#define MCR 6
+#define FUN 7
 
 #define HYPR(keycode) LS(LC(LG(LA(keycode))))  // shorten hyper key definition
 #define free &trans
@@ -201,7 +201,7 @@ XX, XX,            &kp  COMMA,    &kp  DOT,      &kp  TILDE,    XX,             
 // ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
 XX, &trans,        XX,            &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
 // ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER C_FF C_PREV //&inc_dec_kp PG_UP PG_DN
 )
 ZMK_LAYER(Mouse, // MSE 2
     LAYER_ADAPTER(
@@ -241,29 +241,30 @@ XX,  &trans,       XX,            &trans,        &trans,        &trans,         
 ZMK_LAYER(Navigation, // NAV 5
     LAYER_ADAPTER(
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-XX, &ss_s,         free,       &c_w_l CAPSLOCK 0, free,         &kp C_VOL_UP,      &kp C_VOL_UP, &kp C_PREV,    &kp UP,        &kp C_FF,      &kp C_PP,      XX,
+XX, &ss_s,         &kp HYPR(5),   &kp TAB,       free,         &kp C_VOL_UP,      &kp C_VOL_UP, &kp C_PREV,    &kp UP,        &kp C_FF,      &kp C_PP,      XX,
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
 XX, &kp LSHFT,     &kp LCTRL,     &kp LGUI,      &kp LALT,      &kp C_VOL_DN,      &kp C_VOL_DN, &kp LEFT,      &kp DOWN,      &kp RIGHT,     &kp DEL,       XX,
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-XX, XX,            &ss_c,         free,          &kp SPACE,     XX,                XX,           &kp BSPC,      &kp LA(BSPC),  &c_w_l CAPSLOCK 0, XX,        XX,
+XX, XX,            &ss_c,         &kp INS,       &kp SPACE,     XX,                XX,           &kp BSPC,      &kp LA(BSPC),  &c_w_l CAPSLOCK 0, XX,        XX,
 // ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
-XX, &trans,/*&mo MCR*/ XX,        &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
+XX, &trans,/*&mo MCR*/ XX,        &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &mo MCR,       XX),
 // ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
-                                  ENCODER C_VOL_UP C_VOL_DN //&inc_dec_kp PG_UP PG_DN
+                                  ENCODER PG_UP PG_DN 
 )
-/*
 ZMK_LAYER(Util, // MCR 6
+    LAYER_ADAPTER(
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    free           free           free           free           &kp C_VOL_UP       free          free           &penta UP      free           free  
+XX, free,          free,          free,          free,          &kp C_VOL_UP,      free,         free,          &penta UP,     free,          free,          XX,
 // ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├─────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    free           free           free           free           &kp C_VOL_DN       free          &penta LEFT    &penta DOWN    &penta RIGHT   &penta DEL
+XX, free,          free,          free,          free,          &kp C_VOL_DN,      free,         &penta LEFT,   &penta DOWN,   &penta RIGHT,  &penta DEL,    XX,
 // ╰──────────────┼──────────────┼──────────────┼──────────────┼──────────────╯   ╰─────────────┼──────────────┼──────────────┼──────────────┼──────────────╯
-                   free           free           &penta SPACE                                    &penta BSPC    free           free
-//                ╰──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────╯
-                                                 &trans         &trans             &trans        &trans
+XX, XX,            free,          free,          &penta SPACE,  XX,                XX,           &penta BSPC,   free,          free,          XX,            XX,
+// ╭──────────────┼──────────────┴──────────────┼──────────────┼──────────────╮   ╭─────────────┼──────────────┼──────────────┴──────────────┼──────────────╮
+XX, &trans,        XX,            &trans,        &trans,        &trans,            &trans,       &trans,        &trans,        XX,            &trans,        XX),
+// ╰──────────────╯              ╰──────────────┴──────────────┴──────────────╯   ╰─────────────┴──────────────┴──────────────╯              ╰──────────────╯
+
 )
-*/
-ZMK_LAYER(Function, // FUN 7, 6 for now
+ZMK_LAYER(Function, // FUN 7
     LAYER_ADAPTER(
 // ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭─────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
 XX, &kp F1,        &kp F2,        &kp F3,        &kp F4,        &kp F5,            &bt BT_CLR,   &out OUT_BLE,  &out OUT_USB,  &to CMK,       &bt BT_CLR_ALL, XX,
