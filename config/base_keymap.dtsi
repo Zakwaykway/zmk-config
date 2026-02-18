@@ -38,16 +38,16 @@
 
 
 // overrides
-//&mmv_input_listener { 
-//    speeder { layers = <MMV>;
-//      input-processors = <&zip_xy_scaler 4 1>; };  };
+&mmv_input_listener { 
+    speeder { layers = <MMV>;
+      input-processors = <&zip_xy_scaler 4 1>; };  };
 &mmv {
     trigger-period-ms = <8>;
     time-to-max-speed-ms = <340>;
     acceleration-exponent = <1>; };
-//&msc_input_listener { 
-//    speeder { layers = <MMV>;
-//      input-processors = <&zip_xy_scaler 4 1>; };  };
+&msc_input_listener { 
+    speeder { layers = <MMV>;
+      input-processors = <&zip_xy_scaler 4 1>; };  };
 &msc {
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <1>; };
