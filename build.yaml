@@ -34,6 +34,6 @@ include:
   - board: seeeduino_xiao_ble
     shield: ravine_right
     artifact-name: ravine_right
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
-    artifact-name: xiao_settings_reset
+  #- board: seeeduino_xiao_ble
+  #  shield: settings_reset
+  #  artifact-name: xiao_settings_reset
